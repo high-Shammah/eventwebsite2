@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event app </title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+
+    <link rel="stylesheet" href="eventapp.css">
+    <script src="https://kit.fontawesome.com/69f9015363.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha384-rKI3qiC0aV6Tks0Xja5aFTo5gLOO3xqvftP8z4y5wrgU8bqToR0MO2ZiIep8YKZ" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+    <script src="https://kit.fontawesome.com/your-font-awesome-kit.js" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@2.8.2"></script>
+   
+
+      <!-- Link Swiper's CSS -->
+      <link rel="stylesheet" href="css/swiper-bundle.min.css">
+<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+
+
+</head>
+
+<body>
+    
+    <div x-data="{ open: false }" class="p-4 px-4 lg:px-16" style="background-color: #02233B;">
+        <!-- Logo and Navigation Links for large screens -->
+        <div class="hidden lg:flex items-center justify-between">
+            <a href="index.html" class="flex items-center">
+                <img src="path/to/logo.png" alt="Logo" class="h-8 w-8 mr-2">
+                <div class="text-white">YourSite</div>
+            </a>
+            
+
+            <div class="relative">
+                <input type="text" id="search" placeholder="Search" class="px-4 py-1 border border-white rounded-full bg-transparent text-white">
+                <i class="fas fa-search text-white absolute top-1/2 transform -translate-y-1/2 right-4"></i>
+            </div>
+
+            <div class="flex space-x-4">
+                <a href="index.html" class="text-white border-b-2 border-white ml-96">Events</a>
+                <a href="#" class="text-white opacity-70 hover:opacity-100">Create an event</a>
+                <a href="#" class="text-white opacity-70 hover:opacity-100">Contact</a>
+                <a href="#" class="text-white opacity-70 hover:opacity-100">FAQ</a>
+            </div>
+            <div class="flex space-x-4">
+                <a href="signup.html" class="rounded px-4 py-2" style="background-color: #F4F4F4;color: #02233B;">Sign Up</a>
+                <a href="signin.html" class="text-white bg-gray-700 rounded px-4 py-2">Sign In</a>
+            </div>
+        </div>
+    
+       <!-- Mobile Navigation for small screens -->
+    <div class="lg:hidden flex items-center justify-between">
+        <a href="index.html" class="flex items-center">
+            <img src="path/to/logo.png" alt="Logo" class="h-8 w-8 mr-2">
+        </a>
+        <div class="relative">
+            <input type="text" id="search" placeholder="Search" class="px-4 py-1 border border-white rounded-full bg-transparent text-white">
+            <i class="fas fa-search text-white absolute top-1/2 transform -translate-y-1/2 right-4"></i>
+        </div>
+       <div>
+        <a href="signup.html" class="rounded px-4 py-2" style="background-color: #F4F4F4;color: #02233B;">Sign Up</a>
+       </div>
+        <button @click="open = !open" class="text-white">
+            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                 viewBox="0 0 24 24" class="w-6 h-6">
+                <path d="M4 6h16M4 12h16m-7 6h7"></path>
+            </svg>
+        </button>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div x-show="open" class="lg:hidden fixed inset-0 bg-black opacity-75 z-50"></div>
+    <div x-show="open" class="lg:hidden fixed top-0 right-0 p-4 bg-gray-800 z-50">
+        <div class="flex flex-col items-start space-y-4">
+            <a href="index.html" class="text-white border-b-2 border-white ml-96">Events</a>
+            <a href="#" class="text-white opacity-70 hover:opacity-100">Create an event</a>
+            <a href="#" class="text-white opacity-70 hover:opacity-100">Contact</a>
+            <a href="#" class="text-white opacity-70 hover:opacity-100">FAQ</a>
+            <a href="signup.html" class="rounded px-4 py-2" style="background-color: #F4F4F4;color: #02233B;">Sign Up</a>
+            <a href="signin.html" class="text-white bg-gray-700 rounded px-4 py-2">Sign In</a>
+            <button @click="open = false" class="text-white">
+                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                     stroke-width="2" viewBox="0 0 24 24" class="w-6 h-6">
+                    <path d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+            </button>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+  <div class="overflow-x-auto scrollable-container px-16 md:px-32 py-8 mt-8">
+    <h2 class="text-2xl font-semibold mb-4">Filters</h2>
+
+  <div class="flex md:flex-wrap gap-8" >
+      <!-- Date Filter -->
+     <div>
+        <h3 class="text-lg font-semibold mb-2">Date</h3>
+        <div>
+          <label>
+            <input type="radio" name="date" value="today"> Today
+          </label>
+          <label>
+            <input type="radio" name="date" value="tomorrow"> Tomorrow
+          </label>
+          <!-- Add more date options as needed -->
+        </div>
+     </div>
+  
+      <!-- Category Filter -->
+      <div>
+        <h3 class="text-lg font-semibold mb-2">Category</h3>
+      <div>
+        <label>
+          <input type="radio" name="category" value="category1"> Category 1
+        </label>
+        <label>
+          <input type="radio" name="category" value="category2"> Category 2
+        </label>
+        <!-- Add more category options as needed -->
+      </div>
+      </div>
+  
+      <!-- Price Filter -->
+      <div>
+        <h3 class="text-lg font-semibold mb-2">Price</h3>
+      <div>
+        <label>
+          <input type="radio" name="price" value="price1"> Price 1
+        </label>
+        <label>
+          <input type="radio" name="price" value="price2"> Price 2
+        </label>
+        <!-- Add more price options as needed -->
+      </div>
+      </div>
+  
+      <!-- Currency Filter -->
+      <div>
+        <h3 class="text-lg font-semibold mb-2">Currency</h3>
+      <div>
+        <label>
+          <input type="radio" name="currency" value="usd"> USD
+        </label>
+        <label>
+          <input type="radio" name="currency" value="eur"> EUR
+        </label>
+        <!-- Add more currency options as needed -->
+      </div>
+  </div>
+      </div>
+
+    <!-- Display selected options -->
+    <div id="selected-options" class="mt-4"></div>
+  </div>
+
+
+
+  <div class="flex flex-wrap grid grid-cols md:grid-cols-3 px-2 md:px-16 mt-8">
+
+    <!-- this is the general card, the event cards -->
+ <div class="max-w-md mx-auto bg-white shadow-md rounded-md mb-8 overflow-hidden relative transition-transform transform hover:scale-105">
+   <img class="w-full h-48 object-cover" src="https://via.placeholder.com/500x300" alt="Card Image">
+
+   <div class="absolute top-1/3 left-1/4 flex justify-center space-x-4 mt-4 w-full">
+       <div class="w-12 h-12 flex items-center justify-center bg-white rounded-full border border-gray-300">
+           <i class="fas fa-download text-gray-600 text-xl" id="downloadIcon"></i>
+       </div>
+       <div class="w-12 h-12 flex items-center justify-center bg-white rounded-full border border-gray-300">
+           <i class="far fa-thumbs-up text-gray-600 text-xl" id="likeIcon"></i>
+       </div>
+   </div>
+   <div class="px-6 py-4">
+       <p class="text-xl font-semibold text-gray-800 mb-2">Card Title</p>
+       <p class="text-sm text-custom-brown font-medium mb-2">Subtitle or description goes here.</p>
+       <p class="text-sm text-gray-600 mb-2">Additional information or details.</p>
+       <p class="text-sm text-gray-600 mb-2">More details or text content.</p>
+       <p class="text-sm text-custom-blue font-medium mb-2">Last piece of information or text.</p>
+   </div>
+ </div>
+
+ <div class="max-w-md mx-auto bg-white shadow-md rounded-md mb-8 overflow-hidden relative transition-transform transform hover:scale-105">
+   <img class="w-full h-48 object-cover" src="https://via.placeholder.com/500x300" alt="Card Image">
+
+   <div class="absolute top-1/3 left-1/4 flex justify-center space-x-4 mt-4 w-full">
+       <div class="w-12 h-12 flex items-center justify-center bg-white rounded-full border border-gray-300">
+           <i class="fas fa-download text-gray-600 text-xl" id="downloadIcon"></i>
+       </div>
+       <div class="w-12 h-12 flex items-center justify-center bg-white rounded-full border border-gray-300">
+           <i class="far fa-thumbs-up text-gray-600 text-xl" id="likeIcon"></i>
+       </div>
+   </div>
+   <div class="px-6 py-4">
+       <p class="text-xl font-semibold text-gray-800 mb-2">Card Title</p>
+       <p class="text-sm text-gray-600 mb-2">Subtitle or description goes here.</p>
+       <p class="text-sm text-gray-600 mb-2">Additional information or details.</p>
+       <p class="text-sm text-gray-600 mb-2">More details or text content.</p>
+       <p class="text-sm text-gray-600 mb-2">Last piece of information or text.</p>
+   </div>
+ </div>
+
+
+ <div class="max-w-md mx-auto bg-white shadow-md rounded-md mb-8 overflow-hidden relative transition-transform transform hover:scale-105">
+   <img class="w-full h-48 object-cover" src="https://via.placeholder.com/500x300" alt="Card Image">
+
+   <div class="absolute top-1/3 left-1/4 flex justify-center space-x-4 mt-4 w-full">
+       <div class="w-12 h-12 flex items-center justify-center bg-white rounded-full border border-gray-300">
+           <i class="fas fa-download text-gray-600 text-xl" id="downloadIcon"></i>
+       </div>
+       <div class="w-12 h-12 flex items-center justify-center bg-white rounded-full border border-gray-300">
+           <i class="far fa-thumbs-up text-gray-600 text-xl" id="likeIcon"></i>
+       </div>
+   </div>
+   <div class="px-6 py-4">
+       <p class="text-xl font-semibold text-gray-800 mb-2">Card Title</p>
+       <p class="text-sm text-gray-600 mb-2">Subtitle or description goes here.</p>
+       <p class="text-sm text-gray-600 mb-2">Additional information or details.</p>
+       <p class="text-sm text-gray-600 mb-2">More details or text content.</p>
+       <p class="text-sm text-gray-600 mb-2">Last piece of information or text.</p>
+   </div>
+ </div>
+
+ <div class="max-w-md mx-auto bg-white shadow-md rounded-md mb-8 overflow-hidden relative transition-transform transform hover:scale-105">
+   <img class="w-full h-48 object-cover" src="https://via.placeholder.com/500x300" alt="Card Image">
+
+   <div class="absolute top-1/3 left-1/4 flex justify-center space-x-4 mt-4 w-full">
+       <div class="w-12 h-12 flex items-center justify-center bg-white rounded-full border border-gray-300">
+           <i class="fas fa-download text-gray-600 text-xl" id="downloadIcon"></i>
+       </div>
+       <div class="w-12 h-12 flex items-center justify-center bg-white rounded-full border border-gray-300">
+           <i class="far fa-thumbs-up text-gray-600 text-xl" id="likeIcon"></i>
+       </div>
+   </div>
+   <div class="px-6 py-4">
+       <p class="text-xl font-semibold text-gray-800 mb-2">Card Title</p>
+       <p class="text-sm text-gray-600 mb-2">Subtitle or description goes here.</p>
+       <p class="text-sm text-gray-600 mb-2">Additional information or details.</p>
+       <p class="text-sm text-gray-600 mb-2">More details or text content.</p>
+       <p class="text-sm text-gray-600 mb-2">Last piece of information or text.</p>
+   </div>
+ </div>
+
+ <div class="max-w-md mx-auto bg-white shadow-md rounded-md mb-8 overflow-hidden relative transition-transform transform hover:scale-105">
+   <div class="absolute top-0 left-0 bg-red-700 text-white py-1 px-2 rounded-bl-md rounded-tr-md">
+       Featured
+   </div>
+   <img class="w-full h-48 object-cover" src="https://via.placeholder.com/500x300" alt="Card Image">
+
+   <div class="absolute top-1/3 left-1/4 flex justify-center space-x-4 mt-4 w-full">
+       <div class="w-12 h-12 flex items-center justify-center bg-white rounded-full border border-gray-300">
+           <i class="fas fa-download text-gray-600 text-xl" id="downloadIcon"></i>
+       </div>
+       <div class="w-12 h-12 flex items-center justify-center bg-white rounded-full border border-gray-300">
+           <i class="far fa-thumbs-up text-gray-600 text-xl" id="likeIcon"></i>
+       </div>
+   </div>
+   <div class="px-6 py-4">
+       <p class="text-xl font-semibold text-gray-800 mb-2">Card Title</p>
+       <p class="text-sm text-gray-600 mb-2">Subtitle or description goes here.</p>
+       <p class="text-sm text-gray-600 mb-2">Additional information or details.</p>
+       <p class="text-sm text-gray-600 mb-2">More details or text content.</p>
+       <p class="text-sm text-gray-600 mb-2">Last piece of information or text.</p>
+   </div>
+ </div>
+
+ <div class="max-w-md mx-auto bg-white shadow-md rounded-md mb-8 overflow-hidden relative transition-transform transform hover:scale-105">
+   <img class="w-full h-48 object-cover" src="https://via.placeholder.com/500x300" alt="Card Image">
+
+   <div class="absolute top-1/3 left-1/4 flex justify-center space-x-4 mt-4 w-full">
+       <div class="w-12 h-12 flex items-center justify-center bg-white rounded-full border border-gray-300">
+           <i class="fas fa-download text-gray-600 text-xl" id="downloadIcon"></i>
+       </div>
+       <div class="w-12 h-12 flex items-center justify-center bg-white rounded-full border border-gray-300">
+           <i class="far fa-thumbs-up text-gray-600 text-xl" id="likeIcon"></i>
+       </div>
+   </div>
+   <div class="px-6 py-4">
+       <p class="text-xl font-semibold text-gray-800 mb-2">Card Title</p>
+       <p class="text-sm text-gray-600 mb-2">Subtitle or description goes here.</p>
+       <p class="text-sm text-gray-600 mb-2">Additional information or details.</p>
+       <p class="text-sm text-gray-600 mb-2">More details or text content.</p>
+       <p class="text-sm text-gray-600 mb-2">Last piece of information or text.</p>
+   </div>
+ </div>
+
+ <div class="max-w-md mx-auto bg-white shadow-md rounded-md mb-8 overflow-hidden relative transition-transform transform hover:scale-105">
+    <div class="absolute top-0 left-0 bg-red-700 text-white py-1 px-2 rounded-bl-md rounded-tr-md">
+        Featured
+    </div>
+    <img class="w-full h-48 object-cover" src="https://via.placeholder.com/500x300" alt="Card Image">
+ 
+    <div class="absolute top-1/3 left-1/4 flex justify-center space-x-4 mt-4 w-full">
+        <div class="w-12 h-12 flex items-center justify-center bg-white rounded-full border border-gray-300">
+            <i class="fas fa-download text-gray-600 text-xl" id="downloadIcon"></i>
+        </div>
+        <div class="w-12 h-12 flex items-center justify-center bg-white rounded-full border border-gray-300">
+            <i class="far fa-thumbs-up text-gray-600 text-xl" id="likeIcon"></i>
+        </div>
+    </div>
+    <div class="px-6 py-4">
+        <p class="text-xl font-semibold text-gray-800 mb-2">Card Title</p>
+        <p class="text-sm text-gray-600 mb-2">Subtitle or description goes here.</p>
+        <p class="text-sm text-gray-600 mb-2">Additional information or details.</p>
+        <p class="text-sm text-gray-600 mb-2">More details or text content.</p>
+        <p class="text-sm text-gray-600 mb-2">Last piece of information or text.</p>
+    </div>
+  </div>
+ 
+  <div class="max-w-md mx-auto bg-white shadow-md rounded-md mb-8 overflow-hidden relative transition-transform transform hover:scale-105">
+    <img class="w-full h-48 object-cover" src="https://via.placeholder.com/500x300" alt="Card Image">
+ 
+    <div class="absolute top-1/3 left-1/4 flex justify-center space-x-4 mt-4 w-full">
+        <div class="w-12 h-12 flex items-center justify-center bg-white rounded-full border border-gray-300">
+            <i class="fas fa-download text-gray-600 text-xl" id="downloadIcon"></i>
+        </div>
+        <div class="w-12 h-12 flex items-center justify-center bg-white rounded-full border border-gray-300">
+            <i class="far fa-thumbs-up text-gray-600 text-xl" id="likeIcon"></i>
+        </div>
+    </div>
+    <div class="px-6 py-4">
+        <p class="text-xl font-semibold text-gray-800 mb-2">Card Title</p>
+        <p class="text-sm text-gray-600 mb-2">Subtitle or description goes here.</p>
+        <p class="text-sm text-gray-600 mb-2">Additional information or details.</p>
+        <p class="text-sm text-gray-600 mb-2">More details or text content.</p>
+        <p class="text-sm text-gray-600 mb-2">Last piece of information or text.</p>
+    </div>
+  </div>
+
+  <div class="max-w-md mx-auto bg-white shadow-md rounded-md mb-8 overflow-hidden relative transition-transform transform hover:scale-105">
+    <div class="absolute top-0 left-0 bg-red-700 text-white py-1 px-2 rounded-bl-md rounded-tr-md">
+        Featured
+    </div>
+    <img class="w-full h-48 object-cover" src="https://via.placeholder.com/500x300" alt="Card Image">
+ 
+    <div class="absolute top-1/3 left-1/4 flex justify-center space-x-4 mt-4 w-full">
+        <div class="w-12 h-12 flex items-center justify-center bg-white rounded-full border border-gray-300">
+            <i class="fas fa-download text-gray-600 text-xl" id="downloadIcon"></i>
+        </div>
+        <div class="w-12 h-12 flex items-center justify-center bg-white rounded-full border border-gray-300">
+            <i class="far fa-thumbs-up text-gray-600 text-xl" id="likeIcon"></i>
+        </div>
+    </div>
+    <div class="px-6 py-4">
+        <p class="text-xl font-semibold text-gray-800 mb-2">Card Title</p>
+        <p class="text-sm text-gray-600 mb-2">Subtitle or description goes here.</p>
+        <p class="text-sm text-gray-600 mb-2">Additional information or details.</p>
+        <p class="text-sm text-gray-600 mb-2">More details or text content.</p>
+        <p class="text-sm text-gray-600 mb-2">Last piece of information or text.</p>
+    </div>
+  </div>
+ 
+  <div class="max-w-md mx-auto bg-white shadow-md rounded-md mb-8 overflow-hidden relative transition-transform transform hover:scale-105">
+    <img class="w-full h-48 object-cover" src="https://via.placeholder.com/500x300" alt="Card Image">
+ 
+    <div class="absolute top-1/3 left-1/4 flex justify-center space-x-4 mt-4 w-full">
+        <div class="w-12 h-12 flex items-center justify-center bg-white rounded-full border border-gray-300">
+            <i class="fas fa-download text-gray-600 text-xl" id="downloadIcon"></i>
+        </div>
+        <div class="w-12 h-12 flex items-center justify-center bg-white rounded-full border border-gray-300">
+            <i class="far fa-thumbs-up text-gray-600 text-xl" id="likeIcon"></i>
+        </div>
+    </div>
+    <div class="px-6 py-4">
+        <p class="text-xl font-semibold text-gray-800 mb-2">Card Title</p>
+        <p class="text-sm text-gray-600 mb-2">Subtitle or description goes here.</p>
+        <p class="text-sm text-gray-600 mb-2">Additional information or details.</p>
+        <p class="text-sm text-gray-600 mb-2">More details or text content.</p>
+        <p class="text-sm text-gray-600 mb-2">Last piece of information or text.</p>
+    </div>
+  </div>
+
+  <div class="max-w-md mx-auto bg-white shadow-md rounded-md mb-8 overflow-hidden relative transition-transform transform hover:scale-105">
+    <div class="absolute top-0 left-0 bg-red-700 text-white py-1 px-2 rounded-bl-md rounded-tr-md">
+        Featured
+    </div>
+    <img class="w-full h-48 object-cover" src="https://via.placeholder.com/500x300" alt="Card Image">
+ 
+    <div class="absolute top-1/3 left-1/4 flex justify-center space-x-4 mt-4 w-full">
+        <div class="w-12 h-12 flex items-center justify-center bg-white rounded-full border border-gray-300">
+            <i class="fas fa-download text-gray-600 text-xl" id="downloadIcon"></i>
+        </div>
+        <div class="w-12 h-12 flex items-center justify-center bg-white rounded-full border border-gray-300">
+            <i class="far fa-thumbs-up text-gray-600 text-xl" id="likeIcon"></i>
+        </div>
+    </div>
+    <div class="px-6 py-4">
+        <p class="text-xl font-semibold text-gray-800 mb-2">Card Title</p>
+        <p class="text-sm text-gray-600 mb-2">Subtitle or description goes here.</p>
+        <p class="text-sm text-gray-600 mb-2">Additional information or details.</p>
+        <p class="text-sm text-gray-600 mb-2">More details or text content.</p>
+        <p class="text-sm text-gray-600 mb-2">Last piece of information or text.</p>
+    </div>
+  </div>
+ 
+  <div class="max-w-md mx-auto bg-white shadow-md rounded-md mb-8 overflow-hidden relative transition-transform transform hover:scale-105">
+    <img class="w-full h-48 object-cover" src="https://via.placeholder.com/500x300" alt="Card Image">
+ 
+    <div class="absolute top-1/3 left-1/4 flex justify-center space-x-4 mt-4 w-full">
+        <div class="w-12 h-12 flex items-center justify-center bg-white rounded-full border border-gray-300">
+            <i class="fas fa-download text-gray-600 text-xl" id="downloadIcon"></i>
+        </div>
+        <div class="w-12 h-12 flex items-center justify-center bg-white rounded-full border border-gray-300">
+            <i class="far fa-thumbs-up text-gray-600 text-xl" id="likeIcon"></i>
+        </div>
+    </div>
+    <div class="px-6 py-4">
+        <p class="text-xl font-semibold text-gray-800 mb-2">Card Title</p>
+        <p class="text-sm text-gray-600 mb-2">Subtitle or description goes here.</p>
+        <p class="text-sm text-gray-600 mb-2">Additional information or details.</p>
+        <p class="text-sm text-gray-600 mb-2">More details or text content.</p>
+        <p class="text-sm text-gray-600 mb-2">Last piece of information or text.</p>
+    </div>
+  </div>
+
+
+</div>
+
+
+
+
+
+
+
+
+  
+<footer class="text-white p-8 mt-24 px-8 md:px-24" style="background-color: #02233B;">
+    <div class="flex flex-wrap justify-between">
+      <!-- Left Side -->
+      <div class="flex flex-col items-start">
+        <!-- Logo -->
+        <img src="your-logo.png" alt="Logo" class="mb-4">
+        <p class="mb-8 md:mb-24 w-96">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ac justo eu ligula tristique consectetur.
+    </p>
+  
+        <!-- Texts -->
+        <p class="mb-2 hidden md:block">Subscribe to our newsletter:</p>
+        <div class="flex items-center mb-4 hidden md:block">
+          <input type="email" placeholder="Enter your email" class="p-2 border rounded-l">
+          <button class="text-white p-2 rounded-r" style="background-color: #8BCEFD;">
+            <i class="fas fa-arrow-right"></i>
+          </button>
+        </div>
+  
+        <!-- Copywrite -->
+        <p class="mb-4 hidden md:block">&copy; Your Company Name, 2024. All rights reserved.</p>
+      </div>
+  
+      <!-- Right Side -->
+      <div >
+        <!-- Various Divs -->
+      <div class="flex flex-wrap items-start ">
+        <div class="pr-8 md:pr-16 mb-4">
+            <h4 class="text-lg font-semibold mb-2">Use Eventbust</h4>
+            <ul>
+              <li><a href="#">
+                Create event
+                </a></li>
+              <li><a href="#">Pricing
+                </a></li>
+              <li><a href="#">Event platform
+                </a></li>
+              <li><a href="#">FAQ
+                </a></li>
+              <li><a href="#">Event mobile ticketing
+                </a></li>
+              <li><a href="#">Event app marketplace</a></li>
+            </ul>
+          </div>
+  
+              <!-- Various Divs -->
+              <div class="pr-16 md:pr-8 md:pr-16 mb-4">
+                <h4 class="text-lg font-semibold mb-2">Plan Events
+                    </h4>
+                <ul>
+                  <li><a href="#">Event planning
+                    </a></li>
+                  <li><a href="#">Sell ticket online
+                    </a></li>
+                  <li><a href="#">Event payment system
+                    </a></li>
+                  <li><a href="#">Virtual event platform</a></li>
+                  <!-- Add more links as needed -->
+                </ul>
+              </div>
+  
+                  <!-- Various Divs -->
+                  <div class="pr-8 md:pr-16 mb-4">
+                    <h4 class="text-lg font-semibold mb-2">Find Events
+                        </h4>
+                    <ul>
+                      <li><a href="#">Lagos events
+                        </a></li>
+                      <li><a href="#">Canada events
+                        </a></li>
+                      <li><a href="#">New york events
+                        </a></li>
+                      <li><a href="#">Wedding events
+                        </a></li>
+                      <li><a href="#">Carnival events
+                        </a></li>
+                      <li><a href="#">Music concert events
+                        </a></li>
+                      <li><a href="#">Graduation events</a></li>
+                      <!-- Add more links as needed -->
+                    </ul>
+                  </div>
+      </div>
+  
+            <!-- Social Media Icons -->
+        <div class="pr-8 mt-8 mb-4">
+            <h4 class="text-lg font-semibold mb-2">Connect with us</h4>
+            <div class="flex items-center space-x-4">
+              <!-- Add your social media icons with links -->
+              <a href="#"><i class="fab fa-facebook"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+              <a href="#"><i class="fab fa-instagram"></i></a>
+              <!-- Add more social media icons as needed -->
+            </div>
+          </div>
+    
+          <!-- Additional Links -->
+          <div class="mb-4 ">
+            <ul class="flex flex-wrap items-start justify-between">
+              <li><a href="#">About</a></li>
+              <li><a href="#">Our Story</a></li>
+              <li><a href="#">Our Story</a></li>
+              <li><a href="#">Our Story</a></li>
+              <li><a href="#">Our Story</a></li>
+              <!-- Add more links as needed -->
+            </ul>
+          </div>
+
+
+          <p class="mb-2 mt-16 md:hidden">Subscribe to our newsletter:</p>
+        <div class="flex items-center mb-4 md:hidden">
+          <input type="email" placeholder="Enter your email" class="p-2 border rounded-l">
+          <button class="bg-blue-500 text-white p-2 rounded-r">
+            <i class="fas fa-arrow-right"></i>
+          </button>
+        </div>
+          <p class="mb-4 md:hidden">&copy; Your Company Name, 2024. All rights reserved.</p>
+
+    
+      </div>
+    </div>
+  </footer>
+  
+
+
+
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            Alpine.start();
+        });
+    </script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+      var scrollbarStyle = document.createElement('style');
+      scrollbarStyle.innerHTML = '.scrollable-container::-webkit-scrollbar { display: none; }';
+      document.head.appendChild(scrollbarStyle);
+    });
+  </script>
+
+
+
+
+<script>
+    // JavaScript code for dynamic behavior
+    document.addEventListener('DOMContentLoaded', function () {
+      // Array to store selected options
+      const selectedOptions = [];
+
+      // Function to update selected options
+      function updateSelectedOptions() {
+        const selectedOptionsContainer = document.getElementById('selected-options');
+        selectedOptionsContainer.innerHTML = '';
+
+        selectedOptions.forEach(option => {
+          const optionElement = document.createElement('span');
+          optionElement.textContent = option;
+          optionElement.classList.add('mr-2', 'bg-gray-300', 'p-2', 'rounded');
+
+          // Add cancel icon
+          const cancelIcon = document.createElement('span');
+          cancelIcon.textContent = '❌';
+          cancelIcon.classList.add('ml-1', 'cursor-pointer');
+          cancelIcon.addEventListener('click', () => cancelOption(option));
+
+          optionElement.appendChild(cancelIcon);
+          selectedOptionsContainer.appendChild(optionElement);
+        });
+      }
+
+      // Function to handle selecting an option
+      function selectOption(option) {
+        selectedOptions.push(option);
+        updateSelectedOptions();
+      }
+
+      // Function to handle canceling an option
+      function cancelOption(option) {
+        const index = selectedOptions.indexOf(option);
+        if (index !== -1) {
+          selectedOptions.splice(index, 1);
+          updateSelectedOptions();
+        }
+      }
+
+      // Attach click event listeners to radio buttons
+      const radioButtons = document.querySelectorAll('input[type="radio"]');
+      radioButtons.forEach(radioButton => {
+        radioButton.addEventListener('change', (event) => {
+          const selectedOption = event.target.value;
+          selectOption(selectedOption);
+        });
+      });
+    });
+  </script>
+  
+
+
+<script src="eventapp.js"></script>
+</body>
+</html>
