@@ -1,0 +1,880 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event app </title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+
+    <link rel="stylesheet" href="eventapp.css">
+    <script src="https://kit.fontawesome.com/69f9015363.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha384-rKI3qiC0aV6Tks0Xja5aFTo5gLOO3xqvftP8z4y5wrgU8bqToR0MO2ZiIep8YKZ" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+    <script src="https://kit.fontawesome.com/your-font-awesome-kit.js" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@2.8.2"></script>
+   
+
+      <!-- Link Swiper's CSS -->
+      <link rel="stylesheet" href="css/swiper-bundle.min.css">
+<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+
+
+</head>
+
+<body>
+    
+    <div x-data="{ open: false }" class="p-4 px-4 lg:px-16" style="background-color: #02233B;">
+        <!-- Logo and Navigation Links for large screens -->
+        <div class="hidden lg:flex items-center justify-between">
+            <a href="index.html" class="flex items-center">
+                <img src="path/to/logo.png" alt="Logo" class="h-8 w-8 mr-2">
+                <div class="text-white">YourSite</div>
+            </a>
+            
+
+            <div class="relative">
+                <input type="text" id="search" placeholder="Search" class="px-4 py-1 border border-white rounded-full bg-transparent text-white">
+                <i class="fas fa-search text-white absolute top-1/2 transform -translate-y-1/2 right-4"></i>
+            </div>
+
+            <div class="flex space-x-4">
+                <a href="index.html" class="text-white border-b-2 border-white ml-96">Events</a>
+                <a href="#" class="text-white opacity-70 hover:opacity-100">Create an event</a>
+                <a href="#" class="text-white opacity-70 hover:opacity-100">Contact</a>
+                <a href="#" class="text-white opacity-70 hover:opacity-100">FAQ</a>
+            </div>
+            <div class="flex space-x-4">
+                <a href="signup.html" class="rounded px-4 py-2" style="background-color: #F4F4F4;color: #02233B;">Sign Up</a>
+                <a href="signin.html" class="text-white bg-gray-700 rounded px-4 py-2">Sign In</a>
+            </div>
+        </div>
+    
+       <!-- Mobile Navigation for small screens -->
+    <div class="lg:hidden flex items-center justify-between">
+        <a href="index.html" class="flex items-center">
+            <img src="path/to/logo.png" alt="Logo" class="h-8 w-8 mr-2">
+        </a>
+        <div class="relative">
+            <input type="text" id="search" placeholder="Search" class="px-4 py-1 border border-white rounded-full bg-transparent text-white">
+            <i class="fas fa-search text-white absolute top-1/2 transform -translate-y-1/2 right-4"></i>
+        </div>
+       <div>
+        <button class="text-white bg-gray-700 rounded-full px-4 py-2">Sign Up</button>
+       </div>
+        <button @click="open = !open" class="text-white">
+            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                 viewBox="0 0 24 24" class="w-6 h-6">
+                <path d="M4 6h16M4 12h16m-7 6h7"></path>
+            </svg>
+        </button>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div x-show="open" class="lg:hidden fixed inset-0 bg-black opacity-75 z-50"></div>
+    <div x-show="open" class="lg:hidden fixed top-0 right-0 p-4 bg-gray-800 z-50">
+        <div class="flex flex-col items-start space-y-4">
+            <a href="index.html" class="text-white border-b-2 border-white ml-96">Events</a>
+            <a href="#" class="text-white opacity-70 hover:opacity-100">Create an event</a>
+            <a href="#" class="text-white opacity-70 hover:opacity-100">Contact</a>
+            <a href="#" class="text-white opacity-70 hover:opacity-100">FAQ</a>
+            <a href="signup.html" class="rounded px-4 py-2" style="background-color: #F4F4F4;color: #02233B;">Sign Up</a>
+            <a href="signin.html" class="text-white bg-gray-700 rounded px-4 py-2">Sign In</a>
+            <button @click="open = false" class="text-white">
+                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                     stroke-width="2" viewBox="0 0 24 24" class="w-6 h-6">
+                    <path d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+            </button>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="relative h-[500px]">
+    <img src="images/Download Android 11 Wallpapers [QHD+ Resolution].jpeg" alt="Hero Background" class="object-cover w-full h-full">
+
+    <img src="images/music-event-poster-template-with-colorful-shapes_1361-1591.webp" alt="Overlay Image" class="object-cover absolute rounded-md top-2/3 left-2/3 transform -translate-x-2/3 -translate-y-2/3 w-4/5 h-4/5">
+    
+    <!-- Your Hero Content Goes Here -->
+    <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white">
+        <h1 class="text-4xl font-bold mb-4">Your Hero Heading</h1>
+        <p class="text-lg">Your hero subheading or description.</p>
+        <!-- Add other content as needed -->
+    </div>
+</div>
+
+
+
+
+
+<div class="flex justify-between p-8 left-right-divider">
+    <!-- Left Side: Event Details -->
+    <div class="w-2/3 pr-8">
+        <!-- Event Name -->
+        <h2 class="text-3xl font-semibold mb-4">Event Name</h2>
+
+        <!-- Short Description -->
+        <p class="text-gray-600 mb-4">Short description of the event goes here.</p>
+
+        <!-- Event Details: Date, Time, Location -->
+        <div class="flex items-center text-gray-600 lg:w-2/3 pr-8 mb-8 lg:mb-0 mb-2">
+            <i class="fas fa-calendar-alt mr-2"></i>
+            <p class="text-sm font-semibold">Date and Time:</p>
+        </div>
+        <p class="mb-8 text-gray-600">Event Date and Time</p>
+
+        <div class="flex items-center text-gray-600 mb-2">
+            <i class="fas fa-map-marker-alt mr-2"></i>
+            <p class="text-sm font-semibold">Location:</p>
+        </div>
+        <p class="mb-2 text-gray-600">Event Location</p>
+
+        <!-- Show Map Button -->
+        <div class="flex items-center mb-8 cursor-pointer">
+            <p class="text-custom-blue mr-2">Show Map</p>
+            <i class="fas fa-arrow-down"></i>
+        </div>
+
+        <!-- About Event -->
+        <p class="text-xl font-semibold text-gray-600 mb-4">About Event:</p>
+        <p class="text-gray-600">Details about the event go here.</p>
+    </div>
+
+    <!-- Right Side: Ticket Information and Checkout -->
+    <div class="lg:w-1/3 bg-white lg:border lg:border-gray-300 lg:p-4 fixed bottom-0 lg:static">
+        <!-- Ticket Quantity -->
+       <div class="border border-gray-300 p-8">
+        <div class="flex items-center mb-4 justify-between">
+            <h3 class="text-xl font-semibold mr-4">Choose Tickets:</h3>
+            <div class="flex items-center">
+                <div id="minusBtn" class="border border-gray-300 rounded-full px-3 py-1 cursor-pointer">
+                    <i class="fas fa-minus"></i>
+                </div>
+                <div id="ticketQuantity" class="mx-3">1</div>
+                <div id="plusBtn" class="border border-gray-300 rounded-full px-3 py-1 cursor-pointer">
+                    <i class="fas fa-plus"></i>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Event Amount -->
+        <div class="mb-4">
+            <h3 class="text-xl font-semibold">Amount:</h3>
+            <p class="text-gray-600">Event Amount</p>
+        </div>
+       </div>
+
+        <!-- Checkout Button -->
+      <div class="p-4 mt-8" onclick="toggleCheckoutPopup()">
+        <a href="#" class="bg-gray-800 text-white px-4 py-2 rounded-md block text-center">Checkout</a>
+     </div>
+
+
+
+     <!-- Checkout Pop-up Container -->
+<div id="checkoutPopup" class="fixed inset-0 bg-black bg-opacity-75 z-50 hidden">
+    <div class="block lg:flex max-w-2xl mx-auto p-8 bg-white rounded-lg shadow-lg h-96 overflow-y-auto">
+        <!-- Left Side: Checkout Information -->
+        <div class="flex-1 p-8 py-2">
+            <!-- Checkout Heading -->
+         <div class="flex justify-between">
+            <h2 class="text-2xl font-semibold mb-4">Checkout</h2>
+            <!-- Cancel Icon -->
+<button @click="closePopup" class="absolute top-10 ml-80 lg:ml-[530px] text-gray-600 hover:text-gray-800 cursor-pointer">
+<i class="fas fa-times-circle bg-white text-2xl"></i>
+</button>
+         </div>
+
+            <!-- Time Countdown -->
+            <div class="flex items-center text-gray-600 mb-4">
+                <p class="text-sm font-semibold">Time:</p>
+                <!-- Replace '20:00' with actual countdown time -->
+                <p id="countdownTimer" class="ml-2 text-lg font-semibold">20:00</p>
+            </div>
+
+            <!-- Billing Information -->
+            <div class="mb-4">
+                <h3 class="text-xl font-semibold">Billing Information</h3>
+                <div class="flex items-center mt-2">
+                    <p class="text-gray-600 mr-2">Required</p>
+                    <i class="fas fa-exclamation-circle text-red-500"></i>
+                </div>
+            </div>
+
+            <!-- Input Fields for First Name, Last Name, Email -->
+            <!-- Add more input fields as needed -->
+            <div class="grid grid-cols-2 gap-4 mb-4">
+                <input type="text" placeholder="First Name" class="border p-2">
+                <input type="text" placeholder="Last Name" class="border p-2">
+                <input type="email" placeholder="Email Address" class="border p-2 col-span-2">
+            </div>
+
+            <!-- Check Icon and Question -->
+            <div class="flex items-center mb-4">
+                <input type="checkbox" id="rememberMe" class="mr-2">
+                <label for="rememberMe" class="text-sm text-gray-600">Keep me updated on more events</label>
+            </div>
+            <div class="flex items-center mb-4">
+                <input type="checkbox" id="rememberMe" class="mr-2">
+                <label for="rememberMe" class="text-sm text-gray-600">Send me emails about the best events around me.</label>
+            </div>
+
+<!-- Payment Method Options -->
+<div class="mb-4">
+    <h3 class="text-lg font-semibold">Pay With</h3>
+    <div>
+        <!-- Radio buttons for Credit Card, PayPal, Google Pay -->
+        <div class="flex items-center mb-2">
+            <input type="radio" id="creditCard" name="paymentMethod" value="creditCard" onclick="showPaymentForm('creditCard')">
+            <label for="creditCard" class="ml-2">Credit Card</label>
+        </div>
+        <div class="flex items-center mb-2">
+            <input type="radio" id="payPal" name="paymentMethod" value="payPal" onclick="showPaymentForm('payPal')">
+            <label for="payPal" class="ml-2">PayPal</label>
+        </div>
+        <div class="flex items-center">
+            <input type="radio" id="googlePay" name="paymentMethod" value="googlePay" onclick="showPaymentForm('googlePay')">
+            <label for="googlePay" class="ml-2">Google Pay</label>
+        </div>
+    </div>
+</div>
+
+<!-- Credit Card Form Fields -->
+<div id="creditCardForm" style="display: none;">
+    <!-- Add your credit card input fields here -->
+    <div class="mb-4">
+        <label for="cardNumber" class="block text-sm font-medium text-gray-700">Card Number</label>
+        <input type="text" id="cardNumber" name="cardNumber" class="mt-1 p-2 border rounded w-full">
+    </div>
+    <!-- Add more credit card input fields as needed -->
+   <div class="flex">
+    <div class="mb-4">
+        <label for="cardNumber" class="block text-sm font-medium text-gray-700">Card Number</label>
+        <input type="text" id="cardNumber" name="cardNumber" class="mt-1 p-2 border rounded w-full">
+    </div>
+    <div class="mb-4">
+        <label for="cardNumber" class="block text-sm font-medium text-gray-700">Card Number</label>
+        <input type="text" id="cardNumber" name="cardNumber" class="mt-1 p-2 border rounded w-full">
+    </div>
+</div>
+   </div>
+
+<!-- Other Payment Methods -->
+<!-- You can similarly add forms for PayPal and Google Pay -->
+
+<!-- Checkout Button -->
+<div class="border border-gray-300 p-4 mt-4">
+    <a href="#" id="placeOrderBtn" style="display: none;" onclick="toggleThankYouPopup()" class="bg-gray-800 text-white px-4 py-2 rounded-full block text-center">Place Order</a>
+    <button id="payPalBtn" style="display: none;" class="bg-blue-500 text-white px-4 py-2 rounded-full block text-center">Pay with PayPal</button>
+    <button id="googlePayBtn" style="display: none;" class="bg-red-500 text-white px-4 py-2 rounded-full block text-center">Pay with Google Pay</button>
+</div>
+
+
+
+
+<!-- Thank You Pop-up -->
+<div id="thankYouPopup" class="fixed inset-0 bg-black bg-opacity-75 z-50 hidden h-96 overflow-y-auto">
+    <div class="block lg:flex sm:flex-wrap lg:block items-center justify-center h-full">
+        <div class="bg-white p-8 rounded-lg">
+            <!-- Thank You Heading -->
+            <div class="flex items-center mb-4">
+                <i class="fas fa-check-circle text-green-500 text-4xl mr-4"></i>
+                <h2 class="text-2xl font-semibold">Thank You for Your Purchase!</h2>
+            </div>
+
+            <!-- Ticket Information -->
+            <div class="flex mb-4">
+                <p class="text-gray-600">Ticket Number: 123456</p>
+                <button class="bg-gray-800 text-white px-4 py-2 rounded-full block text-center">View Ticket</button>
+            </div>
+
+            <hr class="border-t border-gray-300 mb-4">
+
+            <p class="text-gray-600 mb-2">You are going to:</p>
+            <p class="text-lg font-semibold mb-2">Event Name</p>
+            <p class="text-gray-600 mb-2">1 ticket has been sent to:</p>
+            <p class="text-gray-600 mb-2">example@email.com</p>
+            <a href="#" class="text-blue-500 mb-2">Change Email</a>
+            <p class="text-gray-600 mb-2">Date: Event Date</p>
+            <p class="text-gray-600 mb-2">Location: Event Location</p>
+        </div>
+
+        <!-- Right Side for Related Events -->
+        <div class="lg:w-1/3 lg:mt-0 mt-4">
+            <!-- Cancel Icon -->
+            <button @click="closeThankYouPopup" class="absolute top-10 ml-80 lg:ml-[530px] text-gray-600 hover:text-gray-800 cursor-pointer">
+                <i class="fas fa-times-circle bg-white text-2xl"></i>
+                </button>
+
+            <!-- Other Related Events -->
+            <div class="mb-4">
+                <h3 class="text-lg font-semibold mb-2">Other Related Events</h3>
+                <!-- Event Cards and Swipe Icons -->
+                <a href="individualeventpage.html" class="w-full lg:w-2/3 mx-auto bg-white shadow-md rounded-md mb-8 overflow-hidden relative transition-transform transform hover:scale-105 block">
+                    <img class="w-full h-48 object-cover" src="https://via.placeholder.com/500x300" alt="Card Image">
+                    <div class="absolute top-0 left-0 bg-red-700 text-white py-1 px-2 rounded-bl-md rounded-tr-md">
+                        Featured
+                    </div>
+                    <div class="absolute top-1/3 left-1/4 flex justify-center space-x-4 mt-4 w-full">
+                        <div class="w-12 h-12 flex items-center justify-center bg-white rounded-full border border-gray-300">
+                            <i class="fas fa-download text-gray-600 text-xl" id="downloadIcon"></i>
+                        </div>
+                        <div class="w-12 h-12 flex items-center justify-center bg-white rounded-full border border-gray-300">
+                            <i class="far fa-thumbs-up text-gray-600 text-xl" id="likeIcon"></i>
+                        </div>
+                    </div>
+                    <div class="px-6 py-4">
+                        <p class="text-xl font-semibold text-gray-800 mb-2">Moh Lagos Business Exhibition
+                            </p>
+                        <p class="text-sm text-brown-200 font-medium mb-2">Wed, Dec 13, 2023.  9:00 AM
+                            </p>
+                        <p class="text-sm text-gray-600 mb-2">Ogudu Boys Scout • Lagos, LA
+                            </p>
+                        <p class="text-sm text-gray-600 mb-2">Free
+                            </p>
+                        <p class="text-sm text-gray-800 font-medium mb-2">Tech Connect Africa</p>
+                    </div>
+                </a>
+                <!-- Include your card structure and swipe icons here -->
+            </div>
+
+            <!-- Back to Home Button -->
+            <a href="#" class="bg-gray-800 text-white px-4 py-2 rounded-full block text-center">Back to Home</a>
+        </div>
+    </div>
+</div>
+
+
+            <!-- Terms and Conditions -->
+            <div class="mb-4">
+                <p class="text-gray-600">By selecting "Place Order," you agree to our terms and conditions.</p>
+            </div>
+            <a href="#" class="bg-gray-800 text-white px-4 py-2 rounded-full block text-center">Back to Home</a>
+        </div>
+
+
+        <!-- Right Side: Event Image and Order Summary -->
+<div class="lg:w-1/3">
+
+    <!-- Event Image -->
+    <img src="images/music-event-poster-template-with-colorful-shapes_1361-1591.webp" alt="Event Image" class="w-full mb-4">
+
+    <!-- Order Summary -->
+    <div>
+        <h3 class="text-xl font-semibold mb-2">Order Summary</h3>
+
+        <!-- Order Details -->
+        <div class="flex justify-between mb-2">
+            <p>1 X Event Name</p>
+            <p>Amount</p>
+        </div>
+        <!-- Add more order details if needed -->
+
+        <!-- Line Divider -->
+        <hr class="border-t border-gray-300 mb-2">
+
+        <!-- Subtotal -->
+        <div class="flex justify-between mb-2">
+            <p>Subtotal</p>
+            <p>Subtotal Amount</p>
+        </div>
+
+        <!-- Fees -->
+        <div class="flex justify-between mb-2">
+            <p>Fees</p>
+            <p>Fees Amount</p>
+        </div>
+
+        <!-- Delivery -->
+        <div class="flex justify-between mb-2">
+            <p>Delivery</p>
+            <p>Delivery Amount</p>
+        </div>
+
+        <!-- Line Divider -->
+        <hr class="border-t border-gray-300 mb-2">
+
+        <!-- Total -->
+        <div class="flex justify-between">
+            <p>Total</p>
+            <p>Total Amount</p>
+        </div>
+    </div>
+</div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+<!-- Section Header -->
+<div class="text-center mb-8">
+    <h2 class="text-3xl font-semibold">Speakers</h2>
+</div>
+
+<!-- Team Members Section -->
+<div class="flex justify-center">
+
+    <!-- Team Member 1 -->
+    <div class="w-full md:w-2/3 lg:w-2/3 xl:w-3/4 mb-8 px-4">
+        <div class="relative overflow-hidden">
+            <img src="images/7a122ccdd7a8a375cf669040f6c3b084.jpg" alt="Team Member 1" class="w-full h-auto">
+            <div class="absolute inset-0 bg-blue-500 opacity-75 flex items-center justify-center text-white">
+                <div class="text-sm flex flex-wrap">
+                    <h3 class="text-sm lg:text-lg font-semibold">John Doe</h3>
+                    <p >Web Developer</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Team Member 2 -->
+    <div class="w-full md:w-2/3 lg:w-2/3 xl:w-3/4 mb-8 px-4">
+        <div class="relative overflow-hidden">
+            <img src="images/7a122ccdd7a8a375cf669040f6c3b084.jpg" alt="Team Member 2" class="w-full h-auto">
+            <div class="absolute inset-0 bg-green-100 opacity-75 flex items-center justify-center text-gray">
+                <div>
+                    <h3 class="text-xl lg:text-lg font-semibold">Jane Smith</h3>
+                    <p class="text-xl">Graphic Designer</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add more team members as needed -->
+
+    <div class="w-full md:w-2/3 lg:w-2/3 xl:w-3/4 mb-8 px-4">
+        <div class="relative overflow-hidden">
+            <img src="images/7a122ccdd7a8a375cf669040f6c3b084.jpg" alt="Team Member 2" class="w-full h-auto">
+            <div class="absolute inset-0 bg-green-200 opacity-75 flex items-center justify-center text-white">
+                <div>
+                    <h3 class="text-xl lg:text-lg font-semibold">Jane Smith</h3>
+                    <p class="text-xl">Graphic Designer</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="w-full md:w-2/3 lg:w-2/3 xl:w-3/4 mb-8 px-4">
+        <div class="relative overflow-hidden">
+            <img src="images/7a122ccdd7a8a375cf669040f6c3b084.jpg" alt="Team Member 2" class="w-full h-auto">
+            <div class="absolute inset-0 bg-pink-500 opacity-75 flex items-center justify-center text-white">
+                <div>
+                    <h3 class="text-xl lg:text-lg font-semibold">Jane Smith</h3>
+                    <p class="text-xl">Graphic Designer</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="w-full md:w-2/3 lg:w-2/3 xl:w-3/4 mb-8 px-4">
+        <div class="relative overflow-hidden">
+            <img src="images/7a122ccdd7a8a375cf669040f6c3b084.jpg" alt="Team Member 2" class="w-full h-auto">
+            <div class="absolute inset-0 bg-pink-200 opacity-75 flex items-center justify-center text-white">
+                <div>
+                    <h3 class="text-xl lg:text-lg font-semibold">Jane Smith</h3>
+                    <p class="text-xl">Graphic Designer</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+<div class="block lg:flex justify-between items-center p-8">
+
+
+    <!-- left Side: Event Details -->
+    <div class="text-right">
+        
+        <h2 class="text-4xl text-start text-gray-600 font-bold mb-16">Pictures of 
+            MOH Lagos 
+            Business Exhibition
+            1.0</h2>
+
+        <!-- "View All" Text with Arrow -->
+        <div class="flex items-center">
+            <p class="text-sm mr-2">View All</p>
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                class="w-4 h-4">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M9 5l7 7-7 7"></path>
+            </svg>
+        </div>
+    </div>
+
+
+    <!-- right Side: Image Gallery -->
+    <div class="overflow-x-auto flex ml-20 lg:ml-96">
+        <!-- Repeat the following div for each image -->
+        <div class="w-48 h-48 mr-4 flex-none">
+            <img src="images/colorful-flyer-concept-music-festival_23-2147757486.jpg" alt="Event Image" class="w-full h-full object-cover rounded-md">
+        </div>
+        <!-- Repeat for other images -->
+
+        <div class="w-48 h-48 mr-4 flex-none">
+            <img src="images/colorful-flyer-concept-music-festival_23-2147757486.jpg" alt="Event Image" class="w-full h-full object-cover rounded-md">
+        </div>
+
+        <div class="w-48 h-48 mr-4 flex-none">
+            <img src="images/colorful-flyer-concept-music-festival_23-2147757486.jpg" alt="Event Image" class="w-full h-full object-cover rounded-md">
+        </div>
+
+        <div class="w-48 h-48 mr-4 flex-none">
+            <img src="images/colorful-flyer-concept-music-festival_23-2147757486.jpg" alt="Event Image" class="w-full h-full object-cover rounded-md">
+        </div>
+
+        <div class="w-48 h-48 mr-4 flex-none">
+            <img src="images/colorful-flyer-concept-music-festival_23-2147757486.jpg" alt="Event Image" class="w-full h-full object-cover rounded-md">
+        </div>
+
+        <div class="w-48 h-48 mr-4 flex-none">
+            <img src="images/colorful-flyer-concept-music-festival_23-2147757486.jpg" alt="Event Image" class="w-full h-full object-cover rounded-md">
+        </div>
+
+        <div class="w-48 h-48 mr-4 flex-none">
+            <img src="images/colorful-flyer-concept-music-festival_23-2147757486.jpg" alt="Event Image" class="w-full h-full object-cover rounded-md">
+        </div>
+
+        <div class="w-48 h-48 mr-4 flex-none">
+            <img src="images/colorful-flyer-concept-music-festival_23-2147757486.jpg" alt="Event Image" class="w-full h-full object-cover rounded-md">
+        </div>
+    </div>
+
+
+</div>
+
+
+
+
+
+
+<div class="p-8">
+    <!-- Sub Heading: Organised By -->
+    <h2 class="text-2xl font-semibold mb-4">Organised By</h2>
+
+    <!-- Button or Small Rectangle -->
+    <div class="flex items-center mb-4">
+        <button class="bg-gray-800 text-white px-4 py-2 rounded-full mr-4">
+            Contact the Organizers
+            <a href="#" target="_blank" class="ml-8 text-gray-600 hover:text-blue-500">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a href="mailto:organizer@example.com" class="text-gray-600 hover:text-blue-500">
+                <i class="far fa-envelope"></i>
+            </a>
+            <a href="#" target="_blank" class="text-gray-600 hover:text-blue-500">
+                <i class="fab fa-twitter"></i>
+            </a>
+        </button>
+    </div>
+
+    <!-- Text: Report This Event -->
+    <p class="text-gray-600 mb-4">Report this event</p>
+</div>
+
+
+
+
+<footer class="text-white p-8 mt-24 px-8 md:px-24" style="background-color: #02233B;">
+    <div class="flex flex-wrap justify-between">
+      <!-- Left Side -->
+      <div class="flex flex-col items-start">
+        <!-- Logo -->
+        <img src="your-logo.png" alt="Logo" class="mb-4">
+        <p class="mb-8 md:mb-24 w-96">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ac justo eu ligula tristique consectetur.
+    </p>
+  
+        <!-- Texts -->
+        <p class="mb-2 hidden md:block">Subscribe to our newsletter:</p>
+        <div class="flex items-center mb-4 hidden md:block">
+          <input type="email" placeholder="Enter your email" class="p-2 border rounded-l">
+          <button class="text-white p-2 rounded-r" style="background-color: #8BCEFD;">
+            <i class="fas fa-arrow-right"></i>
+          </button>
+        </div>
+  
+        <!-- Copywrite -->
+        <p class="mb-4 hidden md:block">&copy; Your Company Name, 2024. All rights reserved.</p>
+      </div>
+  
+      <!-- Right Side -->
+      <div >
+        <!-- Various Divs -->
+      <div class="flex flex-wrap items-start ">
+        <div class="pr-8 md:pr-16 mb-4">
+            <h4 class="text-lg font-semibold mb-2">Use Eventbust</h4>
+            <ul>
+              <li><a href="#">
+                Create event
+                </a></li>
+              <li><a href="#">Pricing
+                </a></li>
+              <li><a href="#">Event platform
+                </a></li>
+              <li><a href="#">FAQ
+                </a></li>
+              <li><a href="#">Event mobile ticketing
+                </a></li>
+              <li><a href="#">Event app marketplace</a></li>
+            </ul>
+          </div>
+  
+              <!-- Various Divs -->
+              <div class="pr-16 md:pr-8 md:pr-16 mb-4">
+                <h4 class="text-lg font-semibold mb-2">Plan Events
+                    </h4>
+                <ul>
+                  <li><a href="#">Event planning
+                    </a></li>
+                  <li><a href="#">Sell ticket online
+                    </a></li>
+                  <li><a href="#">Event payment system
+                    </a></li>
+                  <li><a href="#">Virtual event platform</a></li>
+                  <!-- Add more links as needed -->
+                </ul>
+              </div>
+  
+                  <!-- Various Divs -->
+                  <div class="pr-8 md:pr-16 mb-4">
+                    <h4 class="text-lg font-semibold mb-2">Find Events
+                        </h4>
+                    <ul>
+                      <li><a href="#">Lagos events
+                        </a></li>
+                      <li><a href="#">Canada events
+                        </a></li>
+                      <li><a href="#">New york events
+                        </a></li>
+                      <li><a href="#">Wedding events
+                        </a></li>
+                      <li><a href="#">Carnival events
+                        </a></li>
+                      <li><a href="#">Music concert events
+                        </a></li>
+                      <li><a href="#">Graduation events</a></li>
+                      <!-- Add more links as needed -->
+                    </ul>
+                  </div>
+      </div>
+  
+            <!-- Social Media Icons -->
+        <div class="pr-8 mt-8 mb-4">
+            <h4 class="text-lg font-semibold mb-2">Connect with us</h4>
+            <div class="flex items-center space-x-4">
+              <!-- Add your social media icons with links -->
+              <a href="#"><i class="fab fa-facebook"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+              <a href="#"><i class="fab fa-instagram"></i></a>
+              <!-- Add more social media icons as needed -->
+            </div>
+          </div>
+    
+          <!-- Additional Links -->
+          <div class="mb-4 ">
+            <ul class="flex flex-wrap items-start justify-between">
+              <li><a href="#">About</a></li>
+              <li><a href="#">Our Story</a></li>
+              <li><a href="#">Our Story</a></li>
+              <li><a href="#">Our Story</a></li>
+              <li><a href="#">Our Story</a></li>
+              <!-- Add more links as needed -->
+            </ul>
+          </div>
+
+
+          <p class="mb-2 mt-16 md:hidden">Subscribe to our newsletter:</p>
+        <div class="flex items-center mb-4 md:hidden">
+          <input type="email" placeholder="Enter your email" class="p-2 border rounded-l">
+          <button class="bg-blue-500 text-white p-2 rounded-r">
+            <i class="fas fa-arrow-right"></i>
+          </button>
+        </div>
+          <p class="mb-4 md:hidden">&copy; Your Company Name, 2024. All rights reserved.</p>
+
+    
+      </div>
+    </div>
+  </footer>
+  
+
+
+
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            Alpine.start();
+        });
+    </script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+      var scrollbarStyle = document.createElement('style');
+      scrollbarStyle.innerHTML = '.scrollable-container::-webkit-scrollbar { display: none; }';
+      document.head.appendChild(scrollbarStyle);
+    });
+  </script>
+  
+
+
+  <script>
+    let ticketQuantity = 1;
+
+    document.getElementById('minusBtn').addEventListener('click', function () {
+        if (ticketQuantity > 1) {
+            ticketQuantity--;
+            updateTicketQuantity();
+        }
+    });
+
+    document.getElementById('plusBtn').addEventListener('click', function () {
+        ticketQuantity++;
+        updateTicketQuantity();
+    });
+
+    function updateTicketQuantity() {
+        document.getElementById('ticketQuantity').innerText = ticketQuantity;
+
+        // Change colors based on quantity
+        const minusBtn = document.getElementById('minusBtn');
+        const plusBtn = document.getElementById('plusBtn');
+
+        minusBtn.style.borderColor = ticketQuantity > 1 ? '#4299e1' : '#e2e8f0';
+        plusBtn.style.borderColor = ticketQuantity < 5 ? '#4299e1' : '#e2e8f0';
+    }
+</script>
+
+
+<script>
+    function toggleCheckoutPopup() {
+        var popup = document.getElementById('checkoutPopup');
+        popup.classList.toggle('hidden');
+    }
+</script>
+
+
+<script>
+    let countdownTime = "20:00";
+    let countdownTimer = document.getElementById('countdownTimer');
+
+    function updateCountdown() {
+        let timeArray = countdownTime.split(':');
+        let minutes = parseInt(timeArray[0]);
+        let seconds = parseInt(timeArray[1]);
+
+        // Update timer display
+        countdownTimer.innerText = `${minutes}:${seconds}`;
+
+    
+        if (minutes === 0 && seconds === 0) {
+            // Handle timer reaching 0
+            alert("Time's up!");
+            // You can add your logic for what happens when time is up
+        } else if (seconds === 0) {
+            minutes--;
+            seconds = 59;
+        } else {
+            seconds--;
+        }
+
+        // Update countdownTime variable
+        countdownTime = `${minutes}:${seconds}`;
+    }
+
+    // Update countdown every second (1000 milliseconds)
+    setInterval(updateCountdown, 1000);
+</script>
+
+
+
+<script>
+    function showPaymentForm(method) {
+        // Hide all forms initially
+        document.getElementById('creditCardForm').style.display = 'none';
+        document.getElementById('placeOrderBtn').style.display = 'none';
+        document.getElementById('payPalBtn').style.display = 'none';
+        document.getElementById('googlePayBtn').style.display = 'none';
+    
+        // Show the selected form
+        if (method === 'creditCard') {
+            document.getElementById('creditCardForm').style.display = 'block';
+            document.getElementById('placeOrderBtn').style.display = 'block';
+        } else if (method === 'payPal') {
+            document.getElementById('payPalBtn').style.display = 'block';
+        } else if (method === 'googlePay') {
+            document.getElementById('googlePayBtn').style.display = 'block';
+        }
+    }
+    </script>
+
+
+
+<script>
+    // Function to open the checkout pop-up
+    function openCheckoutPopup() {
+        document.getElementById('checkoutPopup').classList.remove('hidden');
+        // Add any additional logic you need for the checkout pop-up
+    }
+
+    // Function to close the checkout pop-up
+    function closeCheckoutPopup() {
+        document.getElementById('checkoutPopup').classList.add('hidden');
+        // Add any additional logic you need when closing the checkout pop-up
+    }
+
+    // Function to open the thank you pop-up
+    function openThankYouPopup() {
+        document.getElementById('thankYouPopup').classList.remove('hidden');
+        // Add any additional logic you need for the thank you pop-up
+    }
+
+    // Function to close the thank you pop-up
+    function closeThankYouPopup() {
+        document.getElementById('thankYouPopup').classList.add('hidden');
+        // Add any additional logic you need when closing the thank you pop-up
+    }
+
+    // Function to toggle the thank you pop-up
+    function toggleThankYouPopup() {
+        document.getElementById('thankYouPopup').classList.toggle('hidden');
+        // Add any additional logic you need when toggling the thank you pop-up
+    }
+</script>
+
+
+
+
+<script src="eventapp.js"></script>
+</body>
+</html>
