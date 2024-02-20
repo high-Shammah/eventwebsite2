@@ -336,7 +336,23 @@
         </div>
     </div>
 
-
+    <div class="container mx-auto lg:p-10 mt-8">
+        <div class="max-w-full mx-auto bg-white p-8 rounded-lg shadow-lg">
+            <h2 class="text-xl font-semibold mb-4">Comments</h2>
+            <!-- Comment Box -->
+            <div class="mb-4">
+                <textarea id="commentInput" placeholder="Write a comment..." class="w-full h-24 px-3 py-2 text-gray-700 border rounded-lg focus:outline-none focus:border-blue-500"></textarea>
+            </div>
+            <!-- Post Button -->
+            <button onclick="postComment()" class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600">Post</button>
+            <!-- Comments Container -->
+            <div id="commentsContainer" class="mt-4 space-y-4">
+                <!-- Comments will be dynamically added here -->
+            </div>
+            <!-- Load More Button -->
+            <button onclick="loadMoreComments()" class="mt-4 bg-gray-200 text-gray-800 px-4 py-2 rounded-md hover:bg-gray-300">Load More</button>
+        </div>
+    </div>
 
 
 <div class="p-8">
