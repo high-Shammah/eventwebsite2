@@ -84,19 +84,20 @@
     <!-- Mobile Menu -->
     <div x-show="open" class="lg:hidden fixed inset-0 bg-black opacity-75 z-50"></div>
     <div x-show="open" class="lg:hidden fixed top-0 right-0 p-4 bg-gray-800 z-50">
-        <div class="flex flex-col items-start space-y-4">
-            <a href="index.html" class="text-white border-b-2 border-white ml-96">Events</a>
-            <a href="#" class="text-white opacity-70 hover:opacity-100">Create an event</a>
-            <a href="#" class="text-white opacity-70 hover:opacity-100">Contact</a>
-            <a href="#" class="text-white opacity-70 hover:opacity-100">FAQ</a>
-            <a href="signup.html" class="rounded px-4 py-2" style="background-color: #F4F4F4;color: #02233B;">Sign Up</a>
-            <a href="signin.html" class="text-white bg-gray-700 rounded px-4 py-2">Sign In</a>
+        <div class="flex flex-col items-center justify-center space-y-4">
             <button @click="open = false" class="text-white">
                 <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
                      stroke-width="2" viewBox="0 0 24 24" class="w-6 h-6">
                     <path d="M6 18L18 6M6 6l12 12"></path>
                 </svg>
             </button>
+            <a href="index.html" class="text-white border-b-2 border-white ml-60">Events</a>
+            <a href="#" class="text-white opacity-70 hover:opacity-100">Create an event</a>
+            <a href="contactus.html" class="text-white opacity-70 hover:opacity-100">Contact</a>
+            <a href="FAQ.html" class="text-white opacity-70 hover:opacity-100">FAQ</a>
+            <a href="signup.html" class="rounded-full px-4 py-2" style="background-color: #F4F4F4;color: #02233B;">Sign Up</a>
+            <a href="signin.html" class="text-white bg-gray-700 rounded-full px-4 py-2">Sign In</a>
+
         </div>
     </div>
 </div>
@@ -154,7 +155,7 @@
     </div>
 
     <!-- Right Side: Ticket Information and Checkout -->
-    <div class="lg:w-1/3 bg-white lg:border lg:border-gray-300 lg:p-4 fixed bottom-0 lg:static">
+    <div class="lg:w-1/3 md:w-full sm:w-full sm:p-0 bg-white lg:border lg:border-gray-300 lg:p-4 fixed bottom-0 lg:static">
         <!-- Ticket Quantity -->
        <div class="border border-gray-300 p-8">
         <div class="flex items-center mb-4 justify-between">
@@ -170,19 +171,49 @@
             </div>
         </div>
 
-
         <!-- Event Amount -->
         <div class="mb-4">
             <h3 class="text-xl font-semibold">Amount:</h3>
             <p class="text-gray-600">Event Amount</p>
         </div>
        </div>
-
         <!-- Checkout Button -->
-      <div class="p-4 mt-8" onclick="toggleCheckoutPopup()">
+      <div class="p-4 mt-8" onclick="handleCheckout()">
         <a href="#" class="bg-gray-800 text-white px-4 py-2 rounded-md block text-center">Checkout</a>
      </div>
+    </div>
 
+
+    
+
+<!-- Add Guest Popup -->
+<div id="addGuestPopup" class="fixed inset-0 bg-black bg-opacity-75 z-50 hidden">
+    <div class="block lg:flex max-w-2xl mx-auto p-8 bg-white rounded-lg shadow-lg h-96 overflow-y-auto">
+        <div class="flex-1 p-8 py-2">
+            <div class="flex justify-between">
+                <h2 class="text-2xl font-semibold mb-4">Add Guest</h2>
+                <button @click="closeAddGuestPopup" class="absolute top-10 ml-80 lg:ml-[530px] text-gray-600 hover:text-gray-800 cursor-pointer">
+                    <i class="fas fa-times-circle bg-white text-2xl"></i>
+                </button>
+            </div>
+            <!-- Input fields for guest information -->
+            <input type="text" placeholder="Guest Name" class="border p-2 mb-4">
+            <input type="email" placeholder="Guest Email" class="border p-2 mb-4">
+            <textarea placeholder="Message" class="border p-2 mb-4"></textarea>
+            <!-- Announcement text -->
+            <p class="text-gray-600 mb-4">Additional information about adding guests.</p>
+            <!-- Cancel and Save buttons -->
+            <div class="flex justify-end">
+                <button @click="closeAddGuestPopup" class="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded mr-4">
+                    Cancel
+                </button>
+                <button @click="saveGuestInformation" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                    Save Information
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
 
 
      <!-- Checkout Pop-up Container -->
@@ -194,9 +225,12 @@
          <div class="flex justify-between">
             <h2 class="text-2xl font-semibold mb-4">Checkout</h2>
             <!-- Cancel Icon -->
-<button @click="closePopup" class="absolute top-10 ml-80 lg:ml-[530px] text-gray-600 hover:text-gray-800 cursor-pointer">
-<i class="fas fa-times-circle bg-white text-2xl"></i>
-</button>
+            <button @click="open = false" class="text-white">
+                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                     stroke-width="2" viewBox="0 0 24 24" class="w-6 h-6">
+                    <path d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+            </button>
          </div>
 
             <!-- Time Countdown -->
@@ -273,8 +307,8 @@
 </div>
    </div>
 
-<!-- Other Payment Methods -->
-<!-- You can similarly add forms for PayPal and Google Pay -->
+
+   
 
 <!-- Checkout Button -->
 <div class="border border-gray-300 p-4 mt-4">
@@ -282,6 +316,8 @@
     <button id="payPalBtn" style="display: none;" class="bg-blue-500 text-white px-4 py-2 rounded-full block text-center">Pay with PayPal</button>
     <button id="googlePayBtn" style="display: none;" class="bg-red-500 text-white px-4 py-2 rounded-full block text-center">Pay with Google Pay</button>
 </div>
+
+
 
 
 
@@ -316,9 +352,12 @@
         <!-- Right Side for Related Events -->
         <div class="lg:w-1/3 lg:mt-0 mt-4">
             <!-- Cancel Icon -->
-            <button @click="closeThankYouPopup" class="absolute top-10 ml-80 lg:ml-[530px] text-gray-600 hover:text-gray-800 cursor-pointer">
-                <i class="fas fa-times-circle bg-white text-2xl"></i>
-                </button>
+            <button @click="open = false" class="text-white">
+                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                     stroke-width="2" viewBox="0 0 24 24" class="w-6 h-6">
+                    <path d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+            </button>
 
             <!-- Other Related Events -->
             <div class="mb-4">
@@ -573,7 +612,23 @@
 </div>
 
 
-
+<div class="container mx-auto lg:p-10 mt-8">
+    <div class="max-w-full mx-auto bg-white p-8 rounded-lg shadow-lg">
+        <h2 class="text-xl font-semibold mb-4">Comments</h2>
+        <!-- Comment Box -->
+        <div class="mb-4">
+            <textarea id="commentInput" placeholder="Write a comment..." class="w-full h-24 px-3 py-2 text-gray-700 border rounded-lg focus:outline-none focus:border-blue-500"></textarea>
+        </div>
+        <!-- Post Button -->
+        <button onclick="postComment()" class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600">Post</button>
+        <!-- Comments Container -->
+        <div id="commentsContainer" class="mt-4 space-y-4">
+            <!-- Comments will be dynamically added here -->
+        </div>
+        <!-- Load More Button -->
+        <button onclick="loadMoreComments()" class="mt-4 bg-gray-200 text-gray-800 px-4 py-2 rounded-md hover:bg-gray-300">Load More</button>
+    </div>
+</div>
 
 
 
@@ -738,6 +793,31 @@
         });
     </script>
 
+
+
+<script>
+    function handleCheckout() {
+        const ticketQuantity = parseInt(document.getElementById('ticketQuantity').textContent);
+        if (ticketQuantity > 1) {
+            // Show add guest popup
+            document.getElementById('addGuestPopup').classList.remove('hidden');
+        } else {
+            // Show checkout popup directly
+            document.getElementById('checkoutPopup').classList.remove('hidden');
+        }
+    }
+
+    function closeAddGuestPopup() {
+        document.getElementById('addGuestPopup').classList.add('hidden');
+    }
+
+    function saveGuestInformation() {
+        // Logic to save guest information goes here
+    }
+</script>
+
+    
+
 <script>
     document.addEventListener('DOMContentLoaded', function () {
       var scrollbarStyle = document.createElement('style');
@@ -836,7 +916,7 @@
             document.getElementById('googlePayBtn').style.display = 'block';
         }
     }
-    </script>
+</script>
 
 
 
@@ -871,6 +951,8 @@
         // Add any additional logic you need when toggling the thank you pop-up
     }
 </script>
+
+
 
 
 
