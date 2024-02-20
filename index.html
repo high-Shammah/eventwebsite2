@@ -55,39 +55,40 @@
         </div>
     
        <!-- Mobile Navigation for small screens -->
-    <div class="lg:hidden flex items-center justify-between">
+    <div class="lg:hidden flex items-center px-4 justify-between">
         <a href="" class="flex items-center">
             <img src="path/to/logo.png" alt="Logo" class="h-8 w-8 mr-2">
             <div class="text-white">YourSite</div>
         </a>
-       <div>
+       <div class="justify-between">
         <a href="signup.html" class="rounded-full px-4 py-2" style="background-color: #F4F4F4;color: #02233B;">Sign Up</a>
-        <a href="signin.html" class="text-white bg-gray-700 rounded-full px-4 py-2">Sign In</a>
-       </div>
         <button @click="open = !open" class="text-white">
             <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                  viewBox="0 0 24 24" class="w-6 h-6">
                 <path d="M4 6h16M4 12h16m-7 6h7"></path>
             </svg>
         </button>
+       </div>
+        
     </div>
 
     <!-- Mobile Menu -->
     <div x-show="open" class="lg:hidden fixed inset-0 bg-black opacity-75 z-50"></div>
     <div x-show="open" class="lg:hidden fixed top-0 right-0 p-4 bg-gray-800 z-50">
-        <div class="flex flex-col items-start space-y-4">
-            <a href="index.html" class="text-white border-b-2 border-white ml-96">Events</a>
-            <a href="#" class="text-white opacity-70 hover:opacity-100">Create an event</a>
-            <a href="#" class="text-white opacity-70 hover:opacity-100">Contact</a>
-            <a href="#" class="text-white opacity-70 hover:opacity-100">FAQ</a>
-            <a href="signup.html" class="rounded-full px-4 py-2" style="background-color: #F4F4F4;color: #02233B;">Sign Up</a>
-            <a href="signin.html" class="text-white bg-gray-700 rounded-full px-4 py-2">Sign In</a>
+        <div class="flex flex-col items-center justify-center space-y-4">
             <button @click="open = false" class="text-white">
                 <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
                      stroke-width="2" viewBox="0 0 24 24" class="w-6 h-6">
                     <path d="M6 18L18 6M6 6l12 12"></path>
                 </svg>
             </button>
+            <a href="index.html" class="text-white border-b-2 border-white ml-60">Events</a>
+            <a href="#" class="text-white opacity-70 hover:opacity-100">Create an event</a>
+            <a href="contactus.html" class="text-white opacity-70 hover:opacity-100">Contact</a>
+            <a href="FAQ.html" class="text-white opacity-70 hover:opacity-100">FAQ</a>
+            <a href="signup.html" class="rounded-full px-4 py-2" style="background-color: #F4F4F4;color: #02233B;">Sign Up</a>
+            <a href="signin.html" class="text-white bg-gray-700 rounded-full px-4 py-2">Sign In</a>
+
         </div>
     </div>
 </div>
@@ -113,47 +114,52 @@
         <div style="color: black; font-size: 20px; font-family: Montserrat; font-weight: 300; word-wrap: break-word">We make event management simple and cost effective.</div>
     </div>
 
-    <div class="container mx-auto grid-cols-2 md:grid-cols-4">
-        <div class="flex flex-wrap justify-center">
+    <div class="container">
+        <div class="flex flex-wrap justify-center lg:justify-between">
           <!-- Item 1 -->
-          <div class="py-8 max-w-xs overflow-hidden text-center flex flex-col items-center sm:w-1/2 md:w-full">
+          <div class="py-8 mx-auto max-w-xs overflow-hidden text-center flex flex-col items-center sm:w-full md:w-1/2 lg:w-1/4">
             <div class="mb-4 w-32 h-28 flex ">
               <img src="images/c987da7712e3a2e4f72b8029c7d1744d.jpg" alt="Image" class="w-full h-full object-cover  shadow-md">
             </div>
             <h3 class="text-xl font-semibold mt-4" style="color: #425466;">BUILD ATTENDEES RSVP LIST</h3>
-            <p class="text-sm text-gray-600" style="color: #425466;">Our system will give your attendees the flexibility to indicate interest in your event and/or buy ticets. They can all send message specific to the event.</p>
+            <p class="text-sm text-gray-600" style="color: #425466;">Our system will give your attendees the flexibility to indicate interest in your event and/or buy tickets. They can also send messages specific to the event.</p>
           </div>
       
-          <div class=" py-8 max-w-xs overflow-hidden text-center flex flex-col items-center sm:w-1/2 md:w-full">
+          <!-- Item 2 -->
+          <div class="py-8 mx-auto max-w-xs overflow-hidden text-center flex flex-col items-center sm:w-full md:w-1/2 lg:w-1/4">
             <div class="w-32 h-28 flex ">
               <img src="images/7e1c451f08bf330c4d257ceeb49563df.jpg" alt="Image" class="w-full h-full object-cover  shadow-md">
             </div>
             <h3 class="text-xl font-semibold mt-4" style="color: #425466;">ASSIGN SEATS</h3>
-            <p class="text-sm text-gray-600" style="color: #425466;">You take control and allocate and organize seat according to attendees interest and your event management plan.</p>
+            <p class="text-sm text-gray-600" style="color: #425466;">You take control and allocate and organize seats according to attendees' interest and your event management plan.</p>
           </div>
       
-          <div class="py-8 max-w-xs overflow-hidden text-center flex flex-col items-center sm:w-1/2 md:w-full">
+          <!-- Item 3 -->
+          <div class="py-8 mx-auto max-w-xs overflow-hidden text-center flex flex-col items-center sm:w-full md:w-1/2 lg:w-1/4">
             <div class="w-32 h-28 flex ">
               <img src="images/2702ec982b26ec55c2646c566d90193d.jpg" alt="Image" class="w-full h-full object-cover  shadow-md">
             </div>
             <h3 class="text-xl font-semibold mt-4" style="color: #425466;">CONTROL RESERVATION</h3>
-            <p class="text-sm text-gray-600" style="color: #425466;">Turn On or Turn of your reversation to control attendance. This is greate for free events or when tickets are sold out.</p>
+            <p class="text-sm text-gray-600" style="color: #425466;">Turn On or Turn off your reservation to control attendance. This is great for free events or when tickets are sold out.</p>
           </div>
-
-          <div class="py-8 max-w-xs overflow-hidden text-center flex flex-col items-center sm:w-1/2 md:w-full">
+      
+          <!-- Item 4 -->
+          <div class="py-8 mx-auto max-w-xs overflow-hidden text-center flex flex-col items-center sm:w-full md:w-1/2 lg:w-1/4">
             <div class="w-32 h-28 flex ">
               <img src="images/5ae0c98ddfdbfe336e24075fdf79f5d9.jpg" alt="Image" class="w-full h-full object-cover  shadow-md">
             </div>
             <h3 class="text-xl font-semibold mt-4" style="color: #425466;">SELL TICKETS</h3>
             <p class="text-sm text-gray-600" style="color: #425466;">Sell your event Tickets with Ease. Flexible payouts to help you meet the event planning expenses.</p>
           </div>
-      
         </div>
       </div>
       
       
+    
+      
+      
 
-      <div class="max-w-screen-xl mx-auto text-center" style="color: #425466;">
+      <div class="max-w-screen-xl justify-center items-center mx-auto text-center" style="color: #425466;">
         <span class=" text-xl md:text-2xl font-regular text-custom-blue">“EventBurst provides you the ability to </span>
         <span class="text-xl md:text-2xl font-semibold text-custom-blue">Customize</span>
         <span class="text-xl md:text-2xl font-regular text-custom-blue"> your events to meet or exceed your </span>
