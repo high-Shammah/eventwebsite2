@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event app </title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+
+    <link rel="stylesheet" href="eventapp.css">
+    <script src="https://kit.fontawesome.com/69f9015363.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha384-rKI3qiC0aV6Tks0Xja5aFTo5gLOO3xqvftP8z4y5wrgU8bqToR0MO2ZiIep8YKZ" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+    <script src="https://kit.fontawesome.com/your-font-awesome-kit.js" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@2.8.2"></script>
+   
+
+      <!-- Link Swiper's CSS -->
+      <link rel="stylesheet" href="css/swiper-bundle.min.css">
+<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+
+
+</head>
+
+<body>
+    
+    <div x-data="{ open: false }" class="p-4 px-4 lg:px-16" style="background-color: #02233B;">
+        <!-- Logo and Navigation Links for large screens -->
+        <div class="hidden lg:flex items-center justify-between">
+            <a href="" class="flex items-center">
+                <img src="path/to/logo.png" alt="Logo" class="h-8 w-8 mr-2">
+                <div class="text-white">YourSite</div>
+            </a>
+            <div class="flex space-x-4">
+                <a href="index.html" class="text-white border-b-2 border-white ml-96">Events</a>
+                <a href="landingpage.html" class="text-white opacity-70 hover:opacity-100">Create an event</a>
+                <a href="contactus.html" class="text-white opacity-70 hover:opacity-100">Contact</a>
+                <a href="FAQ.html" class="text-white opacity-70 hover:opacity-100">FAQ</a>
+            </div>
+            <div class="flex space-x-4">
+                <a href="signup.html" class="rounded px-4 py-2" style="background-color: #F4F4F4;color: #02233B;">Sign Up</a>
+                <a href="signin.html" class="text-white bg-gray-700 rounded px-4 py-2">Sign In</a>
+            </div>
+        </div>
+    
+       <!-- Mobile Navigation for small screens -->
+    <div class="lg:hidden flex items-center px-4 justify-between">
+        <a href="" class="flex items-center">
+            <img src="path/to/logo.png" alt="Logo" class="h-8 w-8 mr-2">
+            <div class="text-white">YourSite</div>
+        </a>
+       <div class="justify-between">
+        <a href="signup.html" class="rounded-full px-4 py-2" style="background-color: #F4F4F4;color: #02233B;">Sign Up</a>
+        <button @click="open = !open" class="text-white">
+            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                 viewBox="0 0 24 24" class="w-6 h-6">
+                <path d="M4 6h16M4 12h16m-7 6h7"></path>
+            </svg>
+        </button>
+       </div>
+        
+    </div>
+
+    <!-- Mobile Menu -->
+    <div x-show="open" class="lg:hidden fixed inset-0 bg-black opacity-75 z-50"></div>
+    <div x-show="open" class="lg:hidden fixed top-0 right-0 p-4 bg-gray-800 z-50">
+        <div class="flex flex-col items-center justify-center space-y-4">
+            <button @click="open = false" class="text-white">
+                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                     stroke-width="2" viewBox="0 0 24 24" class="w-6 h-6">
+                    <path d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+            </button>
+            <a href="index.html" class="text-white border-b-2 border-white ml-60">Events</a>
+            <a href="#" class="text-white opacity-70 hover:opacity-100">Create an event</a>
+            <a href="contactus.html" class="text-white opacity-70 hover:opacity-100">Contact</a>
+            <a href="FAQ.html" class="text-white opacity-70 hover:opacity-100">FAQ</a>
+            <a href="signup.html" class="rounded-full px-4 py-2" style="background-color: #F4F4F4;color: #02233B;">Sign Up</a>
+            <a href="signin.html" class="text-white bg-gray-700 rounded-full px-4 py-2">Sign In</a>
+
+        </div>
+    </div>
+</div>
+
+    <!-- Hero section -->
+<section class="relative" style="height: 540px;" >
+    <div class="overlay-section" style=" height: 540px; background-image: url('images/medium-shot-happy-people-partying-with-confetti_23-2149128383.jpg'); background-size: cover; background-position: center;">
+        <img src="" alt="">
+    </div>
+        <div class="overlay-content absolute top-2/4 lg:top-2/4 lg:left-1/4 transform -translate-x-1/2 -translate-y-1/2 text-start text-white">
+        <h1 class="text-4xl lg:text-6xl font-bold mb-4">Discover Your Next <br> Experience</h1>
+        <p class="text-lg mb-4">Explore 'Enchanted Elegance' and More on <br> [Your Event Platform]"</p>
+         <button class="bg-gray-300 text-white-900 rounded px-6 py-3" style="background-color: #02233B;">Learn More</button>
+
+        </div>
+</section>
+
+
+    <!-- the second section, about us section -->
+<div class="container ml-2 md:ml-20 mt-16" >
+    <div style="align-self: stretch; flex-direction: column; justify-content: flex-start; align-items: center; gap: 24px; display: inline-flex">
+        <div style="color: #425466; font-size: 50px; font-family: Montserrat; font-weight: 600; word-wrap: break-word">Why Choose EventsBurst</div>
+        <div style="color: black; font-size: 20px; font-family: Montserrat; font-weight: 300; word-wrap: break-word">We make event management simple and cost effective.</div>
+    </div>
+
+    <div class="container">
+        <div class="flex flex-wrap justify-center lg:justify-between">
+          <!-- Item 1 -->
+          <div class="py-8 mx-auto max-w-xs overflow-hidden text-center flex flex-col items-center sm:w-full md:w-1/2 lg:w-1/4">
+            <div class="mb-4 w-32 h-28 flex ">
+              <img src="images/c987da7712e3a2e4f72b8029c7d1744d.jpg" alt="Image" class="w-full h-full object-cover  shadow-md">
+            </div>
+            <h3 class="text-xl font-semibold mt-4" style="color: #425466;">BUILD ATTENDEES RSVP LIST</h3>
+            <p class="text-sm text-gray-600" style="color: #425466;">Our system will give your attendees the flexibility to indicate interest in your event and/or buy tickets. They can also send messages specific to the event.</p>
+          </div>
+      
+          <!-- Item 2 -->
+          <div class="py-8 mx-auto max-w-xs overflow-hidden text-center flex flex-col items-center sm:w-full md:w-1/2 lg:w-1/4">
+            <div class="w-32 h-28 flex ">
+              <img src="images/7e1c451f08bf330c4d257ceeb49563df.jpg" alt="Image" class="w-full h-full object-cover  shadow-md">
+            </div>
+            <h3 class="text-xl font-semibold mt-4" style="color: #425466;">ASSIGN SEATS</h3>
+            <p class="text-sm text-gray-600" style="color: #425466;">You take control and allocate and organize seats according to attendees' interest and your event management plan.</p>
+          </div>
+      
+          <!-- Item 3 -->
+          <div class="py-8 mx-auto max-w-xs overflow-hidden text-center flex flex-col items-center sm:w-full md:w-1/2 lg:w-1/4">
+            <div class="w-32 h-28 flex ">
+              <img src="images/2702ec982b26ec55c2646c566d90193d.jpg" alt="Image" class="w-full h-full object-cover  shadow-md">
+            </div>
+            <h3 class="text-xl font-semibold mt-4" style="color: #425466;">CONTROL RESERVATION</h3>
+            <p class="text-sm text-gray-600" style="color: #425466;">Turn On or Turn off your reservation to control attendance. This is great for free events or when tickets are sold out.</p>
+          </div>
+      
+          <!-- Item 4 -->
+          <div class="py-8 mx-auto max-w-xs overflow-hidden text-center flex flex-col items-center sm:w-full md:w-1/2 lg:w-1/4">
+            <div class="w-32 h-28 flex ">
+              <img src="images/5ae0c98ddfdbfe336e24075fdf79f5d9.jpg" alt="Image" class="w-full h-full object-cover  shadow-md">
+            </div>
+            <h3 class="text-xl font-semibold mt-4" style="color: #425466;">SELL TICKETS</h3>
+            <p class="text-sm text-gray-600" style="color: #425466;">Sell your event Tickets with Ease. Flexible payouts to help you meet the event planning expenses.</p>
+          </div>
+        </div>
+      </div>
+      
+      
+    
+      
+      
+
+      <div class="max-w-screen-xl justify-center items-center mx-auto text-center" style="color: #425466;">
+        <span class=" text-xl md:text-2xl font-regular text-custom-blue">“EventBurst provides you the ability to </span>
+        <span class="text-xl md:text-2xl font-semibold text-custom-blue">Customize</span>
+        <span class="text-xl md:text-2xl font-regular text-custom-blue"> your events to meet or exceed your </span>
+        <span class="text-xl md:text-2xl font-semibold text-custom-blue">Event Management Plan!</span>
+        <span class="text-xl md:text-2xl font-regular text-custom-blue">”</span>
+      </div>
+      
+      
+      
+</div>
+
+
+
+
+    <!-- third section, the section for all events, etc -->
+
+
+    
+<div class="flex items-center lg:mt-16 py-8 px-8 md:px-32">
+    <span class="text-5xl font-semibold mr-2 gap-12" style="color: #425466;">Popular in </span>
+    <i class="fas fa-chevron-down text-gray-600 text-xl cursor-pointer relative" id="dropdownIcon"></i>
+    <div class="relative ml-8">
+      <div class="absolute hidden bg-white border rounded mt-2 py-2 px-4" id="dropdownOptions">
+        <div class="mb-2 text-xl">
+          <input type="radio" id="option1" name="options" value="Lagos" class="mr-4 text-xl" />
+          <label for="Lagos">Lagos</label>
+        </div>
+        <div class="mb-2 text-xl">
+          <input type="radio" id="option2" name="options" value="Option 2" class="mr-1" />
+          <label for="option2">Canada</label>
+        </div>
+        <div class="mb-2 text-xl">
+          <input type="radio" id="option3" name="options" value="Option 3" class="mr-1" />
+          <label for="option3">UK</label>
+        </div>
+      </div>
+      <div class="border-t border-l h-full border-gray-300" id="selectedOption"></div>
+    </div>
+  </div>
+      
+
+  <div class="flex overflow-x-auto scrollable-container mr-16 md:mr-80 mb-8 pl-4 md:pl-32 justify-start">
+    <a href="index.html" class="border-b-2 border-brown-700 text-custom-brown px-4 py-2 mx-2 text-gray-600 mb-2 md:mb-0">All</a>
+    <a href="foryoulandingpage.html" class="text-gray-800 hover:text-gray-600 px-4 py-2 mx-2 mb-2 md:mb-0">For you</a>
+    <a href="onlinelandingpage.html" class="text-gray-800 hover:text-gray-600 px-4 py-2 mx-2 mb-2 md:mb-0">Online</a>
+    <a href="todaylandingpage.html" class="text-gray-800 hover:text-gray-600 px-4 py-2 mx-2 mb-2 md:mb-0">Today</a>
+    <a href="thisweeklandingpage.html" class="text-gray-800 hover:text-gray-600 px-4 py-2 mx-2 mb-2 md:mb-0">This week</a>
+    <a href="thismonthlandinglage.html" class="text-gray-800 hover:text-gray-600 px-4 py-2 mx-2 mb-2 md:mb-0">This month</a>
+    <a href="freelandingpage.html" class="text-gray-800 hover:text-gray-600 px-4 py-2 mx-2 mb-2 md:mb-0">Free</a>
+    <a href="charitylandingpage.html" class="text-gray-800 hover:text-gray-600 px-4 py-2 mx-2 mb-2 md:mb-0">Charity and causes</a>
+</div>
+
+  
+  
+
+<span class="text-2xl font-semibold px-16 md:px-32 mt-24 gap-12" style="color: #425466;"> Events </span>
+
+<div class="flex flex-wrap grid grid-cols md:grid-cols-3 px-2 md:px-16 mt-8">
+
+     <!-- this is the general card, the event cards -->
+     <a href="individualeventpage.html" class="max-w-md mx-auto bg-white shadow-md rounded-md mb-8 overflow-hidden relative transition-transform transform hover:scale-105 block">
+        <img class="w-full h-48 object-cover" src="images/party-night-invitation_23-2147661036.webp" alt="Card Image">
+
+        <div class="absolute top-1/3 left-1/4 flex justify-center space-x-4 mt-4 w-full">
+            <div class="w-12 h-12 flex items-center justify-center bg-white rounded-full border border-gray-300">
+                <i class="fas fa-download text-gray-600 text-xl" id="downloadIcon"></i>
+            </div>
+            <div class="w-12 h-12 flex items-center justify-center bg-white rounded-full border border-gray-300">
+                <i class="far fa-thumbs-up text-gray-600 text-xl" id="likeIcon"></i>
+            </div>
+        </div>
+        <div class="px-6 py-4">
+            <p class="text-xl font-semibold text-gray-800 mb-2">Moh Lagos Business Exhibition
+                </p>
+            <p class="text-sm text-brown-200 font-medium mb-2">Wed, Dec 13, 2023.  9:00 AM
+                </p>
+            <p class="text-sm text-gray-600 mb-2">Ogudu Boys Scout • Lagos, LA
+                </p>
+            <p class="text-sm text-gray-600 mb-2">$10.00
+                </p>
+            <p class="text-sm text-gray-800 font-medium mb-2">Tech Connect Africa</p>
+        </div>
+    </a>
+    
+
+    <a href="freeeventrsvppage.html" class="max-w-md mx-auto bg-white shadow-md rounded-md mb-8 overflow-hidden relative transition-transform transform hover:scale-105 block">
+        <img class="w-full h-48 object-cover" src="images/saturday-party-social-media-template_505751-2937.webp" alt="Card Image">
+        <div class="absolute top-1/3 left-1/4 flex justify-center space-x-4 mt-4 w-full">
+            <div class="w-12 h-12 flex items-center justify-center bg-white rounded-full border border-gray-300">
+                <i class="fas fa-download text-gray-600 text-xl" id="downloadIcon"></i>
+            </div>
+            <div class="w-12 h-12 flex items-center justify-center bg-white rounded-full border border-gray-300">
+                <i class="far fa-thumbs-up text-gray-600 text-xl" id="likeIcon"></i>
+            </div>
+        </div>
+        <div class="px-6 py-4">
+            <p class="text-xl font-semibold text-gray-800 mb-2">Moh Lagos Business Exhibition
+                </p>
+            <p class="text-sm text-brown-200 font-medium mb-2">Wed, Dec 13, 2023.  9:00 AM
+                </p>
+            <p class="text-sm text-gray-600 mb-2">Ogudu Boys Scout • Lagos, LA
+                </p>
+            <p class="text-sm text-gray-600 mb-2">Free
+                </p>
+            <p class="text-sm text-gray-800 font-medium mb-2">Tech Connect Africa</p>
+        </div>
+    </a>
+
+
+    <a href="individualeventpage.html" class="max-w-md mx-auto bg-white shadow-md rounded-md mb-8 overflow-hidden relative transition-transform transform hover:scale-105 block">
+        <img class="w-full h-48 object-cover" src="images/party-night-invitation_23-2147661036.webp" alt="Card Image">
+        <div class="absolute top-1/3 left-1/4 flex justify-center space-x-4 mt-4 w-full">
+            <div class="w-12 h-12 flex items-center justify-center bg-white rounded-full border border-gray-300">
+                <i class="fas fa-download text-gray-600 text-xl" id="downloadIcon"></i>
+            </div>
+            <div class="w-12 h-12 flex items-center justify-center bg-white rounded-full border border-gray-300">
+                <i class="far fa-thumbs-up text-gray-600 text-xl" id="likeIcon"></i>
+            </div>
+        </div>
+        <div class="px-6 py-4">
+            <p class="text-xl font-semibold text-gray-800 mb-2">Moh Lagos Business Exhibition
+                </p>
+            <p class="text-sm text-brown-200 font-medium mb-2">Wed, Dec 13, 2023.  9:00 AM
+                </p>
+            <p class="text-sm text-gray-600 mb-2">Ogudu Boys Scout • Lagos, LA
+                </p>
+            <p class="text-sm text-gray-600 mb-2">Free
+                </p>
+            <p class="text-sm text-gray-800 font-medium mb-2">Tech Connect Africa</p>
+        </div>
+    </a>
+
+    <a href="individualeventpage.html" class="max-w-md mx-auto bg-white shadow-md rounded-md mb-8 overflow-hidden relative transition-transform transform hover:scale-105 block">
+        <img class="w-full h-48 object-cover" src="https://via.placeholder.com/500x300" alt="Card Image">
+        <div class="absolute top-1/3 left-1/4 flex justify-center space-x-4 mt-4 w-full">
+            <div class="w-12 h-12 flex items-center justify-center bg-white rounded-full border border-gray-300">
+                <i class="fas fa-download text-gray-600 text-xl" id="downloadIcon"></i>
+            </div>
+            <div class="w-12 h-12 flex items-center justify-center bg-white rounded-full border border-gray-300">
+                <i class="far fa-thumbs-up text-gray-600 text-xl" id="likeIcon"></i>
+            </div>
+        </div>
+        <div class="px-6 py-4">
+            <p class="text-xl font-semibold text-gray-800 mb-2">Moh Lagos Business Exhibition
+                </p>
+            <p class="text-sm text-brown-200 font-medium mb-2">Wed, Dec 13, 2023.  9:00 AM
+                </p>
+            <p class="text-sm text-gray-600 mb-2">Ogudu Boys Scout • Lagos, LA
+                </p>
+            <p class="text-sm text-gray-600 mb-2">Free
+                </p>
+            <p class="text-sm text-gray-800 font-medium mb-2">Tech Connect Africa</p>
+        </div>
+    </a>
+
+    <a href="individualeventpage.html" class="max-w-md mx-auto bg-white shadow-md rounded-md mb-8 overflow-hidden relative transition-transform transform hover:scale-105 block">
+        <img class="w-full h-48 object-cover" src="https://via.placeholder.com/500x300" alt="Card Image">
+        <div class="absolute top-0 left-0 bg-red-700 text-white py-1 px-2 rounded-bl-md rounded-tr-md">
+            Featured
+        </div>
+        <div class="absolute top-1/3 left-1/4 flex justify-center space-x-4 mt-4 w-full">
+            <div class="w-12 h-12 flex items-center justify-center bg-white rounded-full border border-gray-300">
+                <i class="fas fa-download text-gray-600 text-xl" id="downloadIcon"></i>
+            </div>
+            <div class="w-12 h-12 flex items-center justify-center bg-white rounded-full border border-gray-300">
+                <i class="far fa-thumbs-up text-gray-600 text-xl" id="likeIcon"></i>
+            </div>
+        </div>
+        <div class="px-6 py-4">
+            <p class="text-xl font-semibold text-gray-800 mb-2">Moh Lagos Business Exhibition
+                </p>
+            <p class="text-sm text-brown-200 font-medium mb-2">Wed, Dec 13, 2023.  9:00 AM
+                </p>
+            <p class="text-sm text-gray-600 mb-2">Ogudu Boys Scout • Lagos, LA
+                </p>
+            <p class="text-sm text-gray-600 mb-2">Free
+                </p>
+            <p class="text-sm text-gray-800 font-medium mb-2">Tech Connect Africa</p>
+        </div>
+    </a>
+
+    <a href="pastevent.html" class="max-w-md mx-auto bg-white shadow-md rounded-md mb-8 overflow-hidden relative transition-transform transform hover:scale-105 block">
+        <img class="w-full h-48 object-cover" src="images/music-event-poster-template-with-colorful-shapes_1361-1591.webp" alt="Card Image">
+        <div class="absolute top-0 left-0 bg-red-700 text-white py-1 px-2 rounded-bl-md rounded-tr-md">
+            Featured
+        </div>
+        <div class="absolute top-1/3 left-1/4 flex justify-center space-x-4 mt-4 w-full">
+            <div class="w-12 h-12 flex items-center justify-center bg-white rounded-full border border-gray-300">
+                <i class="fas fa-download text-gray-600 text-xl" id="downloadIcon"></i>
+            </div>
+            <div class="w-12 h-12 flex items-center justify-center bg-white rounded-full border border-gray-300">
+                <i class="far fa-thumbs-up text-gray-600 text-xl" id="likeIcon"></i>
+            </div>
+        </div>
+        <div class="px-6 py-4">
+            <p class="text-xl font-semibold text-gray-800 mb-2">Moh Lagos Business Exhibition
+                </p>
+            <p class="text-sm text-brown-200 font-medium mb-2">Wed, Dec 13, 2023.  9:00 AM
+                </p>
+            <p class="text-sm text-gray-600 mb-2">Ogudu Boys Scout • Lagos, LA
+                </p>
+            <p class="text-sm text-gray-600 mb-2">Free
+                </p>
+            <p class="text-sm text-gray-800 font-medium mb-2">Tech Connect Africa</p>
+        </div>
+    </a>
+
+
+</div>
+
+
+
+<!-- the lets make it personal section -->
+
+<div class="bg-white mt-16 mb-12 p-6 px-8 md:px-24">
+    <div class="bg-gray-100 overflow-x-auto p-4 md:p-12 rounded-md">
+        <div class="flex justify-between items-center my-2 mb-8">
+            <h2 class="text-2xl absolute font-bold">Section Header</h2>
+            <a href="#" class="text-gray-500 ml-80 md:ml-[1000px] absolute hover:text-gray-700">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                     xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                          d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+            </a>
+        </div>
+        <p class="text-lg font-semibold mb-12">Sub Header</p>
+
+        <div class="flex md:flex-wrap gap-2">
+            <a href="#" class="bg-white border border-gray-300 p-3 rounded-full text-center hover:bg-gray-100">
+                Comedy
+            </a>
+            <a href="#" class="bg-white border border-gray-300 p-3 rounded-full text-center hover:bg-gray-100">
+                Tech
+            </a>
+            <a href="#" class="bg-white border border-gray-300 p-3 rounded-full text-center hover:bg-gray-100">
+                Entertainment
+            </a>
+            <a href="#" class="bg-white border border-gray-300 p-3 rounded-full text-center hover:bg-gray-100">
+                Movies
+            </a>
+            <a href="#" class="bg-white border border-gray-300 p-3 rounded-full text-center hover:bg-gray-100">
+                Concerts
+            </a>
+            <a href="#" class="bg-white border border-gray-300 p-3 rounded-full text-center hover:bg-gray-100">
+                Parties
+            </a>
+            <a href="#" class="bg-white border border-gray-300 p-3 rounded-full text-center hover:bg-gray-100">
+                Reunions
+            </a>
+            <a href="#" class="bg-white border border-gray-300 p-3 rounded-full text-center hover:bg-gray-100">
+                Seminars
+            </a>
+            <a href="#" class="bg-white border border-gray-300 p-3 rounded-full text-center hover:bg-gray-100">
+                Exhibitions
+            </a>
+            <a href="#" class="bg-white border border-gray-300 p-3 rounded-full text-center hover:bg-gray-100">
+                Festivals
+            </a>
+            <a href="#" class="bg-white border border-gray-300 p-3 rounded-full text-center hover:bg-gray-100">
+                Virtual Conferences
+            </a>
+            <a href="#" class="bg-white border border-gray-300 p-3 rounded-full text-center hover:bg-gray-100">
+                Lectures/Talks
+            </a>
+            <a href="#" class="bg-white border border-gray-300 p-3 rounded-full text-center hover:bg-gray-100">
+                Games
+            </a>
+            <a href="#" class="bg-white border border-gray-300 p-3 rounded-full text-center hover:bg-gray-100">
+                Mental health
+            </a>
+            <a href="#" class="bg-white border border-gray-300 p-3 rounded-full text-center hover:bg-gray-100">
+                Workshops
+            </a>
+            <!-- ... Add more text items here ... -->
+            <a href="#" class="bg-white border border-gray-300 p-3 rounded-full text-center hover:bg-gray-100">
+                Trade shows
+            </a>
+        </div>
+    </div>
+</div>
+
+
+
+<span class="text-2xl font-semibold px-16 md:px-32 mt-24 gap-12" style="color: #425466;"> Events </span>
+
+<div class="flex flex-wrap grid grid-cols md:grid-cols-3 px-2 md:px-16 mt-16">
+
+    <!-- this is the general card, the event cards -->
+    <a href="individualeventpage.html" class="max-w-md mx-auto bg-white shadow-md rounded-md mb-8 overflow-hidden relative transition-transform transform hover:scale-105 block">
+        <img class="w-full h-48 object-cover" src="https://via.placeholder.com/500x300" alt="Card Image">
+        <div class="absolute top-0 left-0 bg-red-700 text-white py-1 px-2 rounded-bl-md rounded-tr-md">
+            Featured
+        </div>
+        <div class="absolute top-1/3 left-1/4 flex justify-center space-x-4 mt-4 w-full">
+            <div class="w-12 h-12 flex items-center justify-center bg-white rounded-full border border-gray-300">
+                <i class="fas fa-download text-gray-600 text-xl" id="downloadIcon"></i>
+            </div>
+            <div class="w-12 h-12 flex items-center justify-center bg-white rounded-full border border-gray-300">
+                <i class="far fa-thumbs-up text-gray-600 text-xl" id="likeIcon"></i>
+            </div>
+        </div>
+        <div class="px-6 py-4">
+            <p class="text-xl font-semibold text-gray-800 mb-2">Moh Lagos Business Exhibition
+                </p>
+            <p class="text-sm text-brown-200 font-medium mb-2">Wed, Dec 13, 2023.  9:00 AM
+                </p>
+            <p class="text-sm text-gray-600 mb-2">Ogudu Boys Scout • Lagos, LA
+                </p>
+            <p class="text-sm text-gray-600 mb-2">Free
+                </p>
+            <p class="text-sm text-gray-800 font-medium mb-2">Tech Connect Africa</p>
+        </div>
+    </a>
+
+    <a href="individualeventpage.html" class="max-w-md mx-auto bg-white shadow-md rounded-md mb-8 overflow-hidden relative transition-transform transform hover:scale-105 block">
+        <img class="w-full h-48 object-cover" src="https://via.placeholder.com/500x300" alt="Card Image">
+        <div class="absolute top-1/3 left-1/4 flex justify-center space-x-4 mt-4 w-full">
+            <div class="w-12 h-12 flex items-center justify-center bg-white rounded-full border border-gray-300">
+                <i class="fas fa-download text-gray-600 text-xl" id="downloadIcon"></i>
+            </div>
+            <div class="w-12 h-12 flex items-center justify-center bg-white rounded-full border border-gray-300">
+                <i class="far fa-thumbs-up text-gray-600 text-xl" id="likeIcon"></i>
+            </div>
+        </div>
+        <div class="px-6 py-4">
+            <p class="text-xl font-semibold text-gray-800 mb-2">Moh Lagos Business Exhibition
+                </p>
+            <p class="text-sm text-brown-200 font-medium mb-2">Wed, Dec 13, 2023.  9:00 AM
+                </p>
+            <p class="text-sm text-gray-600 mb-2">Ogudu Boys Scout • Lagos, LA
+                </p>
+            <p class="text-sm text-gray-600 mb-2">Free
+                </p>
+            <p class="text-sm text-gray-800 font-medium mb-2">Tech Connect Africa</p>
+        </div>
+    </a>
+
+
+    <a href="individualeventpage.html" class="max-w-md mx-auto bg-white shadow-md rounded-md mb-8 overflow-hidden relative transition-transform transform hover:scale-105 block">
+        <img class="w-full h-48 object-cover" src="https://via.placeholder.com/500x300" alt="Card Image">
+        <div class="absolute top-1/3 left-1/4 flex justify-center space-x-4 mt-4 w-full">
+            <div class="w-12 h-12 flex items-center justify-center bg-white rounded-full border border-gray-300">
+                <i class="fas fa-download text-gray-600 text-xl" id="downloadIcon"></i>
+            </div>
+            <div class="w-12 h-12 flex items-center justify-center bg-white rounded-full border border-gray-300">
+                <i class="far fa-thumbs-up text-gray-600 text-xl" id="likeIcon"></i>
+            </div>
+        </div>
+        <div class="px-6 py-4">
+            <p class="text-xl font-semibold text-gray-800 mb-2">Moh Lagos Business Exhibition
+                </p>
+            <p class="text-sm text-brown-200 font-medium mb-2">Wed, Dec 13, 2023.  9:00 AM
+                </p>
+            <p class="text-sm text-gray-600 mb-2">Ogudu Boys Scout • Lagos, LA
+                </p>
+            <p class="text-sm text-gray-600 mb-2">Free
+                </p>
+            <p class="text-sm text-gray-800 font-medium mb-2">Tech Connect Africa</p>
+        </div>
+    </a>
+
+    <a href="individualeventpage.html" class="max-w-md mx-auto bg-white shadow-md rounded-md mb-8 overflow-hidden relative transition-transform transform hover:scale-105 block">
+        <img class="w-full h-48 object-cover" src="https://via.placeholder.com/500x300" alt="Card Image">
+        <div class="absolute top-0 left-0 bg-red-700 text-white py-1 px-2 rounded-bl-md rounded-tr-md">
+            Featured
+        </div>
+        <div class="absolute top-1/3 left-1/4 flex justify-center space-x-4 mt-4 w-full">
+            <div class="w-12 h-12 flex items-center justify-center bg-white rounded-full border border-gray-300">
+                <i class="fas fa-download text-gray-600 text-xl" id="downloadIcon"></i>
+            </div>
+            <div class="w-12 h-12 flex items-center justify-center bg-white rounded-full border border-gray-300">
+                <i class="far fa-thumbs-up text-gray-600 text-xl" id="likeIcon"></i>
+            </div>
+        </div>
+        <div class="px-6 py-4">
+            <p class="text-xl font-semibold text-gray-800 mb-2">Moh Lagos Business Exhibition
+                </p>
+            <p class="text-sm text-brown-200 font-medium mb-2">Wed, Dec 13, 2023.  9:00 AM
+                </p>
+            <p class="text-sm text-gray-600 mb-2">Ogudu Boys Scout • Lagos, LA
+                </p>
+            <p class="text-sm text-gray-600 mb-2">Free
+                </p>
+            <p class="text-sm text-gray-800 font-medium mb-2">Tech Connect Africa</p>
+        </div>
+    </a>
+
+    <a href="individualeventpage.html" class="max-w-md mx-auto bg-white shadow-md rounded-md mb-8 overflow-hidden relative transition-transform transform hover:scale-105 block">
+        <img class="w-full h-48 object-cover" src="https://via.placeholder.com/500x300" alt="Card Image">
+        <div class="absolute top-1/3 left-1/4 flex justify-center space-x-4 mt-4 w-full">
+            <div class="w-12 h-12 flex items-center justify-center bg-white rounded-full border border-gray-300">
+                <i class="fas fa-download text-gray-600 text-xl" id="downloadIcon"></i>
+            </div>
+            <div class="w-12 h-12 flex items-center justify-center bg-white rounded-full border border-gray-300">
+                <i class="far fa-thumbs-up text-gray-600 text-xl" id="likeIcon"></i>
+            </div>
+        </div>
+        <div class="px-6 py-4">
+            <p class="text-xl font-semibold text-gray-800 mb-2">Moh Lagos Business Exhibition
+                </p>
+            <p class="text-sm text-brown-200 font-medium mb-2">Wed, Dec 13, 2023.  9:00 AM
+                </p>
+            <p class="text-sm text-gray-600 mb-2">Ogudu Boys Scout • Lagos, LA
+                </p>
+            <p class="text-sm text-gray-600 mb-2">Free
+                </p>
+            <p class="text-sm text-gray-800 font-medium mb-2">Tech Connect Africa</p>
+        </div>
+    </a>
+
+    <a href="individualeventpage.html" class="max-w-md mx-auto bg-white shadow-md rounded-md mb-8 overflow-hidden relative transition-transform transform hover:scale-105 block">
+        <img class="w-full h-48 object-cover" src="https://via.placeholder.com/500x300" alt="Card Image">
+        <div class="absolute top-0 left-0 bg-red-700 text-white py-1 px-2 rounded-bl-md rounded-tr-md">
+            Featured
+        </div>
+        <div class="absolute top-1/3 left-1/4 flex justify-center space-x-4 mt-4 w-full">
+            <div class="w-12 h-12 flex items-center justify-center bg-white rounded-full border border-gray-300">
+                <i class="fas fa-download text-gray-600 text-xl" id="downloadIcon"></i>
+            </div>
+            <div class="w-12 h-12 flex items-center justify-center bg-white rounded-full border border-gray-300">
+                <i class="far fa-thumbs-up text-gray-600 text-xl" id="likeIcon"></i>
+            </div>
+        </div>
+        <div class="px-6 py-4">
+            <p class="text-xl font-semibold text-gray-800 mb-2">Moh Lagos Business Exhibition
+                </p>
+            <p class="text-sm text-brown-200 font-medium mb-2">Wed, Dec 13, 2023.  9:00 AM
+                </p>
+            <p class="text-sm text-gray-600 mb-2">Ogudu Boys Scout • Lagos, LA
+                </p>
+            <p class="text-sm text-gray-600 mb-2">Free
+                </p>
+            <p class="text-sm text-gray-800 font-medium mb-2">Tech Connect Africa</p>
+        </div>
+    </a>
+
+
+</div>
+<div class="flex justify-center items-center mb-24">
+    <a href="browsemoreevents.html" class="custom-button-2">Click Me</a>
+</div>
+
+
+
+
+<!-- Swiper -->
+<div class="swiper-container">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide">
+        <div class="text-center">
+          <h2 class="text-3xl font-bold mb-4">Customer Reviews</h2>
+          <h3 class="text-lg text-gray-600 mb-8">What our customers are saying</h3>
+  
+          <div class="flex items-start space-x-4 px-8 lg:px-16 overflow-x-auto">
+            <!-- Review Card 1 -->
+            <div class="max-w-md mx-2 items-start bg-white shadow-md rounded-md p-4">
+              <i class="fas fa-quote-left text-2xl justify-start text-gray-500 mb-2"></i>
+              <p class="text-gray-800 mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ac justo eu ligula tristique consectetur.</p>
+              <p class="text-gray-600">John Doe</p>
+            </div>
+  
+            <!-- Repeat for other review cards -->
+            <div class="max-w-md mx-2 bg-white shadow-md rounded-md p-4">
+                <i class="fas fa-quote-left text-2xl text-gray-500 mb-2"></i>
+                <p class="text-gray-800 mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ac justo eu ligula tristique consectetur.</p>
+                <p class="text-gray-600">John Doe</p>
+              </div>
+
+              <div class="max-w-md mx-2 bg-white shadow-md rounded-md p-4">
+                <i class="fas fa-quote-left text-2xl text-gray-500 mb-2"></i>
+                <p class="text-gray-800 mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ac justo eu ligula tristique consectetur.</p>
+                <p class="text-gray-600">John Doe</p>
+              </div>
+
+              <div class="max-w-md mx-2 bg-white shadow-md rounded-md p-4">
+                <i class="fas fa-quote-left text-2xl text-gray-500 mb-2"></i>
+                <p class="text-gray-800 mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ac justo eu ligula tristique consectetur.</p>
+                <p class="text-gray-600">John Doe</p>
+              </div>
+
+              <div class="max-w-md mx-2 bg-white shadow-md rounded-md p-4">
+                <i class="fas fa-quote-left text-2xl text-gray-500 mb-2"></i>
+                <p class="text-gray-800 mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ac justo eu ligula tristique consectetur.</p>
+                <p class="text-gray-600">John Doe</p>
+              </div>
+          </div>
+        </div>
+      </div>
+  
+      <!-- Repeat for other slides -->
+  
+    </div>
+    <!-- Add Pagination -->
+    <div class="swiper-pagination"></div>
+    <!-- Add Navigation 
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div> -->
+  </div>
+
+
+
+
+  <footer class="text-white p-8 mt-24 px-8 md:px-24" style="background-color: #02233B;">
+    <div class="flex flex-wrap justify-between">
+      <!-- Left Side -->
+      <div class="flex flex-col items-start">
+        <!-- Logo -->
+        <img src="your-logo.png" alt="Logo" class="mb-4">
+        <p class="mb-8 md:mb-24 w-96">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ac justo eu ligula tristique consectetur.
+    </p>
+  
+        <!-- Texts -->
+        <p class="mb-2 hidden md:block">Subscribe to our newsletter:</p>
+        <div class="flex items-center mb-4 hidden md:block">
+          <input type="email" placeholder="Enter your email" class="p-2 border rounded-l">
+          <button class="text-white p-2 rounded-r" style="background-color: #8BCEFD;">
+            <i class="fas fa-arrow-right"></i>
+          </button>
+        </div>
+  
+        <!-- Copywrite -->
+        <p class="mb-4 hidden md:block">&copy; Your Company Name, 2024. All rights reserved.</p>
+      </div>
+  
+      <!-- Right Side -->
+      <div >
+        <!-- Various Divs -->
+      <div class="flex flex-wrap items-start ">
+        <div class="pr-8 md:pr-16 mb-4">
+            <h4 class="text-lg font-semibold mb-2">Use Eventbust</h4>
+            <ul>
+              <li><a href="#">
+                Create event
+                </a></li>
+              <li><a href="#">Pricing
+                </a></li>
+              <li><a href="#">Event platform
+                </a></li>
+              <li><a href="#">FAQ
+                </a></li>
+              <li><a href="#">Event mobile ticketing
+                </a></li>
+              <li><a href="#">Event app marketplace</a></li>
+            </ul>
+          </div>
+  
+              <!-- Various Divs -->
+              <div class="pr-16 md:pr-8 md:pr-16 mb-4">
+                <h4 class="text-lg font-semibold mb-2">Plan Events
+                    </h4>
+                <ul>
+                  <li><a href="#">Event planning
+                    </a></li>
+                  <li><a href="#">Sell ticket online
+                    </a></li>
+                  <li><a href="#">Event payment system
+                    </a></li>
+                  <li><a href="#">Virtual event platform</a></li>
+                  <!-- Add more links as needed -->
+                </ul>
+              </div>
+  
+                  <!-- Various Divs -->
+                  <div class="pr-8 md:pr-16 mb-4">
+                    <h4 class="text-lg font-semibold mb-2">Find Events
+                        </h4>
+                    <ul>
+                      <li><a href="#">Lagos events
+                        </a></li>
+                      <li><a href="#">Canada events
+                        </a></li>
+                      <li><a href="#">New york events
+                        </a></li>
+                      <li><a href="#">Wedding events
+                        </a></li>
+                      <li><a href="#">Carnival events
+                        </a></li>
+                      <li><a href="#">Music concert events
+                        </a></li>
+                      <li><a href="#">Graduation events</a></li>
+                      <!-- Add more links as needed -->
+                    </ul>
+                  </div>
+      </div>
+  
+            <!-- Social Media Icons -->
+        <div class="pr-8 mt-8 mb-4">
+            <h4 class="text-lg font-semibold mb-2">Connect with us</h4>
+            <div class="flex items-center space-x-4">
+              <!-- Add your social media icons with links -->
+              <a href="#"><i class="fab fa-facebook"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+              <a href="#"><i class="fab fa-instagram"></i></a>
+              <!-- Add more social media icons as needed -->
+            </div>
+          </div>
+    
+          <!-- Additional Links -->
+          <div class="mb-4 ">
+            <ul class="flex flex-wrap items-start justify-between">
+              <li><a href="#">About</a></li>
+              <li><a href="#">Our Story</a></li>
+              <li><a href="#">Our Story</a></li>
+              <li><a href="#">Our Story</a></li>
+              <li><a href="#">Our Story</a></li>
+              <!-- Add more links as needed -->
+            </ul>
+          </div>
+
+
+          <p class="mb-2 mt-16 md:hidden">Subscribe to our newsletter:</p>
+        <div class="flex items-center mb-4 md:hidden">
+          <input type="email" placeholder="Enter your email" class="p-2 border rounded-l">
+          <button class="bg-blue-500 text-white p-2 rounded-r">
+            <i class="fas fa-arrow-right"></i>
+          </button>
+        </div>
+          <p class="mb-4 md:hidden">&copy; Your Company Name, 2024. All rights reserved.</p>
+
+    
+      </div>
+    </div>
+  </footer>
+  
+
+
+
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            Alpine.start();
+        });
+    </script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+      var scrollbarStyle = document.createElement('style');
+      scrollbarStyle.innerHTML = '.scrollable-container::-webkit-scrollbar { display: none; }';
+      document.head.appendChild(scrollbarStyle);
+    });
+  </script>
+  
+
+
+<script src="eventapp.js"></script>
+</body>
+</html>

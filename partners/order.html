@@ -1,0 +1,421 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard</title>
+  <!-- Tailwind CSS CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/fontawesome.min.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+
+ <!-- Alpine.js CDN -->
+ <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.0.6/dist/alpine.min.js" defer></script>
+
+
+ <style>
+    /* Custom CSS for mobile responsiveness */
+    @media (max-width: 640px) {
+      .sidebar {
+        display: block !important;
+        position: fixed;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        z-index: 50;
+        width: 50%; /* Change this value to 100% if you want it to occupy the full width */
+      max-width: 300px; /* Adjust the max-width as needed */
+      background-color: #ffffff; /* Adjust background color as needed */
+      border-right: 1px solid #d1d5db; /* Adjust border color as needed */
+    }
+      .sidebar.hidden {
+        transform: translateX(-100%);
+      }
+      .content {
+        margin-left: 0;
+      }
+      .sidebar-toggle {
+        display: block;
+      }
+    }
+  </style>
+  
+
+</head>
+<body x-data="{ sidebarOpen: false }" class="bg-gray-100">
+
+  <!-- Main Container -->
+  <div class="flex h-screen">
+
+<!-- Sidebar Toggle Button (Mobile) -->
+<button @click="sidebarOpen = !sidebarOpen" class="block sm:hidden fixed top-0 left-0 mt-4 ml-4 z-50">
+    <i :class="{ 'fas fa-bars': !sidebarOpen, 'fas fa-times': sidebarOpen }"></i>
+</button>
+
+ <!-- Sidebar -->
+ <div :class="{ 'hidden': !sidebarOpen }" class="sidebar w-64 bg-gray-800 border-r border-gray-500 fixed top-0 bottom-0 sm:block">
+    <!-- Logo and Sidebar Header -->
+    <div class="flex py-4 px-6 border-b border-gray-600">
+      <img src="logo.png" alt="Logo" class="w-8 h-8 mr-2">
+      <h1 class="text-lg text-gray-400 font-bold">Dashboard</h1>
+    </div>
+    <!-- Sidebar Navigation -->
+    <ul>
+      <!-- Events -->
+      <li class="px-6 py-3 hover:bg-gray-200 text-gray-400 cursor-pointer">
+        <a href="neweventstep1.html" class="flex items-center">
+          <i class="fas fa-calendar-alt mr-2"></i>
+          <span class="text-base">Events</span>
+          <i class="fas fa-chevron-right ml-auto"></i>
+        </a>
+      </li>
+<!-- Management -->
+<li class="relative px-6 py-3 hover:bg-gray-200 text-gray-400 cursor-pointer" id="managementDropdown">
+    <a href="management.html" href="javascript:void(0);" class="flex items-center" onclick="toggleDropdown('managementDropdown')">
+      <i class="fas fa-tasks mr-2"></i>
+      <span class="text-base">Management</span>
+      <!-- Dropdown Icon -->
+      <i id="managementDropdownIcon" class="fas ml-auto fa-caret-down"></i>
+    </a>
+    <!-- Dropdown Content -->
+    <div id="managementDropdownContent" class="absolute right-0 mt-2 bg-white border border-gray-300 rounded-md py-2 w-48 hidden">
+      <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Option 1</a>
+      <a href="schedulenotification.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Schedule Notification</a>
+      <a href="createnotififaction.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Create Notification</a>
+    </div>
+  </li>
+  
+  
+ <!-- Attendees -->
+ <li class="relative px-6 py-3 hover:bg-gray-200 text-gray-400 cursor-pointer" id="attendeesDropdown">
+    <a href="javascript:void(0);" class="flex items-center" onclick="toggleDropdown('attendeesDropdown')">
+        <i class="fas fa-users mr-2"></i>
+        <span class="text-base">Attendees</span>
+        <!-- Dropdown Icon -->
+        <i id="attendeesDropdownIcon" class="fas ml-auto fa-caret-down"></i>
+    </a>
+    <!-- Dropdown Content -->
+    <div id="attendeesDropdownContent" class="absolute right-0 mt-2 bg-white border border-gray-300 rounded-md py-2 w-48 hidden">
+        <a href="attendees.html" class="block px-4 py-2 bg-gray-600 text-gray-300 hover:bg-gray-700">List of attendees</a>
+        <a href="attendeeswithseats.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Attendees with seats</a>
+        <a href="addtable.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Add table </a>
+        <a href="tablestatus.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Table Status</a>
+    </div>
+</li>
+      <!-- Library -->
+      <li class="px-6 py-3 hover:bg-gray-200 text-gray-400 cursor-pointer">
+       <a href="library.html" class="flex items-center">
+        <i class="fas fa-book mr-2"></i>
+        <span class="text-base">Library</span>
+        <i class="fas fa-chevron-right ml-auto"></i>
+       </a>
+      </li>
+      <!-- Orders -->
+      <li class="px-6 py-3 bg-gray-200 text-gray-800 cursor-pointer">
+       <a href="order.html" class="flex items-center">
+        <i class="fas fa-shopping-cart mr-2"></i>
+        <span class="text-base">Orders</span>
+        <i class="fas fa-chevron-right ml-auto"></i>
+       </a>
+      </li>
+      <!-- Contacts -->
+      <li class="px-6 py-3 hover:bg-gray-200 text-gray-400 cursor-pointer">
+        <a href="contacts.html" class="flex items-center">
+            <i class="fas fa-address-book mr-2"></i>
+        <span class="text-base">Contacts</span>
+        <i class="fas fa-chevron-right ml-auto"></i>
+        </a>
+      </li>
+      <!-- Marketing -->
+      <li class="px-6 py-3 hover:bg-gray-200 text-gray-400 cursor-pointer">
+        <a href="marketing.html" class="flex items-center">
+            <i class="fas fa-bullhorn mr-2"></i>
+        <span class="text-base">Marketing</span>
+        <i class="fas fa-chevron-right ml-auto"></i>
+        </a>
+      </li>
+      <!-- Finance -->
+      <li class="px-6 py-3 hover:bg-gray-200 text-gray-400 cursor-pointer">
+       <a href="finance.html" class="flex items-center">
+        <i class="fas fa-money-bill-wave mr-2"></i>
+        <span class="text-base">Finance</span>
+        <i class="fas fa-chevron-right ml-auto"></i>
+       </a>
+      </li>
+      <!-- Settings -->
+      <li class="px-6 py-3 hover:bg-gray-200 text-gray-400 cursor-pointer">
+       <a href="settings.html" class="flex items-center">
+        <i class="fas fa-cog mr-2"></i>
+        <span class="text-base">Settings</span>
+        <i class="fas fa-chevron-right ml-auto"></i>
+       </a>
+      </li>
+      <!-- Reporting -->
+      <li class="px-6 py-3 hover:bg-gray-200 text-gray-400 cursor-pointer">
+        <a href="reporting.html" class="flex items-center">
+            <i class="fas fa-chart-line mr-2"></i>
+        <span class="text-base">Reporting</span>
+        <i class="fas fa-chevron-right ml-auto"></i>
+        </a>
+      </li>
+      <!-- Add more sidebar items as needed -->
+    </ul>
+  </div>
+
+
+          <!-- Main Content -->
+    <div class="content flex flex-col flex-1">
+
+      <!-- Top Bar Toggle Button (Mobile) -->
+<button @click="topBarOpen = !topBarOpen" class="block sm:hidden fixed top-0 right-0 mt-4 mr-4 z-50">
+    <i :class="{ 'fas fa-bars': !topBarOpen, 'fas fa-times': topBarOpen }"></i>
+</button>
+
+<!-- Top Bar (Desktop) -->
+<div class="top-bar bg-white border-b border-gray-300 text-gray-800 px-4 py-3 sm:px-12 flex justify-between items-center ml-60 hidden sm:flex">
+    <!-- Title -->
+    <div class="flex items-center">
+      <h2 class="text-lg font-semibold">My Event</h2>
+      <span class="mx-2 sm:mx-12">/</span>
+      <h2 class="text-lg font-semibold">Default</h2>
+    </div>
+    <!-- Search Input, Filter Button, New Event Button, and User Profile -->
+    <div class="flex items-center">
+      <input type="text" placeholder="Search" class="border border-gray-400 px-2 py-1 mr-2 rounded-md">
+      <button class="border border-gray-800 text-gray-800 px-3 py-1 mr-2 rounded-md hover:bg-gray-600">Filter</button>
+      <a href="neweventstep1.html" class="bg-gray-800 text-white mr-2 px-4 py-2 rounded-md hover:bg-gray-600">New Event</a>
+      <i class="fas fa-home text-xl ml-2"></i>
+      <i class="fas fa-bell text-xl ml-2 mr-2"></i>
+      <div class="flex items-center ml-2">
+        <img src="profile.jpg" alt="Profile" class="w-8 h-8 rounded-full">
+        <span class="ml-2">Username</span>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Top Bar (Mobile) -->
+  <div class="top-bar bg-gray-800 border-b border-gray-300 text-gray-300 px-4 py-4 sm:px-12 flex justify-between items-center block sm:hidden">
+    <!-- Sidebar Toggle Button (Mobile) -->
+    <button @click="sidebarOpen = !sidebarOpen" class="block">
+      <i :class="{ 'fas fa-bars': !sidebarOpen, 'fas fa-times': sidebarOpen } text-white"></i>
+    </button>
+    <!-- Title -->
+    <div class="flex items-center">
+      <h2 class="text-lg font-semibold">My Event</h2>
+      <span class="mx-2 sm:mx-12">/</span>
+      <h2 class="text-lg font-semibold">Default</h2>
+    </div>
+    <!-- User Profile -->
+    <div class="flex items-center">
+      <div class="flex items-center ml-2">
+        <img src="profile.jpg" alt="Profile" class="w-8 h-8 rounded-full">
+        <span class="ml-2">Username</span>
+      </div>
+      <i class="fas fa-home text-xl ml-2"></i>
+      <!-- Bell Icon -->
+      <i class="fas fa-bell text-xl ml-2 mr-2"></i>
+    </div>
+  </div>
+
+  <!-- Additional Items for Small Screens -->
+<div class="flex border-b border-gray-300 bg-white sm:hidden justify-between p-4"> <!-- Adjust margin and padding as needed -->
+    <!-- Search Input -->
+<div>
+    <input type="text" placeholder="Search" class="border px-2 py-1 mr-2 rounded-md w-64">
+    <!-- Filter Button -->
+    <button class="border border-gray-800 text-gray-800 px-2 py-1 mr-2 rounded-md hover:bg-gray-600">Filter</button>
+  
+</div>
+ <!-- New Event Button -->
+    <a href="neweventstep1.html" class="bg-gray-800 text-white mr-2 px-4 py-1 rounded-md hover:bg-gray-600">New Event</a>
+  </div>
+      
+
+        <!-- Header Section -->
+        <div class="flex-1 ml-0 lg:ml-64 border-t mb-4 flex-wrap p-4 px-10 bg-white border-b border-gray-300 text-gray-800">
+<div class="flex items-center justify-between mb-4">
+    <h2 class="text-xl font-semibold">Orders</h2>
+    <button class="bg-gray-200 hover:bg-gray-300 px-4 py-2 rounded-md">Search</button>
+</div>
+
+<!-- Dropdown Rectangles -->
+<div class="flex mb-4">
+    <!-- Dropdown Rectangle 1 -->
+    <div class="relative border px-8 py-3 mr-4">
+        <p class="mb-1 font-semibold">Dropdown 1</p>
+        <div class="flex items-center">
+            <span>Option 1</span>
+            <button class="ml-auto focus:outline-none">
+                <i class="fas fa-caret-down"></i>
+            </button>
+        </div>
+    </div>
+    <!-- Dropdown Rectangle 2 -->
+    <div class="relative border px-8 py-3">
+        <p class="mb-1 font-semibold">Dropdown 2</p>
+        <div class="flex items-center">
+            <span>Option 1</span>
+            <button class="ml-auto focus:outline-none">
+                <i class="fas fa-caret-down"></i>
+            </button>
+        </div>
+    </div>
+</div>
+
+<!-- Divider -->
+<hr class="border-t border-gray-300 mb-4">
+
+<!-- Order Details -->
+<div class="border justify-between border-gray-300 rounded-md p-4 flex items-center mb-4">
+    <!-- Icon Button Inside Gray Circle -->
+   <div class="flex">
+    <div class="rounded-full bg-gray-200 flex items-center justify-center h-12 w-12 mr-4">
+        <i class="fas fa-cog"></i>
+    </div>
+    <!-- Star Icon (Change Color on Click) -->
+    <button class="text-yellow-500 focus:outline-none mr-4">
+        <i class="fas fa-star"></i>
+    </button>
+    <!-- Name and Surname -->
+    <div class="mr-4">
+        <p class="font-semibold">John Doe</p>
+        <p class="text-sm text-gray-600">john.doe@example.com</p>
+    </div>
+   </div>
+    <!-- Ticket Type -->
+    <div class="mr-16 bg-orange-300">
+        <p class="font-semibold ">RSVP Ticket</p>
+    </div>
+
+</div>
+
+<!-- Order Details -->
+<div class="border justify-between border-gray-300 rounded-md p-4 flex items-center mb-4">
+    <!-- Icon Button Inside Gray Circle -->
+   <div class="flex">
+    <div class="rounded-full bg-gray-200 flex items-center justify-center h-12 w-12 mr-4">
+        <i class="fas fa-cog"></i>
+    </div>
+    <!-- Star Icon (Change Color on Click) -->
+    <button class="text-yellow-500 focus:outline-none mr-4">
+        <i class="fas fa-star"></i>
+    </button>
+    <!-- Name and Surname -->
+    <div class="mr-4">
+        <p class="font-semibold">John Doe</p>
+        <p class="text-sm text-gray-600">john.doe@example.com</p>
+    </div>
+   </div>
+    <!-- Ticket Type -->
+    <div class="mr-16 bg-orange-300">
+        <p class="font-semibold">RSVP Ticket</p>
+    </div>
+
+</div>
+
+<!-- Order Details -->
+<div class="border justify-between border-gray-300 rounded-md p-4 flex items-center mb-4">
+    <!-- Icon Button Inside Gray Circle -->
+   <div class="flex">
+    <div class="rounded-full bg-gray-200 flex items-center justify-center h-12 w-12 mr-4">
+        <i class="fas fa-cog"></i>
+    </div>
+    <!-- Star Icon (Change Color on Click) -->
+    <button class="text-yellow-500 focus:outline-none mr-4">
+        <i class="fas fa-star"></i>
+    </button>
+    <!-- Name and Surname -->
+    <div class="mr-4">
+        <p class="font-semibold">John Doe</p>
+        <p class="text-sm text-gray-600">john.doe@example.com</p>
+    </div>
+   </div>
+    <!-- Ticket Type -->
+    <div class="mr-16 bg-orange-300">
+        <p class="font-semibold">RSVP Ticket</p>
+    </div>
+
+</div>
+
+
+<!-- Order Details -->
+<div class="border justify-between border-gray-300 rounded-md p-4 flex items-center mb-4">
+    <!-- Icon Button Inside Gray Circle -->
+   <div class="flex">
+    <div class="rounded-full bg-gray-200 flex items-center justify-center h-12 w-12 mr-4">
+        <i class="fas fa-cog"></i>
+    </div>
+    <!-- Star Icon (Change Color on Click) -->
+    <button class="text-yellow-500 focus:outline-none mr-4">
+        <i class="fas fa-star"></i>
+    </button>
+    <!-- Name and Surname -->
+    <div class="mr-4">
+        <p class="font-semibold">John Doe</p>
+        <p class="text-sm text-gray-600">john.doe@example.com</p>
+    </div>
+   </div>
+    <!-- Ticket Type -->
+    <div class="mr-16 bg-orange-300">
+        <p class="font-semibold">RSVP Ticket</p>
+    </div>
+
+</div>
+
+
+    <!-- Pagination Indicator -->
+    <div class="flex text-center justify-center items-center">
+        <p class="mr-2">1 of 8</p>
+        <button class="focus:outline-none">
+            <i class="fas fa-arrow-right"></i>
+        </button>
+    </div>
+
+</div>
+
+         <!-- Font Awesome CDN for icons -->
+  <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/alpinejs@2.8.2"></script>
+
+  
+  <script>
+    // Function to close the sidebar and top bar when clicking outside
+    document.addEventListener('click', function(event) {
+      const sidebarButton = document.querySelector('.sidebar button');
+      const topBarButton = document.querySelector('.top-bar button');
+      if (event.target !== sidebarButton && event.target !== topBarButton) {
+        document.querySelector('.sidebar').classList.add('hidden');
+        document.querySelector('.top-bar').classList.add('hidden');
+      }
+    });
+  </script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const dropdownButton = document.querySelector('.focus\:outline-none');
+      const dropdownContent = document.querySelector('.absolute');
+  
+      dropdownButton.addEventListener('click', function() {
+        dropdownContent.classList.toggle('hidden');
+      });
+    });
+  </script>
+
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        Alpine.data('sidebar', () => ({
+            sidebarOpen: false,
+            toggleSidebar() {
+                this.sidebarOpen = !this.sidebarOpen;
+            }
+        }));
+    });
+</script>
+
+
+
+</body>
+</html>

@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard</title>
+  <!-- Tailwind CSS CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/fontawesome.min.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+
+
+</head>
+<body class="bg-gray-100"  x-data="{ sidebarOpen: false, topBarOpen: false }" @click.away="sidebarOpen = false; topBarOpen = false">
+
+  <!-- Main Container -->
+  <div class="flex h-screen">
+
+<!-- Sidebar Toggle Button (Mobile) -->
+<button @click="sidebarOpen = !sidebarOpen" class="block sm:hidden fixed top-0 left-0 mt-4 ml-4 z-50">
+    <i :class="{ 'fas fa-bars': !sidebarOpen, 'fas fa-times': sidebarOpen }"></i>
+</button>
+
+ <!-- Sidebar -->
+ <div class="w-64 bg-white border-r border-gray-300">
+    <!-- Logo and Sidebar Header -->
+    <div class="py-4 px-6 border-b border-gray-300">
+      <img src="logo.png" alt="Logo" class="w-8 h-8 mr-2">
+      <h1 class="text-lg font-bold">Dashboard</h1>
+    </div>
+    <!-- Sidebar Navigation -->
+    <ul>
+      <!-- Events -->
+      <li class="px-6 py-3 hover:bg-gray-100 cursor-pointer">
+        <a href="events.html" class="flex items-center">
+          <i class="fas fa-calendar-alt color- mr-2"></i>
+          <span class="text-base">Events</span>
+          <i class="fas fa-chevron-right ml-auto"></i>
+        </a>
+      </li>
+<!-- Management -->
+<li class="relative px-6 py-3 hover:bg-gray-100 cursor-pointer" id="managementDropdown">
+    <a href="javascript:void(0);" class="flex items-center" onclick="toggleDropdown('managementDropdown')">
+      <i class="fas fa-tasks mr-2"></i>
+      <span class="text-base">Management</span>
+      <!-- Dropdown Icon -->
+      <i id="managementDropdownIcon" class="fas ml-auto fa-caret-down"></i>
+    </a>
+    <!-- Dropdown Content -->
+    <div id="managementDropdownContent" class="absolute right-0 mt-2 bg-white border border-gray-300 rounded-md py-2 w-48 hidden">
+      <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Option 1</a>
+      <a href="schedulenotification.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Schedule Notification</a>
+      <a href="createnotififaction.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Create Notification</a>
+    </div>
+  </li>
+  
+  
+ <!-- Attendees -->
+ <li class="relative px-6 py-3 hover:bg-gray-100 cursor-pointer" id="attendeesDropdown">
+    <a href="javascript:void(0);" class="flex items-center" onclick="toggleDropdown('attendeesDropdown')">
+        <i class="fas fa-users mr-2"></i>
+        <span class="text-base">Attendees</span>
+        <!-- Dropdown Icon -->
+        <i id="attendeesDropdownIcon" class="fas ml-auto fa-caret-down"></i>
+    </a>
+    <!-- Dropdown Content -->
+    <div id="attendeesDropdownContent" class="absolute right-0 mt-2 bg-white border border-gray-300 rounded-md py-2 w-48 hidden">
+        <a href="attendees.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">List of attendees</a>
+        <a href="attendeeswithseats.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Attendees with seats</a>
+        <a href="addtable.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Add table </a>
+        <a href="tablestatus.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Table Status</a>
+    </div>
+</li>
+      <!-- Library -->
+      <li class="flex items-center px-6 py-3 hover:bg-gray-100 cursor-pointer">
+       <a href="">
+        <i class="fas fa-book mr-2"></i>
+        <span class="text-base">Library</span>
+        <i class="fas fa-chevron-right ml-auto"></i>
+       </a>
+      </li>
+      <!-- Orders -->
+      <li class="flex items-center px-6 py-3 hover:bg-gray-100 cursor-pointer">
+       <a href="">
+        <i class="fas fa-shopping-cart mr-2"></i>
+        <span class="text-base">Orders</span>
+        <i class="fas fa-chevron-right ml-auto"></i>
+       </a>
+      </li>
+      <!-- Contacts -->
+      <li class="flex items-center px-6 py-3 hover:bg-gray-100 cursor-pointer">
+        <a href="">
+            <i class="fas fa-address-book mr-2"></i>
+        <span class="text-base">Contacts</span>
+        <i class="fas fa-chevron-right ml-auto"></i>
+        </a>
+      </li>
+      <!-- Marketing -->
+      <li class="flex items-center px-6 py-3 hover:bg-gray-100 cursor-pointer">
+        <a href="">
+            <i class="fas fa-bullhorn mr-2"></i>
+        <span class="text-base">Marketing</span>
+        <i class="fas fa-chevron-right ml-auto"></i>
+        </a>
+      </li>
+      <!-- Finance -->
+      <li class="flex items-center px-6 py-3 hover:bg-gray-100 cursor-pointer">
+       <a href="">
+        <i class="fas fa-money-bill-wave mr-2"></i>
+        <span class="text-base">Finance</span>
+        <i class="fas fa-chevron-right ml-auto"></i>
+       </a>
+      </li>
+      <!-- Settings -->
+      <li class="flex items-center px-6 py-3 hover:bg-gray-100 cursor-pointer">
+       <a href="">
+        <i class="fas fa-cog mr-2"></i>
+        <span class="text-base">Settings</span>
+        <i class="fas fa-chevron-right ml-auto"></i>
+       </a>
+      </li>
+      <!-- Reporting -->
+      <li class="flex items-center px-6 py-3 hover:bg-gray-100 cursor-pointer">
+        <a href="">
+            <i class="fas fa-chart-line mr-2"></i>
+        <span class="text-base">Reporting</span>
+        <i class="fas fa-chevron-right ml-auto"></i>
+        </a>
+      </li>
+      <!-- Add more sidebar items as needed -->
+    </ul>
+  </div>
+
+
+          <!-- Main Content -->
+    <div class="flex flex-col flex-1">
+
+        <!-- Top Bar Toggle Button (Mobile) -->
+        <button @click="topBarOpen = !topBarOpen" class="block sm:hidden fixed top-0 right-0 mt-4 mr-4 z-50">
+            <i :class="{ 'fas fa-bars': !topBarOpen, 'fas fa-times': topBarOpen }"></i>
+        </button>
+
+        <!-- Top Bar -->
+        <div class="bg-white border-b border-gray-300 text-gray-800 px-12 py-2 flex justify-between items-center">
+          <!-- Title -->
+          <div class="flex items-center">
+            <h2 class="text-lg font-semibold">My Event</h2>
+            <span class="mx-12">/</span>
+            <h2 class="text-lg font-semibold">Default</h2>
+          </div>
+          <!-- Search Input, Filter Button, New Event Button -->
+          <div class="flex items-center">
+            <input type="text" placeholder="Search" class="border border-gray-400 px-2 py-1 mr-2 rounded-md">
+            <button class="bg-blue-500 text-white px-4 py-2 mr-32 rounded-md hover:bg-blue-600">Filter</button>
+            <a href="#" class="ml-2 bg-green-500 text-white mr-10 px-4 py-2 rounded-md hover:bg-green-600">New Event</a>
+            <!-- Add icons for Home, Notification, and User Profile here -->
+            <i class="fas fa-home text-xl ml-4"></i>
+            <i class="fas fa-bell text-xl ml-4 mr-5"></i>
+            <div class="flex items-center ml-4">
+              <img src="profile.jpg" alt="Profile" class="w-8 h-8 rounded-full">
+              <span class="ml-2">Username</span>
+            </div>
+          </div>
+        </div>
+      
+    
+<!-- Main Content Area -->
+<div class="flex-1 border-t mb-4 flex-wrap p-4 bg-white border-b border-gray-300 text-gray-800">
+    <div class="container mx-auto py-8 px-4">
+
+        <div class="flex justify-between items-center mb-4">
+            <!-- Text: "List of Attendees for Event" -->
+            <p class="font-bold">List of Attendees for Event</p>
+            
+            <!-- Divider -->
+            <div class="mx-2 border-l border-gray-400"></div>
+            
+            <!-- Links: "Preview Table" and "Attendees with Table" -->
+            <div class="flex">
+              <a href="previewtable.html" class="text-blue-500 hover:text-blue-600 mr-4">Preview Table</a>
+              <a href="#" class="text-blue-500 hover:text-blue-600">Attendees with Table</a>
+            </div>
+          </div>
+          
+
+        <!-- Table Container -->
+<div class="max-w-full mx-auto border-t border-gray-300 border-b mb-4 bg-white rounded-lg overflow-hidden shadow-lg">
+   <div class="flex border-t border-gray-300 border-b mb-4 justify-between">
+     <!-- Add Event Manager Button -->
+     <div class="flex justify-end mb-4">
+        <a href="#" class="bg-blue-500 hover:bg-blue-600 text-white font-semibold px-4 py-2 rounded-md mr-2">Add Event Manager</a>
+      </div>
+  
+       <!-- Export and Print Buttons -->
+    <div class="flex justify-end mt-4">
+      <!-- Export Button -->
+      <button  id="exportButton"  class="bg-green-500 hover:bg-green-600 text-white font-semibold px-4 py-2 rounded-md mr-2">
+        <i class="fas fa-file-export mr-2"></i> Export
+      </button>
+      <!-- Print Button -->
+      <button id="printButton" class="bg-gray-500 hover:bg-gray-600 text-white font-semibold px-4 py-2 rounded-md">
+        <i class="fas fa-print mr-2"></i> Print
+      </button>
+    </div>
+   </div>
+        
+        <!-- Table Container -->
+        <div class="max-w-full mb-4 mx-auto bg-white rounded-lg overflow-hidden shadow-lg">
+          <table class="w-full">
+            <!-- Table Headers -->
+            <thead>
+                <tr>
+                  <th class="px-6 py-3 border-b border-gray-200 bg-gray-50 text-left"> <!-- Checkbox -->
+                    <label class="inline-flex items-center">
+                      <input type="checkbox" class="form-checkbox h-5 w-5 text-blue-600">
+                    </label>
+                  </th>
+                  <th class="px-6 py-3 border-b border-gray-200 bg-gray-50 text-left">Name</th>
+                  <th class="px-6 py-3 border-b border-gray-200 bg-gray-50 text-left">Status</th>
+                  <th class="px-6 py-3 border-b border-gray-200 bg-gray-50 text-left">Status</th>
+                  <th class="px-6 py-3 border-b border-gray-200 bg-gray-50 text-left">Status</th>
+                  <th class="px-6 py-3 border-b border-gray-200 bg-gray-50 text-left">Status</th>
+                  <th class="px-6 py-3 border-b border-gray-200 bg-gray-50 text-left">Status</th>
+                  <!-- Add more headers as needed -->
+                </tr>
+              </thead>
+              <tbody class="bg-white divide-y divide-gray-200">
+                <tr>
+                  <td class="px-6 py-4 whitespace-nowrap">
+                    <!-- Checkbox -->
+                    <label class="inline-flex items-center">
+                      <input type="checkbox" class="form-checkbox h-5 w-5 text-blue-600">
+                    </label>
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap">
+                    <!-- Picture -->
+                   <a href="attendeeswithtables.html" class="flex items-center">
+                      <span class="font-medium">John Doe</span>
+                   </a>
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap">
+                    <!-- Status -->
+                    <span class="inline-flex items-center justify-center px-2 py-1 bg-green-100 text-green-800 text-xs rounded-full">Active</span>
+                  </td>
+                  <!-- Add more columns as needed -->
+                  <td class="px-6 py-4 whitespace-nowrap">
+                    <!-- Picture -->
+                    <div class="flex items-center">
+                      <span class="font-medium">John Doe</span>
+                    </div>
+                  </td>
+
+                  <td class="px-6 py-4 whitespace-nowrap">
+                    <!-- Picture -->
+                    <div class="flex items-center">
+                      <span class="font-medium">John Doe</span>
+                    </div>
+                  </td>
+
+                  <td class="px-6 py-4 whitespace-nowrap">
+                    <!-- Picture -->
+                    <div class="flex items-center">
+                      <span class="font-medium">John Doe</span>
+                    </div>
+                  </td>
+
+                  <td class="px-6 py-4 whitespace-nowrap">
+                    <!-- Status -->
+                    <span class="inline-flex items-center justify-center px-2 py-1 bg-green-100 text-green-800 text-xs rounded-full">Active</span>
+                  </td>
+                </tr>
+                <!-- Add more rows as needed -->
+              </tbody>
+
+            
+          </table>
+        </div>
+      </div>
+    
+  
+    <!-- Continue Button -->
+    <div class="text-center">
+      <a href="neweventstep2.html" class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600">Continue</a>
+    </div>
+  </div>
+  
+
+
+  <!-- Font Awesome CDN for icons -->
+  <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/alpinejs@2.8.2"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        Alpine.data('sidebar', () => ({
+            sidebarOpen: false,
+            toggleSidebar() {
+                this.sidebarOpen = !this.sidebarOpen;
+            }
+        }));
+    });
+</script>
+
+<script>
+   function toggleDropdown(dropdownId) {
+  var dropdown = document.getElementById(dropdownId);
+  var dropdownContent = document.getElementById(dropdownId + 'Content');
+  var dropdownIcon = document.getElementById(dropdownId + 'Icon');
+  
+  // Toggle visibility of dropdown content
+  if (dropdownContent.classList.contains('hidden')) {
+    dropdownContent.classList.remove('hidden');
+    dropdownIcon.classList.remove('fa-caret-down');
+    dropdownIcon.classList.add('fa-caret-up');
+  } else {
+    dropdownContent.classList.add('hidden');
+    dropdownIcon.classList.remove('fa-caret-up');
+    dropdownIcon.classList.add('fa-caret-down');
+  }
+  
+  // Adjust position of content below the dropdown
+  adjustContentPosition();
+}
+
+function adjustContentPosition() {
+  var dropdownHeight = document.getElementById('managementDropdownContent').offsetHeight;
+  var contentBelowDropdown = document.getElementById('contentBelowDropdown');
+  
+  // Adjust margin-top of content below the dropdown
+  contentBelowDropdown.style.marginTop = dropdownHeight + 'px';
+}
+  </script>
+  
+  
+  
+  
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const dropdownButton = document.querySelector('.focus\:outline-none');
+      const dropdownContent = document.querySelector('.absolute');
+  
+      dropdownButton.addEventListener('click', function() {
+        dropdownContent.classList.toggle('hidden');
+      });
+    });
+  </script>
+
+
+<!-- JavaScript to toggle dropdown visibility -->
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const dropdownButton = document.querySelector('.focus\:outline-none');
+      const dropdownContent = document.querySelector('.absolute');
+      let isDropdownOpen = false;
+  
+      // Function to toggle dropdown visibility
+      function toggleDropdown() {
+        isDropdownOpen = !isDropdownOpen;
+        dropdownContent.classList.toggle('hidden', !isDropdownOpen);
+      }
+  
+      // Event listener for dropdown button click
+      dropdownButton.addEventListener('click', function() {
+        toggleDropdown();
+      });
+  
+      // Close dropdown when clicking outside of it
+      document.addEventListener('click', function(event) {
+        if (!dropdownButton.contains(event.target) && !dropdownContent.contains(event.target)) {
+          dropdownContent.classList.add('hidden');
+          isDropdownOpen = false;
+        }
+      });
+    });
+  </script>
+  
+  
+  <script>
+    function toggleBackgroundColor(element) {
+      // Remove background color from all options
+      var options = document.querySelectorAll('.flex.items-center');
+      options.forEach(function(option) {
+        option.style.backgroundColor = '';
+      });
+  
+      // Add background color to the selected option
+      element.parentNode.style.backgroundColor = '#edf2f7'; // Change to desired color
+    }
+  </script>
+  
+
+  <!-- JavaScript to toggle dropdown visibility -->
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const eventTypeSelect = document.getElementById('eventType');
+      const selectedEventType = document.getElementById('selectedEventType');
+  
+      // Event listener for changing event type
+      eventTypeSelect.addEventListener('change', function() {
+        selectedEventType.textContent = eventTypeSelect.options[eventTypeSelect.selectedIndex].text;
+      });
+  
+      // Event listener for toggling dropdown visibility
+      eventTypeSelect.addEventListener('click', function() {
+        if (eventTypeSelect.classList.contains('open')) {
+          eventTypeSelect.classList.remove('open');
+        } else {
+          eventTypeSelect.classList.add('open');
+        }
+      });
+  
+      // Close dropdown when clicking outside of it
+      document.addEventListener('click', function(event) {
+        if (!eventTypeSelect.contains(event.target)) {
+          eventTypeSelect.classList.remove('open');
+        }
+      });
+    });
+  </script>
+
+<script>
+    document.getElementById('exportButton').addEventListener('click', function() {
+      // Perform export action here
+      alert('Exporting table data...');
+    });
+  
+    document.getElementById('printButton').addEventListener('click', function() {
+      // Perform print action here
+      window.print();
+    });
+  </script>
+  
+
+
+</body>
+</html>
