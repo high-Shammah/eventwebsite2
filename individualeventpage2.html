@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event app </title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+
+    <link rel="stylesheet" href="eventapp.css">
+    <script src="https://kit.fontawesome.com/69f9015363.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha384-rKI3qiC0aV6Tks0Xja5aFTo5gLOO3xqvftP8z4y5wrgU8bqToR0MO2ZiIep8YKZ" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+    <script src="https://kit.fontawesome.com/your-font-awesome-kit.js" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@2.8.2"></script>
+   
+
+      <!-- Link Swiper's CSS -->
+      <link rel="stylesheet" href="css/swiper-bundle.min.css">
+<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+
+
+</head>
+
+<body>
+    
+    <div x-data="{ open: false }" class="p-4 px-4 lg:px-16" style="background-color: #02233B;">
+        <!-- Logo and Navigation Links for large screens -->
+        <div class="hidden lg:flex items-center justify-between">
+            <a href="" class="flex items-center">
+                <img src="path/to/logo.png" alt="Logo" class="h-8 w-8 mr-2">
+                <div class="text-white">YourSite</div>
+            </a>
+            <div class="flex space-x-4">
+                <a href="index.html" class="text-white border-b-2 border-white ml-96">Events</a>
+                <a href="#" class="text-white opacity-70 hover:opacity-100">Create an event</a>
+                <a href="contactus.html" class="text-white opacity-70 hover:opacity-100">Contact</a>
+                <a href="FAQ.html" class="text-white opacity-70 hover:opacity-100">FAQ</a>
+            </div>
+            <div class="flex space-x-4">
+                <a href="signup.html" class="rounded px-4 py-2" style="background-color: #F4F4F4;color: #02233B;">Sign Up</a>
+                <a href="signin.html" class="text-white bg-gray-700 rounded px-4 py-2">Sign In</a>
+            </div>
+        </div>
+    
+       <!-- Mobile Navigation for small screens -->
+    <div class="lg:hidden flex items-center px-4 justify-between">
+        <a href="" class="flex items-center">
+            <img src="path/to/logo.png" alt="Logo" class="h-8 w-8 mr-2">
+            <div class="text-white">YourSite</div>
+        </a>
+       <div class="justify-between">
+        <a href="signup.html" class="rounded-full px-4 py-2" style="background-color: #F4F4F4;color: #02233B;">Sign Up</a>
+        <button @click="open = !open" class="text-white">
+            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                 viewBox="0 0 24 24" class="w-6 h-6">
+                <path d="M4 6h16M4 12h16m-7 6h7"></path>
+            </svg>
+        </button>
+       </div>
+        
+    </div>
+
+    <!-- Mobile Menu -->
+    <div x-show="open" class="lg:hidden fixed inset-0 bg-black opacity-75 z-50"></div>
+    <div x-show="open" class="lg:hidden fixed top-0 right-0 p-4 bg-gray-800 z-50">
+        <div class="flex flex-col items-center justify-center space-y-4">
+            <button @click="open = false" class="text-white">
+                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                     stroke-width="2" viewBox="0 0 24 24" class="w-6 h-6">
+                    <path d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+            </button>
+            <a href="index.html" class="text-white border-b-2 border-white ml-60">Events</a>
+            <a href="#" class="text-white opacity-70 hover:opacity-100">Create an event</a>
+            <a href="contactus.html" class="text-white opacity-70 hover:opacity-100">Contact</a>
+            <a href="FAQ.html" class="text-white opacity-70 hover:opacity-100">FAQ</a>
+            <a href="signup.html" class="rounded-full px-4 py-2" style="background-color: #F4F4F4;color: #02233B;">Sign Up</a>
+            <a href="signin.html" class="text-white bg-gray-700 rounded-full px-4 py-2">Sign In</a>
+
+        </div>
+    </div>
+</div>
+
+
+<section class="relative bg-cover bg-center h-screen overflow-hidden">
+    <!-- Background image -->
+    <img src="images/music-event-poster-template-with-colorful-shapes_1361-1591.webp" alt="Background" class="absolute inset-0 w-full h-full object-cover z-0">
+  
+    <!-- Black overlay -->
+    <div class="absolute inset-0 bg-black opacity-30 z-10"></div>
+  
+    <!-- Content -->
+    <div class="absolute inset-0 flex flex-col items-center justify-center text-center text-white z-20">
+      <h1 class="text-5xl font-bold mb-8">Your Event Title Here</h1>
+      <p class="text-lg mb-12">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis vestibulum mauris sit amet lacus posuere, non accumsan tortor vestibulum.</p>
+      <a href="checkoutpage.html" class="bg-gray-800 text-white px-4 py-5 w-full sm:w-96 rounded-md hover:bg-gray-600">Order Your Ticket</a>
+    </div>
+  
+    <!-- Scrolling text -->
+    <div class="absolute bottom-0 w-full z-20">
+      <div id="scrollingText" class="flex justify-center items-center py-2 bg-gray-800">
+        <!-- Text to be repeated -->
+        <p class="text-white font-semibold mx-4">REPEAT TEXT HERE</p>
+        <!-- Separator -->
+        <div class="w-2 h-2 bg-blue-500 rounded-full"></div>
+        <!-- Text to be repeated -->
+        <p class="text-white font-semibold mx-4">REPEAT TEXT HERE</p>
+        <!-- Separator -->
+        <div class="w-2 h-2 bg-blue-500 rounded-full"></div>
+        <!-- Repeat the above pattern as needed -->
+      </div>
+    </div>
+  </section>
+
+
+<!-- Countdown Section -->
+<section class="text-center py-16 bg-white">
+    <!-- Countdown Title -->
+    <h2 class="text-4xl font-bold mb-8">Countdown to the Event</h2>
+  
+    <!-- Countdown Timer -->
+    <div id="countdown" class="flex justify-center items-center">
+      <!-- Days -->
+      <div class="countdown-item text-3xl bg-slate-100 p-5 mr-8">
+        <div id="days" class="countdown-number font-bold">00</div>
+        <div class="countdown-label">Days</div>
+      </div>
+      <!-- Separator -->
+      <div class="countdown-separator text-3xl mr-8">:</div>
+      <!-- Hours -->
+      <div class="countdown-item text-3xl bg-slate-100 p-5 mr-8">
+        <div id="hours" class="countdown-number font-bold">00</div>
+        <div class="countdown-label">Hours</div>
+      </div>
+      <!-- Separator -->
+      <div class="countdown-separator text-3xl mr-8">:</div>
+      <!-- Minutes -->
+      <div class="countdown-item text-3xl bg-slate-100 p-5 mr-8">
+        <div id="minutes" class="countdown-number font-bold">00</div>
+        <div class="countdown-label">Minutes</div>
+      </div>
+      <!-- Separator -->
+      <div class="countdown-separator text-3xl mr-8">:</div>
+      <!-- Seconds -->
+      <div class="countdown-item text-3xl bg-slate-100 p-5 mr-8">
+        <div id="seconds" class="countdown-number font-bold">00</div>
+        <div class="countdown-label">Seconds</div>
+      </div>
+    </div>
+  </section>
+
+<!-- Accordion Section -->
+<section class="py-16 bg-gray-100">
+    <!-- Subheader -->
+    <h2 class="text-3xl font-semibold text-center mb-8">Event Details</h2>
+  
+    <!-- Accordion Container -->
+    <div class="max-w-4xl mx-auto">
+      <!-- Overview Accordion Item -->
+      <div class="accordion-item border-b border-gray-300">
+        <input type="checkbox" id="overview" class="accordion-input hidden">
+        <label for="overview" class="accordion-header cursor-pointer bg-gray-200 py-2 px-4 block">Overview</label>
+        <div class="accordion-content">
+          <!-- Overview Content -->
+          <div class="flex flex-col md:flex-row items-center justify-between mb-4">
+            <!-- Left Side (Image) -->
+            <div class="w-full md:w-1/3 mr-5 mt-4">
+              <img src="images/friends-having-coffee-break_53876-64860.webp" alt="Overview Image" class="w-full h-auto rounded-lg mb-4">
+            </div>
+            <!-- Right Side -->
+            <div class="w-full md:w-2/3">
+              <h3 class="text-xl font-semibold mb-2">Event Overview</h3>
+              <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+              <div class="flex justify-between">
+                <div>
+                  <p class="font-semibold">Date:</p>
+                  <p>January 1, 2025</p>
+                </div>
+                <div>
+                  <p class="font-semibold">Time:</p>
+                  <p>9:00 AM - 5:00 PM</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      <!-- Description Accordion Item -->
+      <div class="accordion-item border-b border-gray-300">
+        <input type="checkbox" id="description" class="accordion-input hidden">
+        <label for="description" class="accordion-header cursor-pointer bg-gray-200 py-2 px-4 block">Description</label>
+        <div class="accordion-content">
+          <!-- Description Content -->
+          <p class="py-4 px-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        </div>
+      </div>
+  
+     <!-- Location Accordion Item -->
+<div class="accordion-item border-b border-gray-300">
+    <input type="checkbox" id="location" class="accordion-input hidden">
+    <label for="location" class="accordion-header cursor-pointer bg-gray-200 py-2 px-4 block">Location</label>
+    <div class="accordion-content">
+      <!-- Location Content -->
+      <div class="py-4 px-4">
+        <h3 class="text-xl font-semibold mb-2">Event Venue: Baystreet Conference Center</h3>
+        <p class="mb-2">Address: 123 Main Street, Baystreet, City</p>
+        <p class="mb-2">City: Baystreet</p>
+        <p class="mb-2">State: State</p>
+        <p class="mb-2">Country: Country</p>
+        <div class="mt-4">
+          <img src="location_image.jpg" alt="Location Image" class="w-full h-auto rounded-lg">
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  
+<!-- Importance Accordion Item -->
+<div class="accordion-item border-b border-gray-300">
+    <input type="checkbox" id="importance" class="accordion-input hidden">
+    <label for="importance" class="accordion-header cursor-pointer bg-gray-200 py-2 px-4 block">Importance</label>
+    <div class="accordion-content">
+      <!-- Importance Content -->
+      <div class="py-4 px-4">
+        <h3 class="text-xl font-semibold mb-2">Why This Event is a Must-Attend:</h3>
+        <ul class="list-disc pl-6">
+          <li class="mb-2">Unlock the secrets to success with insider tips from top industry experts</li>
+          <li class="mb-2">Forge invaluable connections with like-minded professionals in your field</li>
+          <li class="mb-2">Stay ahead of the curve with exclusive access to cutting-edge innovations and trends</li>
+          <li class="mb-2">Ignite your passion and fuel your ambitions through inspiring keynote sessions</li>
+        </ul>
+        <p class="mt-4">Don't just attend; elevate your career, broaden your horizons, and seize opportunities that could change your trajectory forever. Join us and be a part of something extraordinary!</p>
+      </div>
+    </div>
+  </div>
+  
+  
+<!-- Check for Table Accordion Item -->
+<div class="accordion-item border-b border-gray-300">
+    <input type="checkbox" id="check-for-table" class="accordion-input hidden">
+    <label for="check-for-table" class="accordion-header cursor-pointer bg-gray-200 py-2 px-4 block">Check for Table</label>
+    <div class="accordion-content">
+      <!-- Check for Table Content -->
+      <div class="py-4 px-4">
+        <form id="table-check-form">
+          <label for="name" class="block mb-2">Enter Your Name:</label>
+          <input type="text" id="name" name="name" class="w-full px-4 py-2 mb-4 border rounded-md focus:outline-none focus:border-blue-500" placeholder="Your Name">
+          <button type="button" id="check-button" class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 transition duration-300">Check Seat</button>
+        </form>
+        <div id="table-result" class="mt-4"></div>
+      </div>
+    </div>
+  </div>
+  
+  
+<!-- Speakers Accordion Item -->
+<div class="accordion-item">
+    <input type="checkbox" id="speakers" class="accordion-input hidden">
+    <label for="speakers" class="accordion-header cursor-pointer bg-gray-200 py-2 px-4 block">Speakers</label>
+    <div class="accordion-content">
+      <!-- Speakers Content -->
+      <div class="py-4 px-4">
+        <div class="flex flex-wrap justify-center">
+          <!-- Speaker Item 1 -->
+          <div class="speaker-item flex flex-col items-center w-1/4 p-4">
+            <img src="images/medium-shot-people-techno-party_23-2150639064.webp" alt="Speaker 1" class="w-32 h-32 rounded-md mb-2">
+            <h3 class="text-lg font-semibold">Speaker 1</h3>
+          </div>
+          <!-- Speaker Item 2 -->
+          <div class="speaker-item flex flex-col items-center w-1/4 p-4">
+            <img src="images/Soph-Okonedo.jpeg" alt="Speaker 2" class="w-32 h-32 rounded-md mb-2">
+            <h3 class="text-lg font-semibold">Speaker 2</h3>
+          </div>
+          <!-- Add more speaker items as needed -->
+
+          <div class="speaker-item flex flex-col items-center w-1/4 p-4">
+            <img src="images/Soph-Okonedo.jpeg" alt="Speaker 2" class="w-32 h-32 rounded-md mb-2">
+            <h3 class="text-lg font-semibold">Speaker 2</h3>
+          </div>
+
+          <div class="speaker-item flex flex-col items-center w-1/4 p-4">
+            <img src="images/Soph-Okonedo.jpeg" alt="Speaker 2" class="w-32 h-32 rounded-md mb-2">
+            <h3 class="text-lg font-semibold">Speaker 2</h3>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  </section>
+  
+  <div class="bg-gray-400 py-12">
+    <div class="max-w-3xl mx-auto px-4">
+      <!-- Comments Section -->
+      <div id="comments" class="mb-8">
+        <!-- Comment Item -->
+        <div class="bg-white shadow-md rounded-md p-4 mb-4">
+          <h3 class="text-lg font-semibold mb-2">User 1</h3>
+          <p class="text-gray-600">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        </div>
+        <!-- Add more comment items dynamically with JavaScript -->
+        <div class="bg-white shadow-md rounded-md p-4 mb-4">
+            <h3 class="text-lg font-semibold mb-2">User 1</h3>
+            <p class="text-gray-600">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          </div>
+
+          <div class="bg-white shadow-md rounded-md p-4 mb-4">
+            <h3 class="text-lg font-semibold mb-2">User 1</h3>
+            <p class="text-gray-600">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          </div>
+      </div>
+  
+      <!-- Load More Button -->
+      <div id="loadMoreBtn" class="text-center">
+        <button id="loadMore" class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 transition duration-300">Load More</button>
+      </div>
+  
+      <!-- Add Comment Section -->
+      <div id="addComment" class="mt-8">
+        <h2 class="text-xl font-semibold mb-4">Add Your Comment</h2>
+        <div class="flex">
+          <input id="commentInput" type="text" placeholder="Type your comment here" class="flex-1 py-2 px-4 rounded-l-md border border-gray-300 focus:outline-none focus:border-blue-500">
+          <button id="submitComment" class="bg-blue-500 text-white px-4 py-2 rounded-r-md hover:bg-blue-600 transition duration-300">Submit</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  
+  <div class="bg-gray-100 py-12">
+    <div class="max-w-5xl mx-auto px-4">
+      <!-- Subheading -->
+      <h2 class="text-3xl font-semibold mb-4">What to Expect</h2>
+      
+      <!-- Image Slider -->
+      <div class="relative">
+        <!-- Left Arrow -->
+        <div class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-white rounded-full w-12 h-12 flex justify-center items-center cursor-pointer">
+          <i class="fas fa-chevron-left text-gray-500 text-lg"></i>
+        </div>
+        <!-- Right Arrow -->
+        <div class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-white rounded-full w-12 h-12 flex justify-center items-center cursor-pointer">
+          <i class="fas fa-chevron-right text-gray-500 text-lg"></i>
+        </div>
+        
+        <!-- Image Slider Content -->
+        <div class="flex overflow-x-auto scrollbar-hide">
+          <!-- Individual Images -->
+          <img src="images/group-friends-having-fun-during-white-party-with-drinks_23-2149485963.webp" alt="Image 1" class="w-64 h-64 object-cover rounded-md mr-4">
+          <img src="images/medium-shot-people-techno-party_23-2150639064.webp" alt="Image 2" class="w-64 h-64 object-cover rounded-md mr-4">
+          <!-- Add more images here -->
+          <img src="images/group-friends-having-fun-during-white-party-with-drinks_23-2149485963.webp" alt="Image 1" class="w-64 h-64 object-cover rounded-md mr-4">
+          <img src="images/medium-shot-people-techno-party_23-2150639064.webp" alt="Image 2" class="w-64 h-64 object-cover rounded-md mr-4">
+
+          <img src="images/group-friends-having-fun-during-white-party-with-drinks_23-2149485963.webp" alt="Image 1" class="w-64 h-64 object-cover rounded-md mr-4">
+          <img src="images/medium-shot-people-techno-party_23-2150639064.webp" alt="Image 2" class="w-64 h-64 object-cover rounded-md mr-4">
+        </div>
+      </div>
+    </div>
+  </div>
+  
+
+  <section class="flex justify-between bg-slate-950 items-center py-14">
+    <div class="text-left px-2 md:px-28">
+      <h2 class="text-xl text-white font-bold uppercase">
+        GET YOUR TICKET FOR <span class="text-red-500">$40</span>
+      </h2>
+      <p class="text-gray-600 mt-2 mb-14">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+      <a href="checkoutpage.html" class="bg-gray-800 text-white px-6 py-4 w-full sm:w-96 rounded-md hover:bg-gray-600">Get Ticket</a>
+    </div>
+    <div class="text-right">
+      <!-- Add your cool icon image or animation here -->
+    </div>
+  </section>
+  
+  
+
+
+
+
+<footer class="text-white p-8 mt-0 px-8 md:px-24" style="background-color: #02233B;">
+    <div class="flex flex-wrap justify-between">
+      <!-- Left Side -->
+      <div class="flex flex-col items-start">
+        <!-- Logo -->
+        <img src="your-logo.png" alt="Logo" class="mb-4">
+        <p class="mb-8 md:mb-24 w-96">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ac justo eu ligula tristique consectetur.
+    </p>
+  
+        <!-- Texts -->
+        <p class="mb-2 hidden md:block">Subscribe to our newsletter:</p>
+        <div class="flex items-center mb-4 hidden md:block">
+          <input type="email" placeholder="Enter your email" class="p-2 border rounded-l">
+          <button class="text-white p-2 rounded-r" style="background-color: #8BCEFD;">
+            <i class="fas fa-arrow-right"></i>
+          </button>
+        </div>
+  
+        <!-- Copywrite -->
+        <p class="mb-4 hidden md:block">&copy; Your Company Name, 2024. All rights reserved.</p>
+      </div>
+  
+      <!-- Right Side -->
+      <div >
+        <!-- Various Divs -->
+      <div class="flex flex-wrap items-start ">
+        <div class="pr-8 md:pr-16 mb-4">
+            <h4 class="text-lg font-semibold mb-2">Use Eventbust</h4>
+            <ul>
+              <li><a href="#">
+                Create event
+                </a></li>
+              <li><a href="#">Pricing
+                </a></li>
+              <li><a href="#">Event platform
+                </a></li>
+              <li><a href="#">FAQ
+                </a></li>
+              <li><a href="#">Event mobile ticketing
+                </a></li>
+              <li><a href="#">Event app marketplace</a></li>
+            </ul>
+          </div>
+  
+              <!-- Various Divs -->
+              <div class="pr-16 md:pr-8 md:pr-16 mb-4">
+                <h4 class="text-lg font-semibold mb-2">Plan Events
+                    </h4>
+                <ul>
+                  <li><a href="#">Event planning
+                    </a></li>
+                  <li><a href="#">Sell ticket online
+                    </a></li>
+                  <li><a href="#">Event payment system
+                    </a></li>
+                  <li><a href="#">Virtual event platform</a></li>
+                  <!-- Add more links as needed -->
+                </ul>
+              </div>
+  
+                  <!-- Various Divs -->
+                  <div class="pr-8 md:pr-16 mb-4">
+                    <h4 class="text-lg font-semibold mb-2">Find Events
+                        </h4>
+                    <ul>
+                      <li><a href="#">Lagos events
+                        </a></li>
+                      <li><a href="#">Canada events
+                        </a></li>
+                      <li><a href="#">New york events
+                        </a></li>
+                      <li><a href="#">Wedding events
+                        </a></li>
+                      <li><a href="#">Carnival events
+                        </a></li>
+                      <li><a href="#">Music concert events
+                        </a></li>
+                      <li><a href="#">Graduation events</a></li>
+                      <!-- Add more links as needed -->
+                    </ul>
+                  </div>
+      </div>
+  
+            <!-- Social Media Icons -->
+        <div class="pr-8 mt-8 mb-4">
+            <h4 class="text-lg font-semibold mb-2">Connect with us</h4>
+            <div class="flex items-center space-x-4">
+              <!-- Add your social media icons with links -->
+              <a href="#"><i class="fab fa-facebook"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+              <a href="#"><i class="fab fa-instagram"></i></a>
+              <!-- Add more social media icons as needed -->
+            </div>
+          </div>
+    
+          <!-- Additional Links -->
+          <div class="mb-4 ">
+            <ul class="flex flex-wrap items-start justify-between">
+              <li><a href="#">About</a></li>
+              <li><a href="#">Our Story</a></li>
+              <li><a href="#">Our Story</a></li>
+              <li><a href="#">Our Story</a></li>
+              <li><a href="#">Our Story</a></li>
+              <!-- Add more links as needed -->
+            </ul>
+          </div>
+
+
+          <p class="mb-2 mt-16 md:hidden">Subscribe to our newsletter:</p>
+        <div class="flex items-center mb-4 md:hidden">
+          <input type="email" placeholder="Enter your email" class="p-2 border rounded-l">
+          <button class="bg-blue-500 text-white p-2 rounded-r">
+            <i class="fas fa-arrow-right"></i>
+          </button>
+        </div>
+          <p class="mb-4 md:hidden">&copy; Your Company Name, 2024. All rights reserved.</p>
+
+    
+      </div>
+    </div>
+  </footer>
+  
+
+
+
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            Alpine.start();
+        });
+    </script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+      var scrollbarStyle = document.createElement('style');
+      scrollbarStyle.innerHTML = '.scrollable-container::-webkit-scrollbar { display: none; }';
+      document.head.appendChild(scrollbarStyle);
+    });
+  </script>
+
+  
+<script>
+    // Function to animate horizontal scrolling text
+    function animateScrollingText() {
+      const scrollingText = document.getElementById('scrollingText');
+      let position = 0;
+      const speed = 2; // Adjust the speed of scrolling
+  
+      // Function to move text
+      function moveText() {
+        position -= speed;
+        scrollingText.style.transform = `translateX(${position}px)`;
+  
+        // Reset position when text reaches end
+        if (position <= -scrollingText.offsetWidth) {
+          position = scrollingText.offsetWidth;
+        }
+  
+        // Loop animation
+        requestAnimationFrame(moveText);
+      }
+  
+      // Start animation
+      moveText();
+    }
+  
+    // Call the function when the page is loaded
+    window.addEventListener('load', animateScrollingText);
+  </script>
+
+  <!-- JavaScript for Countdown Timer -->
+<script>
+    // Set the date for the countdown (replace with your event date)
+    const eventDate = new Date('2024-12-31T23:59:59').getTime();
+  
+    // Update the countdown every second
+    const countdownInterval = setInterval(function() {
+      // Get the current date and time
+      const currentDate = new Date().getTime();
+
+      const timeRemaining = eventDate - currentDate;
+  
+      // Calculate days, hours, minutes, and seconds
+      const days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
+  
+      // Display the countdown
+      document.getElementById('days').innerText = formatTime(days);
+      document.getElementById('hours').innerText = formatTime(hours);
+      document.getElementById('minutes').innerText = formatTime(minutes);
+      document.getElementById('seconds').innerText = formatTime(seconds);
+  
+      // If the countdown is over, clearInterval
+      if (timeRemaining < 0) {
+        clearInterval(countdownInterval);
+        document.getElementById('countdown').innerHTML = "<div class='text-3xl font-bold'>Event Over!</div>";
+      }
+    }, 1000);
+  
+    // Function to format time (add leading zero if needed)
+    function formatTime(time) {
+      return time < 10 ? "0" + time : time;
+    }
+  </script>
+
+  <script>
+    // JavaScript for Seat Checking Functionality
+document.getElementById('check-button').addEventListener('click', function() {
+  const name = document.getElementById('name').value;
+  // Replace with your logic to check the seat based on the name entered
+  const seatNumber = Math.floor(Math.random() * 50) + 1; // Example: Random seat number
+  const tableNumber = Math.floor(seatNumber / 10) + 1; // Example: Table number based on seat
+  const resultElement = document.getElementById('table-result');
+  resultElement.innerHTML = `<p>Your seat number is: ${seatNumber}</p><p>Your table number is: ${tableNumber}</p>`;
+});
+
+  </script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  const imagesContainer = document.querySelector('.flex');
+  const leftArrow = document.querySelector('.fa-chevron-left');
+  const rightArrow = document.querySelector('.fa-chevron-right');
+  
+  // Calculate the width of each image
+  const imageWidth = document.querySelector('.flex img').clientWidth;
+  
+  // Add event listener for left arrow
+  leftArrow.addEventListener('click', function() {
+    imagesContainer.scrollLeft -= imageWidth;
+  });
+  
+  // Add event listener for right arrow
+  rightArrow.addEventListener('click', function() {
+    imagesContainer.scrollLeft += imageWidth;
+  });
+});
+
+
+</script>
+
+ 
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+  const commentsSection = document.getElementById("comments");
+  const loadMoreBtn = document.getElementById("loadMoreBtn");
+  const loadMore = document.getElementById("loadMore");
+  const addComment = document.getElementById("addComment");
+  const commentInput = document.getElementById("commentInput");
+  const submitComment = document.getElementById("submitComment");
+
+  // Mock data for comments
+  const comments = [
+    { user: "User 2", comment: "Lorem ipsum dolor sit amet, consectetur adipiscing elit." },
+    { user: "User 3", comment: "Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." },
+    // Add more comments here...
+  ];
+
+  // Function to display comments
+  function displayComments() {
+    comments.forEach(comment => {
+      const commentItem = document.createElement("div");
+      commentItem.classList.add("bg-white", "shadow-md", "rounded-md", "p-4", "mb-4");
+      commentItem.innerHTML = `
+        <h3 class="text-lg font-semibold mb-2">${comment.user}</h3>
+        <p class="text-gray-600">${comment.comment}</p>
+      `;
+      commentsSection.appendChild(commentItem);
+    });
+  }
+
+  // Load more comments event
+  loadMore.addEventListener("click", function () {
+    displayComments();
+    loadMoreBtn.style.display = "none";
+    addComment.style.display = "block";
+  });
+
+
+   // Hide comments event
+   hideComments.addEventListener("click", function () {
+    commentsSection.innerHTML = ""; // Remove comments
+    loadMore.style.display = "inline-block";
+    hideComments.style.display = "none";
+    addComment.style.display = "none";
+  });
+
+  // Submit comment event
+  submitComment.addEventListener("click", function () {
+    const userComment = commentInput.value;
+    if (userComment.trim() !== "") {
+      const commentItem = document.createElement("div");
+      commentItem.classList.add("bg-white", "shadow-md", "rounded-md", "p-4", "mb-4");
+      commentItem.innerHTML = `
+        <h3 class="text-lg font-semibold mb-2">You</h3>
+        <p class="text-gray-600">${userComment}</p>
+      `;
+      commentsSection.prepend(commentItem);
+      commentInput.value = "";
+    }
+  });
+});
+
+</script>
+
+
+<script src="eventapp.js"></script>
+</body>
+</html>

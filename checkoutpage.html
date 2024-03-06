@@ -1,0 +1,172 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Checkout</title>
+    <!-- Added Tailwind CSS link -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/fontawesome.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  </head>
+  <body class="bg-gray-100 p-10">
+
+    <a href="individualeventpage2.html" class="flex items-center ml-7 text-blue-500 hover:text-blue-600">
+        <i class="fas fa-arrow-left mr-2"></i>
+        <span>Back</span>
+    </a>
+
+  <div class="container mx-auto py-8 px-4">
+    <h1 class="text-3xl font-bold mb-8">Event Checkout</h1>
+    
+    <!-- Event Description -->
+    <div class="mb-8">
+      <h2 class="text-xl font-semibold mb-2">Event Name</h2>
+      <p class="text-gray-600 mb-4">Brief description of the event...</p>
+    </div>
+
+    <!-- Personal Information -->
+    <div class="mb-8">
+      <h2 class="text-xl font-semibold mb-2">Personal Information</h2>
+      <div class="flex flex-wrap mb-4">
+        <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+          <label for="name" class="block text-gray-700 text-sm font-bold mb-2">Name</label>
+          <input type="text" id="name" name="name" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+        </div>
+        <div class="w-full md:w-1/2 px-3">
+          <label for="email" class="block text-gray-700 text-sm font-bold mb-2">Email</label>
+          <input type="email" id="email" name="email" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+        </div>
+      </div>
+    </div>
+
+    <!-- Guest Information -->
+    <div class="mb-8">
+      <h2 class="text-xl font-semibold mb-2">Add Guest</h2>
+      <!-- Repeat this block for each guest -->
+      <div class="flex flex-wrap mb-4">
+        <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+          <label for="guest_name" class="block text-gray-700 text-sm font-bold mb-2">Guest Name</label>
+          <input type="text" id="guest_name" name="guest_name" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+        </div>
+        <div class="w-full md:w-1/2 px-3">
+          <label for="guest_email" class="block text-gray-700 text-sm font-bold mb-2">Guest Email</label>
+          <input type="email" id="guest_email" name="guest_email" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+        </div>
+      </div>
+      <button id="add_guest" class="bg-blue-500 text-white py-2 px-4 rounded">Add Guest</button>
+    </div>
+
+    <!-- Ticket Quantity -->
+    <div class="mb-8">
+      <h2 class="text-xl font-semibold mb-2">Ticket Quantity</h2>
+      <div class="flex items-center mb-4">
+        <label for="quantity" class="text-gray-700 text-sm font-bold mr-2">Quantity</label>
+        <input type="number" id="quantity" name="quantity" min="1" max="10" class="shadow appearance-none border rounded w-24 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+      </div>
+      <p id="amount" class="text-gray-600">Amount: $0</p>
+    </div>
+
+ <!-- Payment Method -->
+ <div class="mb-8">
+    <h2 class="text-xl font-semibold mb-2">Payment Method</h2>
+    <div class="flex items-center mb-4">
+      <input type="radio" id="visa" name="payment_method" value="visa" class="mr-2" onclick="showPaymentForm('visa')">
+      <label for="visa" class="text-gray-700 text-sm font-bold mr-4">Visa Card</label>
+      <input type="radio" id="paypal" name="payment_method" value="paypal" class="mr-2" onclick="showPaymentForm('paypal')">
+      <label for="paypal" class="text-gray-700 text-sm font-bold mr-4">PayPal</label>
+      <input type="radio" id="google_pay" name="payment_method" value="google_pay" class="mr-2" onclick="showPaymentForm('google_pay')">
+      <label for="google_pay" class="text-gray-700 text-sm font-bold">Google Pay</label>
+    </div>
+  </div>
+
+  <!-- Payment Forms -->
+  <div id="visa_form" class="payment-form hidden">
+    <!-- Visa Card Payment Form -->
+    <div class="mb-4">
+      <label for="card_number" class="block text-gray-700 text-sm font-bold mb-2">Card Number</label>
+      <input type="text" id="card_number" name="card_number" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+    </div>
+    <!-- Add other fields for Visa Card -->
+
+    <div class="mb-4">
+        <label for="card_number" class="block text-gray-700 text-sm font-bold mb-2">Zip Postal Code</label>
+        <input type="text" id="card_number" name="card_number" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+      </div>
+
+      <div class="mb-4">
+        <label for="card_number" class="block text-gray-700 text-sm font-bold mb-2">Card Security Code </label>
+        <input type="text" id="card_number" name="card_number" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+      </div>
+  </div>
+
+  <div id="paypal_form" class="payment-form hidden">
+    <!-- PayPal Payment Form -->
+    <div class="mb-4">
+      <p class="text-gray-700 text-sm">You will be redirected to PayPal for payment.</p>
+    </div>
+  </div>
+
+  <div id="google_pay_form" class="payment-form hidden">
+    <!-- Google Pay Payment Form -->
+    <div class="mb-4">
+      <p class="text-gray-700 text-sm">You will be redirected to Google Pay for payment.</p>
+    </div>
+  </div>
+
+
+    <!-- Submit Button -->
+    <a href="thankyou.html" class="bg-gray-800 text-white px-4 py-2 w-full sm:w-96 rounded-md hover:bg-gray-600">Submit</a>
+  </div>
+
+  <script>
+    // Calculate amount based on ticket quantity
+document.getElementById('quantity').addEventListener('input', function() {
+    const quantity = parseInt(this.value);
+    const pricePerTicket = 40; // Price per ticket
+    const totalAmount = quantity * pricePerTicket;
+    document.getElementById('amount').innerText = `Amount: $${totalAmount}`;
+});
+
+// Add guest input fields
+document.getElementById('add_guest').addEventListener('click', function() {
+    const guestFields = `
+        <div class="flex flex-wrap mb-4">
+            <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+                <label for="guest_name" class="block text-gray-700 text-sm font-bold mb-2">Guest Name</label>
+                <input type="text" id="guest_name" name="guest_name" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+            </div>
+            <div class="w-full md:w-1/2 px-3">
+                <label for="guest_email" class="block text-gray-700 text-sm font-bold mb-2">Guest Email</label>
+                <input type="email" id="guest_email" name="guest_email" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+            </div>
+        </div>`;
+    document.getElementById('add_guest').insertAdjacentHTML('beforebegin', guestFields);
+});
+
+// Submit form
+document.getElementById('submit').addEventListener('click', function() {
+    // Perform form validation here
+    // Submit form data to server
+});
+
+  </script>
+
+
+
+<script>
+    function showPaymentForm(paymentMethod) {
+      // Hide all payment forms except for the selected one
+      document.querySelectorAll('.payment-form').forEach(form => {
+        if (form.id === `${paymentMethod}_form`) {
+          form.classList.remove('hidden');
+        } else {
+          form.classList.add('hidden');
+        }
+      });
+    }
+  </script>
+
+
+
+</body>
+</html>
