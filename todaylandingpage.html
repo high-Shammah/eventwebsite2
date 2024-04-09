@@ -16,20 +16,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha384-rKI3qiC0aV6Tks0Xja5aFTo5gLOO3xqvftP8z4y5wrgU8bqToR0MO2ZiIep8YKZ" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 
-    <script src="https://kit.fontawesome.com/your-font-awesome-kit.js" crossorigin="anonymous"></script>
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
     <script src="https://cdn.jsdelivr.net/npm/alpinejs@2.8.2"></script>
    
-
-      <!-- Link Swiper's CSS -->
-      <link rel="stylesheet" href="css/swiper-bundle.min.css">
-<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
-
-<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
-
 
 </head>
 
@@ -45,8 +35,8 @@
             <div class="flex space-x-4">
                 <a href="index.html" class="text-white border-b-2 border-white ml-96">Events</a>
                 <a href="#" class="text-white opacity-70 hover:opacity-100">Create an event</a>
-                <a href="#" class="text-white opacity-70 hover:opacity-100">Contact</a>
-                <a href="#" class="text-white opacity-70 hover:opacity-100">FAQ</a>
+                <a href="contactus.html" class="text-white opacity-70 hover:opacity-100">Contact</a>
+                <a href="FAQ.html" class="text-white opacity-70 hover:opacity-100">FAQ</a>
             </div>
             <div class="flex space-x-4">
                 <a href="signup.html" class="rounded px-4 py-2" style="background-color: #F4F4F4;color: #02233B;">Sign Up</a>
@@ -55,20 +45,21 @@
         </div>
     
        <!-- Mobile Navigation for small screens -->
-    <div class="lg:hidden flex items-center justify-between">
+    <div class="lg:hidden flex items-center px-4 justify-between">
         <a href="" class="flex items-center">
             <img src="path/to/logo.png" alt="Logo" class="h-8 w-8 mr-2">
             <div class="text-white">YourSite</div>
         </a>
-       <div>
+       <div class="justify-between">
         <a href="signup.html" class="rounded-full px-4 py-2" style="background-color: #F4F4F4;color: #02233B;">Sign Up</a>
-       </div>
         <button @click="open = !open" class="text-white">
             <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                  viewBox="0 0 24 24" class="w-6 h-6">
                 <path d="M4 6h16M4 12h16m-7 6h7"></path>
             </svg>
         </button>
+       </div>
+        
     </div>
 
     <!-- Mobile Menu -->
@@ -92,498 +83,664 @@
     </div>
 </div>
 
-    <!-- Hero section -->
-<section class="relative" style="height: 540px;" >
-    <div class="overlay-section" style=" height: 540px; background-image: url('images/38d06d83125c167e35707661cb6094bc.jpg'); background-size: cover; background-position: center;">
-        <img src="" alt="">
-    </div>
-        <div class="overlay-content absolute top-2/4 lg:top-2/4 lg:left-1/4 transform -translate-x-1/2 -translate-y-1/2 text-start text-white">
-        <h1 class="text-4xl lg:text-6xl font-bold mb-4">Discover Your Next <br> Experience</h1>
-        <p class="text-lg mb-4">Explore 'Enchanted Elegance' and More on <br> [Your Event Platform]"</p>
-         <button class="bg-gray-300 text-white-900 rounded px-6 py-3" style="background-color: #02233B;">Learn More</button>
 
-        </div>
-</section>
-
-
-    <!-- the second section, about us section -->
-<div class="container ml-2 md:ml-20 mt-16" >
-    <div style="align-self: stretch; flex-direction: column; justify-content: flex-start; align-items: center; gap: 24px; display: inline-flex">
-        <div style="color: #425466; font-size: 50px; font-family: Montserrat; font-weight: 600; word-wrap: break-word">Why Choose EventsBurst</div>
-        <div style="color: black; font-size: 20px; font-family: Montserrat; font-weight: 300; word-wrap: break-word">We make event management simple and cost effective.</div>
-    </div>
-
-    <div class="container mx-auto grid-cols-2 md:grid-cols-4">
-        <div class="flex flex-wrap justify-center">
-          <!-- Item 1 -->
-          <div class="py-8 max-w-xs overflow-hidden text-center flex flex-col items-center sm:w-1/2 md:w-full">
-            <div class="mb-4 w-32 h-28 flex ">
-              <img src="images/c987da7712e3a2e4f72b8029c7d1744d.jpg" alt="Image" class="w-full h-full object-cover  shadow-md">
-            </div>
-            <h3 class="text-xl font-semibold mt-4" style="color: #425466;">BUILD ATTENDEES RSVP LIST</h3>
-            <p class="text-sm text-gray-600" style="color: #425466;">Our system will give your attendees the flexibility to indicate interest in your event and/or buy ticets. They can all send message specific to the event.</p>
-          </div>
-      
-          <div class=" py-8 max-w-xs overflow-hidden text-center flex flex-col items-center sm:w-1/2 md:w-full">
-            <div class="w-32 h-28 flex ">
-              <img src="images/7e1c451f08bf330c4d257ceeb49563df.jpg" alt="Image" class="w-full h-full object-cover  shadow-md">
-            </div>
-            <h3 class="text-xl font-semibold mt-4" style="color: #425466;">ASSIGN SEATS</h3>
-            <p class="text-sm text-gray-600" style="color: #425466;">You take control and allocate and organize seat according to attendees interest and your event management plan.</p>
-          </div>
-      
-          <div class="py-8 max-w-xs overflow-hidden text-center flex flex-col items-center sm:w-1/2 md:w-full">
-            <div class="w-32 h-28 flex ">
-              <img src="images/2702ec982b26ec55c2646c566d90193d.jpg" alt="Image" class="w-full h-full object-cover  shadow-md">
-            </div>
-            <h3 class="text-xl font-semibold mt-4" style="color: #425466;">CONTROL RESERVATION</h3>
-            <p class="text-sm text-gray-600" style="color: #425466;">Turn On or Turn of your reversation to control attendance. This is greate for free events or when tickets are sold out.</p>
-          </div>
-
-          <div class="py-8 max-w-xs overflow-hidden text-center flex flex-col items-center sm:w-1/2 md:w-full">
-            <div class="w-32 h-28 flex ">
-              <img src="images/5ae0c98ddfdbfe336e24075fdf79f5d9.jpg" alt="Image" class="w-full h-full object-cover  shadow-md">
-            </div>
-            <h3 class="text-xl font-semibold mt-4" style="color: #425466;">SELL TICKETS</h3>
-            <p class="text-sm text-gray-600" style="color: #425466;">Sell your event Tickets with Ease. Flexible payouts to help you meet the event planning expenses.</p>
-          </div>
-      
-        </div>
+<section class="relative bg-cover bg-center h-[530px] overflow-hidden">
+    <!-- Background image -->
+    <img src="images/music-event-poster-template-with-colorful-shapes_1361-1591.webp" alt="Background" class="absolute inset-0 w-full h-full object-cover z-0">
+  
+    <!-- Black overlay -->
+    <div class="absolute inset-0 bg-black opacity-30 z-10"></div>
+  
+     <!-- Flex container for content and new section -->
+     <div class=" items-center justify-center mt-4 md:mt-40 px-6 md:px-14 relative z-20">
+      <!-- Content -->
+      <div class="flex flex-col items-start text-start text-white">
+          <h1 class="text-5xl font-bold mb-8">Your Event Title Here</h1>
+          <p class="text-lg w-96 mb-12">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis vestibulum mauris sit amet lacus posuere, non accumsan tortor vestibulum.</p>
       </div>
-      
-      
-
-      <div class="max-w-screen-xl mx-auto text-center" style="color: #425466;">
-        <span class=" text-xl md:text-2xl font-regular text-custom-blue">“EventBurst provides you the ability to </span>
-        <span class="text-xl md:text-2xl font-semibold text-custom-blue">Customize</span>
-        <span class="text-xl md:text-2xl font-regular text-custom-blue"> your events to meet or exceed your </span>
-        <span class="text-xl md:text-2xl font-semibold text-custom-blue">Event Management Plan!</span>
-        <span class="text-xl md:text-2xl font-regular text-custom-blue">”</span>
+     
+  </div>
+  
+    <!-- Scrolling text -->
+    <div class="absolute bottom-0 w-full z-20">
+      <div id="scrollingText" class="flex justify-center items-center py-2 bg-gray-800">
+        <!-- Text to be repeated -->
+        <p class="text-white font-semibold mx-4">REPEAT TEXT HERE</p>
+        <!-- Separator -->
+        <div class="w-2 h-2 bg-blue-500 rounded-full"></div>
+        <!-- Text to be repeated -->
+        <p class="text-white font-semibold mx-4">REPEAT TEXT HERE</p>
+        <!-- Separator -->
+        <div class="w-2 h-2 bg-blue-500 rounded-full"></div>
+        <!-- Repeat the above pattern as needed -->
       </div>
-      
-      
-      
-</div>
+    </div>
+  </section>
 
 
+<!-- Countdown Section -->
+<section class="flex flex-wrap text-center justify-between px-6 py-16 bg-white">
+    <!-- Countdown Title -->
 
-
-    <!-- third section, the section for all events, etc -->
-
-
+    <div>
+      <h2 class="text-4xl md:text-5xl font-bold mb-8">Countdown to the Event</h2>
     
-<div class="flex items-center  py-8 px-8 md:px-32">
-    <span class="text-5xl font-semibold mr-2 gap-12" style="color: #425466;">Popular in </span>
-    <i class="fas fa-chevron-down text-gray-600 text-xl cursor-pointer relative" id="dropdownIcon"></i>
-    <div class="relative ml-8">
-      <div class="absolute hidden bg-white border rounded mt-2 py-2 px-4" id="dropdownOptions">
-        <div class="mb-2 text-xl">
-          <input type="radio" id="option1" name="options" value="Lagos" class="mr-4 text-xl" />
-          <label for="Lagos">Lagos</label>
+      <!-- Countdown Timer -->
+      <div id="countdown" class="flex flex-wrap md:flex-row justify-center items-center">
+        <!-- Days -->
+        <div class="countdown-item text-2xl md:text-3xl bg-slate-100 p-3 md:p-5 mr-2 md:mr-8 mb-2 md:mb-0">
+          <div id="days" class="countdown-number font-bold">00</div>
+          <div class="countdown-label">Days</div>
         </div>
-        <div class="mb-2 text-xl">
-          <input type="radio" id="option2" name="options" value="Option 2" class="mr-1" />
-          <label for="option2">Canada</label>
+        <!-- Separator -->
+        <div class="countdown-separator text-3xl md:text-4xl mr-2 md:mr-8">:</div>
+        <!-- Hours -->
+        <div class="countdown-item text-2xl md:text-3xl bg-slate-100 p-3 md:p-5 mr-2 md:mr-8 mb-2 md:mb-0">
+          <div id="hours" class="countdown-number font-bold">00</div>
+          <div class="countdown-label">Hours</div>
         </div>
-        <div class="mb-2 text-xl">
-          <input type="radio" id="option3" name="options" value="Option 3" class="mr-1" />
-          <label for="option3">UK</label>
+        <!-- Separator -->
+        <div class="countdown-separator text-3xl md:text-4xl mr-2 md:mr-8">:</div>
+        <!-- Minutes -->
+        <div class="countdown-item text-2xl md:text-3xl bg-slate-100 p-3 md:p-5 mr-2 md:mr-8 mb-2 md:mb-0">
+          <div id="minutes" class="countdown-number font-bold">00</div>
+          <div class="countdown-label">Minutes</div>
+        </div>
+        <!-- Separator -->
+        <div class="countdown-separator text-3xl md:text-4xl mr-2 md:mr-8">:</div>
+        <!-- Seconds -->
+        <div class="countdown-item text-2xl md:text-3xl bg-slate-100 p-3 md:p-5 mr-2 md:mr-8 mb-2 md:mb-0">
+          <div id="seconds" class="countdown-number font-bold">00</div>
+          <div class="countdown-label">Seconds</div>
         </div>
       </div>
-      <div class="border-t border-l h-full border-gray-300" id="selectedOption"></div>
-    </div>
   </div>
-      
-
-  <div class="flex overflow-x-auto scrollable-container mr-16 md:mr-80 mb-8 pl-4 md:pl-32 justify-start">
-    <a href="index.html" class="text-gray-800 hover:text-gray-600 px-4 py-2 mx-2 mb-2 md:mb-0">All</a>
-    <a href="foryoulandingpage.html" class="text-gray-800 hover:text-gray-600 px-4 py-2 mx-2 mb-2 md:mb-0">For you</a>
-    <a href="onlinelandingpage.html" class="text-gray-800 hover:text-gray-600 px-4 py-2 mx-2 mb-2 md:mb-0">Online</a>
-    <a href="todaylandingpage.html" class="border-b-2 border-brown-700 text-custom-brown text-gray-800 hover:text-gray-600 px-4 py-2 mx-2 mb-2 md:mb-0">Today</a>
-    <a href="thisweeklandingpage.html" class="text-gray-800 hover:text-gray-600 px-4 py-2 mx-2 mb-2 md:mb-0">This week</a>
-    <a href="thismonthlandinglage.html" class="text-gray-800 hover:text-gray-600 px-4 py-2 mx-2 mb-2 md:mb-0">This month</a>
-    <a href="freelandingpage.html" class="text-gray-800 hover:text-gray-600 px-4 py-2 mx-2 mb-2 md:mb-0">Free</a>
-    <a href="charitylandingpage.html" class="text-gray-800 hover:text-gray-600 px-4 py-2 mx-2 mb-2 md:mb-0">Charity and causes</a>
-</div>
-
   
-  
-
-<span class="text-2xl font-semibold px-16 md:px-32 mt-24 gap-12" style="color: #425466;"> Events </span>
-
-<div class="flex flex-wrap grid grid-cols md:grid-cols-3 px-2 md:px-16 mt-8">
-
-     <!-- this is the general card, the event cards -->
-     <a href="individualeventpage.html" class="max-w-md mx-auto bg-white shadow-md rounded-md mb-8 overflow-hidden relative transition-transform transform hover:scale-105 block">
-      <img class="w-full h-48 object-cover" src="https://via.placeholder.com/500x300" alt="Card Image">
-      <div class="absolute top-0 left-0 bg-red-700 text-white py-1 px-2 rounded-bl-md rounded-tr-md">
-          Featured
-      </div>
-      <div class="absolute top-1/3 left-1/4 flex justify-center space-x-4 mt-4 w-full">
-          <div class="w-12 h-12 flex items-center justify-center bg-white rounded-full border border-gray-300">
-              <i class="fas fa-download text-gray-600 text-xl" id="downloadIcon"></i>
-          </div>
-          <div class="w-12 h-12 flex items-center justify-center bg-white rounded-full border border-gray-300">
-              <i class="far fa-thumbs-up text-gray-600 text-xl" id="likeIcon"></i>
-          </div>
-      </div>
-      <div class="px-6 py-4">
-          <p class="text-xl font-semibold text-gray-800 mb-2">Moh Lagos Business Exhibition
-              </p>
-          <p class="text-sm text-brown-200 font-medium mb-2">Wed, Dec 13, 2023.  9:00 AM
-              </p>
-          <p class="text-sm text-gray-600 mb-2">Ogudu Boys Scout • Lagos, LA
-              </p>
-          <p class="text-sm text-gray-600 mb-2">Free
-              </p>
-          <p class="text-sm text-gray-800 font-medium mb-2">Tech Connect Africa</p>
-      </div>
-  </a>
-
-  <a href="individualeventpage.html" class="max-w-md mx-auto bg-white shadow-md rounded-md mb-8 overflow-hidden relative transition-transform transform hover:scale-105 block">
-    <img class="w-full h-48 object-cover" src="https://via.placeholder.com/500x300" alt="Card Image">
-    <div class="absolute top-1/3 left-1/4 flex justify-center space-x-4 mt-4 w-full">
-        <div class="w-12 h-12 flex items-center justify-center bg-white rounded-full border border-gray-300">
-            <i class="fas fa-download text-gray-600 text-xl" id="downloadIcon"></i>
-        </div>
-        <div class="w-12 h-12 flex items-center justify-center bg-white rounded-full border border-gray-300">
-            <i class="far fa-thumbs-up text-gray-600 text-xl" id="likeIcon"></i>
-        </div>
     </div>
-    <div class="px-6 py-4">
-        <p class="text-xl font-semibold text-gray-800 mb-2">Moh Lagos Business Exhibition
-            </p>
-        <p class="text-sm text-brown-200 font-medium mb-2">Wed, Dec 13, 2023.  9:00 AM
-            </p>
-        <p class="text-sm text-gray-600 mb-2">Ogudu Boys Scout • Lagos, LA
-            </p>
-        <p class="text-sm text-gray-600 mb-2">Free
-            </p>
-        <p class="text-sm text-gray-800 font-medium mb-2">Tech Connect Africa</p>
     </div>
-</a>
 
 
-<a href="individualeventpage.html" class="max-w-md mx-auto bg-white shadow-md rounded-md mb-8 overflow-hidden relative transition-transform transform hover:scale-105 block">
-  <img class="w-full h-48 object-cover" src="https://via.placeholder.com/500x300" alt="Card Image">
-  <div class="absolute top-1/3 left-1/4 flex justify-center space-x-4 mt-4 w-full">
-      <div class="w-12 h-12 flex items-center justify-center bg-white rounded-full border border-gray-300">
-          <i class="fas fa-download text-gray-600 text-xl" id="downloadIcon"></i>
-      </div>
-      <div class="w-12 h-12 flex items-center justify-center bg-white rounded-full border border-gray-300">
-          <i class="far fa-thumbs-up text-gray-600 text-xl" id="likeIcon"></i>
-      </div>
-  </div>
-  <div class="px-6 py-4">
-      <p class="text-xl font-semibold text-gray-800 mb-2">Moh Lagos Business Exhibition
-          </p>
-      <p class="text-sm text-brown-200 font-medium mb-2">Wed, Dec 13, 2023.  9:00 AM
-          </p>
-      <p class="text-sm text-gray-600 mb-2">Ogudu Boys Scout • Lagos, LA
-          </p>
-      <p class="text-sm text-gray-600 mb-2">Free
-          </p>
-      <p class="text-sm text-gray-800 font-medium mb-2">Tech Connect Africa</p>
-  </div>
-</a>
-
-<a href="individualeventpage.html" class="max-w-md mx-auto bg-white shadow-md rounded-md mb-8 overflow-hidden relative transition-transform transform hover:scale-105 block">
-  <img class="w-full h-48 object-cover" src="https://via.placeholder.com/500x300" alt="Card Image">
-  <div class="absolute top-0 left-0 bg-red-700 text-white py-1 px-2 rounded-bl-md rounded-tr-md">
-      Featured
-  </div>
-  <div class="absolute top-1/3 left-1/4 flex justify-center space-x-4 mt-4 w-full">
-      <div class="w-12 h-12 flex items-center justify-center bg-white rounded-full border border-gray-300">
-          <i class="fas fa-download text-gray-600 text-xl" id="downloadIcon"></i>
-      </div>
-      <div class="w-12 h-12 flex items-center justify-center bg-white rounded-full border border-gray-300">
-          <i class="far fa-thumbs-up text-gray-600 text-xl" id="likeIcon"></i>
-      </div>
-  </div>
-  <div class="px-6 py-4">
-      <p class="text-xl font-semibold text-gray-800 mb-2">Moh Lagos Business Exhibition
-          </p>
-      <p class="text-sm text-brown-200 font-medium mb-2">Wed, Dec 13, 2023.  9:00 AM
-          </p>
-      <p class="text-sm text-gray-600 mb-2">Ogudu Boys Scout • Lagos, LA
-          </p>
-      <p class="text-sm text-gray-600 mb-2">Free
-          </p>
-      <p class="text-sm text-gray-800 font-medium mb-2">Tech Connect Africa</p>
-  </div>
-</a>
-
-<a href="individualeventpage.html" class="max-w-md mx-auto bg-white shadow-md rounded-md mb-8 overflow-hidden relative transition-transform transform hover:scale-105 block">
-  <img class="w-full h-48 object-cover" src="https://via.placeholder.com/500x300" alt="Card Image">
-  <div class="absolute top-1/3 left-1/4 flex justify-center space-x-4 mt-4 w-full">
-      <div class="w-12 h-12 flex items-center justify-center bg-white rounded-full border border-gray-300">
-          <i class="fas fa-download text-gray-600 text-xl" id="downloadIcon"></i>
-      </div>
-      <div class="w-12 h-12 flex items-center justify-center bg-white rounded-full border border-gray-300">
-          <i class="far fa-thumbs-up text-gray-600 text-xl" id="likeIcon"></i>
-      </div>
-  </div>
-  <div class="px-6 py-4">
-      <p class="text-xl font-semibold text-gray-800 mb-2">Moh Lagos Business Exhibition
-          </p>
-      <p class="text-sm text-brown-200 font-medium mb-2">Wed, Dec 13, 2023.  9:00 AM
-          </p>
-      <p class="text-sm text-gray-600 mb-2">Ogudu Boys Scout • Lagos, LA
-          </p>
-      <p class="text-sm text-gray-600 mb-2">Free
-          </p>
-      <p class="text-sm text-gray-800 font-medium mb-2">Tech Connect Africa</p>
-  </div>
-</a>
-
-<a href="individualeventpage.html" class="max-w-md mx-auto bg-white shadow-md rounded-md mb-8 overflow-hidden relative transition-transform transform hover:scale-105 block">
-  <img class="w-full h-48 object-cover" src="https://via.placeholder.com/500x300" alt="Card Image">
-  <div class="absolute top-0 left-0 bg-red-700 text-white py-1 px-2 rounded-bl-md rounded-tr-md">
-      Featured
-  </div>
-  <div class="absolute top-1/3 left-1/4 flex justify-center space-x-4 mt-4 w-full">
-      <div class="w-12 h-12 flex items-center justify-center bg-white rounded-full border border-gray-300">
-          <i class="fas fa-download text-gray-600 text-xl" id="downloadIcon"></i>
-      </div>
-      <div class="w-12 h-12 flex items-center justify-center bg-white rounded-full border border-gray-300">
-          <i class="far fa-thumbs-up text-gray-600 text-xl" id="likeIcon"></i>
-      </div>
-  </div>
-  <div class="px-6 py-4">
-      <p class="text-xl font-semibold text-gray-800 mb-2">Moh Lagos Business Exhibition
-          </p>
-      <p class="text-sm text-brown-200 font-medium mb-2">Wed, Dec 13, 2023.  9:00 AM
-          </p>
-      <p class="text-sm text-gray-600 mb-2">Ogudu Boys Scout • Lagos, LA
-          </p>
-      <p class="text-sm text-gray-600 mb-2">Free
-          </p>
-      <p class="text-sm text-gray-800 font-medium mb-2">Tech Connect Africa</p>
-  </div>
-</a>
-
-<a href="individualeventpage.html" class="max-w-md mx-auto bg-white shadow-md rounded-md mb-8 overflow-hidden relative transition-transform transform hover:scale-105 block">
-  <img class="w-full h-48 object-cover" src="https://via.placeholder.com/500x300" alt="Card Image">
-  <div class="absolute top-0 left-0 bg-red-700 text-white py-1 px-2 rounded-bl-md rounded-tr-md">
-      Featured
-  </div>
-  <div class="absolute top-1/3 left-1/4 flex justify-center space-x-4 mt-4 w-full">
-      <div class="w-12 h-12 flex items-center justify-center bg-white rounded-full border border-gray-300">
-          <i class="fas fa-download text-gray-600 text-xl" id="downloadIcon"></i>
-      </div>
-      <div class="w-12 h-12 flex items-center justify-center bg-white rounded-full border border-gray-300">
-          <i class="far fa-thumbs-up text-gray-600 text-xl" id="likeIcon"></i>
-      </div>
-  </div>
-  <div class="px-6 py-4">
-      <p class="text-xl font-semibold text-gray-800 mb-2">Moh Lagos Business Exhibition
-          </p>
-      <p class="text-sm text-brown-200 font-medium mb-2">Wed, Dec 13, 2023.  9:00 AM
-          </p>
-      <p class="text-sm text-gray-600 mb-2">Ogudu Boys Scout • Lagos, LA
-          </p>
-      <p class="text-sm text-gray-600 mb-2">Free
-          </p>
-      <p class="text-sm text-gray-800 font-medium mb-2">Tech Connect Africa</p>
-  </div>
-</a>
-
-<a href="individualeventpage.html" class="max-w-md mx-auto bg-white shadow-md rounded-md mb-8 overflow-hidden relative transition-transform transform hover:scale-105 block">
-  <img class="w-full h-48 object-cover" src="https://via.placeholder.com/500x300" alt="Card Image">
-  <div class="absolute top-0 left-0 bg-red-700 text-white py-1 px-2 rounded-bl-md rounded-tr-md">
-      Featured
-  </div>
-  <div class="absolute top-1/3 left-1/4 flex justify-center space-x-4 mt-4 w-full">
-      <div class="w-12 h-12 flex items-center justify-center bg-white rounded-full border border-gray-300">
-          <i class="fas fa-download text-gray-600 text-xl" id="downloadIcon"></i>
-      </div>
-      <div class="w-12 h-12 flex items-center justify-center bg-white rounded-full border border-gray-300">
-          <i class="far fa-thumbs-up text-gray-600 text-xl" id="likeIcon"></i>
-      </div>
-  </div>
-  <div class="px-6 py-4">
-      <p class="text-xl font-semibold text-gray-800 mb-2">Moh Lagos Business Exhibition
-          </p>
-      <p class="text-sm text-brown-200 font-medium mb-2">Wed, Dec 13, 2023.  9:00 AM
-          </p>
-      <p class="text-sm text-gray-600 mb-2">Ogudu Boys Scout • Lagos, LA
-          </p>
-      <p class="text-sm text-gray-600 mb-2">Free
-          </p>
-      <p class="text-sm text-gray-800 font-medium mb-2">Tech Connect Africa</p>
-  </div>
-</a>
-
-<a href="individualeventpage.html" class="max-w-md mx-auto bg-white shadow-md rounded-md mb-8 overflow-hidden relative transition-transform transform hover:scale-105 block">
-  <img class="w-full h-48 object-cover" src="https://via.placeholder.com/500x300" alt="Card Image">
-  <div class="absolute top-0 left-0 bg-red-700 text-white py-1 px-2 rounded-bl-md rounded-tr-md">
-      Featured
-  </div>
-  <div class="absolute top-1/3 left-1/4 flex justify-center space-x-4 mt-4 w-full">
-      <div class="w-12 h-12 flex items-center justify-center bg-white rounded-full border border-gray-300">
-          <i class="fas fa-download text-gray-600 text-xl" id="downloadIcon"></i>
-      </div>
-      <div class="w-12 h-12 flex items-center justify-center bg-white rounded-full border border-gray-300">
-          <i class="far fa-thumbs-up text-gray-600 text-xl" id="likeIcon"></i>
-      </div>
-  </div>
-  <div class="px-6 py-4">
-      <p class="text-xl font-semibold text-gray-800 mb-2">Moh Lagos Business Exhibition
-          </p>
-      <p class="text-sm text-brown-200 font-medium mb-2">Wed, Dec 13, 2023.  9:00 AM
-          </p>
-      <p class="text-sm text-gray-600 mb-2">Ogudu Boys Scout • Lagos, LA
-          </p>
-      <p class="text-sm text-gray-600 mb-2">Free
-          </p>
-      <p class="text-sm text-gray-800 font-medium mb-2">Tech Connect Africa</p>
-  </div>
-</a>
-
-
-</div>
-
-
-
-<!-- the lets make it personal section -->
-
-<div class="bg-white mt-16 mb-12 p-6 px-8 md:px-24">
-    <div class="bg-gray-100 overflow-x-auto p-4 md:p-12 rounded-md">
-        <div class="flex justify-between items-center my-2 mb-8">
-            <h2 class="text-2xl absolute font-bold">Section Header</h2>
-            <a href="#" class="text-gray-500 ml-80 md:ml-[1000px] absolute hover:text-gray-700">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                     xmlns="http://www.w3.org/2000/svg">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                          d="M6 18L18 6M6 6l12 12"></path>
-                </svg>
-            </a>
-        </div>
-        <p class="text-lg font-semibold mb-12">Sub Header</p>
-
-        <div class="flex md:flex-wrap gap-8">
-            <a href="#" class="bg-white border border-gray-300 p-3 rounded-full text-center hover:bg-gray-100">
-                Comedy
-            </a>
-            <a href="#" class="bg-white border border-gray-300 p-3 rounded-full text-center hover:bg-gray-100">
-                Tech
-            </a>
-            <a href="#" class="bg-white border border-gray-300 p-3 rounded-full text-center hover:bg-gray-100">
-                Entertainment
-            </a>
-            <a href="#" class="bg-white border border-gray-300 p-3 rounded-full text-center hover:bg-gray-100">
-                Movies
-            </a>
-            <a href="#" class="bg-white border border-gray-300 p-3 rounded-full text-center hover:bg-gray-100">
-                Concerts
-            </a>
-            <a href="#" class="bg-white border border-gray-300 p-3 rounded-full text-center hover:bg-gray-100">
-                Parties
-            </a>
-            <a href="#" class="bg-white border border-gray-300 p-3 rounded-full text-center hover:bg-gray-100">
-                Reunions
-            </a>
-            <a href="#" class="bg-white border border-gray-300 p-3 rounded-full text-center hover:bg-gray-100">
-                Seminars
-            </a>
-            <a href="#" class="bg-white border border-gray-300 p-3 rounded-full text-center hover:bg-gray-100">
-                Exhibitions
-            </a>
-            <a href="#" class="bg-white border border-gray-300 p-3 rounded-full text-center hover:bg-gray-100">
-                Festivals
-            </a>
-            <a href="#" class="bg-white border border-gray-300 p-3 rounded-full text-center hover:bg-gray-100">
-                Virtual Conferences
-            </a>
-            <a href="#" class="bg-white border border-gray-300 p-3 rounded-full text-center hover:bg-gray-100">
-                Lectures/Talks
-            </a>
-            <a href="#" class="bg-white border border-gray-300 p-3 rounded-full text-center hover:bg-gray-100">
-                Games
-            </a>
-            <a href="#" class="bg-white border border-gray-300 p-3 rounded-full text-center hover:bg-gray-100">
-                Mental health
-            </a>
-            <a href="#" class="bg-white border border-gray-300 p-3 rounded-full text-center hover:bg-gray-100">
-                Workshops
-            </a>
-            <!-- ... Add more text items here ... -->
-            <a href="#" class="bg-white border border-gray-300 p-3 rounded-full text-center hover:bg-gray-100">
-                Trade shows
-            </a>
-        </div>
-    </div>
-</div>
-
-
-
-<div class="flex justify-center items-center mb-24">
-    <button class="border border-custom-blue text-custom-blue px-4 py-2 transition-all duration-300 ease-in-out hover:bg-custom-blue-light active:bg-custom-blue-dark active:text-white">
-        Secondary Button
-    </button>
-</div>
-
-
-
-
-<!-- Swiper -->
-<div class="swiper-container">
-    <div class="swiper-wrapper">
-      <div class="swiper-slide">
-        <div class="text-center">
-          <h2 class="text-3xl font-bold mb-4">Customer Reviews</h2>
-          <h3 class="text-lg text-gray-600 mb-8">What our customers are saying</h3>
-  
-          <div class="flex items-start space-x-4 px-8 lg:px-16 overflow-x-auto">
-            <!-- Review Card 1 -->
-            <div class="max-w-md mx-2 items-start bg-white shadow-md rounded-md p-4">
-              <i class="fas fa-quote-left text-2xl justify-start text-gray-500 mb-2"></i>
-              <p class="text-gray-800 mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ac justo eu ligula tristique consectetur.</p>
-              <p class="text-gray-600">John Doe</p>
+          <!-- Right Side: Ticket Information and Checkout -->
+          <div class="lg:w-1/3 md:w-full sm:w-full w-full items-center sm:p-0 bg-white lg:border lg:border-gray-300 lg:p-4 bottom-0 lg:static">
+            <!-- Ticket Quantity -->
+           <div class="border border-gray-300 p-8">
+            <div class="flex items-center mb-4 justify-between">
+                <h3 class="text-xl font-semibold mr-4">Choose Tickets:</h3>
+                <div class="flex items-center">
+                    <div id="minusBtn" class="border border-gray-300 rounded-full px-3 py-1 cursor-pointer">
+                        <i class="fas fa-minus"></i>
+                    </div>
+                    <div id="ticketQuantity" class="mx-3">1</div>
+                    <div id="plusBtn" class="border border-gray-300 rounded-full px-3 py-1 cursor-pointer">
+                        <i class="fas fa-plus"></i>
+                    </div>
+                </div>
             </div>
+          
+    
+            <!-- Event Amount -->
+            <div class="mb-4">
+                <h3 class="text-xl font-semibold">Amount:</h3>
+                <p class="text-gray-600">Event Amount</p>
+            </div>
+           </div>
+            <!-- Checkout Button -->
+          <div class="p-4 mt-8" onclick="handleCheckout()">
+            <a href="#" class="bg-gray-800 text-white px-4 py-2 rounded-md block text-center">Checkout</a>
+         </div>
+
+
+
+         <!-- Add Guest Popup -->
+         <div id="addGuestPopup" class="fixed inset-0 bg-black bg-opacity-75 z-50 hidden flex justify-center items-center">
+  <div class="block lg:flex max-w-2xl mx-auto p-8 bg-white rounded-lg shadow-lg h-96 overflow-y-auto">
+      <div class="flex-1 p-8 py-2">
+          <div class="flex justify-between">
+              <h2 class="text-2xl font-semibold mb-4">Add Guest</h2>
+              <button @click="closeAddGuestPopup" class="absolute top-10 ml-80 lg:ml-[530px] text-gray-600 hover:text-gray-800 cursor-pointer">
+                  <i class="fas fa-times-circle bg-white text-2xl"></i>
+              </button>
+          </div>
+          <!-- Input fields for guest information -->
+          <input type="text" placeholder="Guest Name" class="border p-2 mb-4">
+          <input type="email" placeholder="Guest Email" class="border p-2 mb-4">
+          <textarea placeholder="Message" class="border p-2 mb-4"></textarea>
+          <!-- Announcement text -->
+          <p class="text-gray-600 mb-4">Additional information about adding guests.</p>
+          <!-- Cancel and Save buttons -->
+          <div class="flex justify-end">
+              <button @click="closeAddGuestPopup" class="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded mr-4">
+                  Cancel
+              </button>
+              <button onclick="handleCheckout()" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                  Save Information
+              </button>
+          </div>
+      </div>
+  </div>
+</div>
+
+
+
+           <!-- Checkout Pop-up Container -->
+           <div id="checkoutPopup" class="fixed inset-0 bg-black bg-opacity-75 h-screen z-50 hidden flex justify-center items-center">
+  <div class="block lg:flex max-w-2xl mx-auto p-8 bg-white rounded-lg shadow-lg h-96 overflow-y-auto">
+      <!-- Left Side: Checkout Information -->
+      <div class="flex-1 p-8 py-2">
+          <!-- Checkout Heading -->
+       <div class="flex justify-between">
+          <h2 class="text-2xl font-semibold mb-4">Checkout</h2>
+          <!-- Cancel Icon -->
+          <button @click="open = false" class="text-white">
+              <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                   stroke-width="2" viewBox="0 0 24 24" class="w-6 h-6">
+                  <path d="M6 18L18 6M6 6l12 12"></path>
+              </svg>
+          </button>
+       </div>
+
+          <!-- Time Countdown -->
+          <div class="flex items-center text-gray-600 mb-4">
+              <p class="text-sm font-semibold">Time:</p>
+              <!-- Replace '20:00' with actual countdown time -->
+              <p id="countdownTimer" class="ml-2 text-lg font-semibold">20:00</p>
+          </div>
+
+          <!-- Billing Information -->
+          <div class="mb-4">
+              <h3 class="text-xl font-semibold">Billing Information</h3>
+              <div class="flex items-center mt-2">
+                  <p class="text-gray-600 mr-2">Required</p>
+                  <i class="fas fa-exclamation-circle text-red-500"></i>
+              </div>
+          </div>
+
+          <!-- Input Fields for First Name, Last Name, Email -->
+          <!-- Add more input fields as needed -->
+          <div class="grid grid-cols-2 gap-4 mb-4">
+              <input type="text" placeholder="First Name" class="border p-2">
+              <input type="text" placeholder="Last Name" class="border p-2">
+              <input type="email" placeholder="Email Address" class="border p-2 col-span-2">
+          </div>
+
+          <!-- Check Icon and Question -->
+          <div class="flex items-center mb-4">
+              <input type="checkbox" id="rememberMe" class="mr-2">
+              <label for="rememberMe" class="text-sm text-gray-600">Keep me updated on more events</label>
+          </div>
+          <div class="flex items-center mb-4">
+              <input type="checkbox" id="rememberMe" class="mr-2">
+              <label for="rememberMe" class="text-sm text-gray-600">Send me emails about the best events around me.</label>
+          </div>
+
+<!-- Payment Method Options -->
+<div class="mb-4">
+  <h3 class="text-lg font-semibold">Pay With</h3>
+  <div>
+      <!-- Radio buttons for Credit Card, PayPal, Google Pay -->
+      <div class="flex items-center mb-2">
+          <input type="radio" id="creditCard" name="paymentMethod" value="creditCard" onclick="showPaymentForm('creditCard')">
+          <label for="creditCard" class="ml-2">Credit Card</label>
+      </div>
+      <div class="flex items-center mb-2">
+          <input type="radio" id="payPal" name="paymentMethod" value="payPal" onclick="showPaymentForm('payPal')">
+          <label for="payPal" class="ml-2">PayPal</label>
+      </div>
+      <div class="flex items-center">
+          <input type="radio" id="googlePay" name="paymentMethod" value="googlePay" onclick="showPaymentForm('googlePay')">
+          <label for="googlePay" class="ml-2">Google Pay</label>
+      </div>
+  </div>
+</div>
+
+<!-- Credit Card Form Fields -->
+<div id="creditCardForm" style="display: none;">
+  <!-- Add your credit card input fields here -->
+  <div class="mb-4">
+      <label for="cardNumber" class="block text-sm font-medium text-gray-700">Card Number</label>
+      <input type="text" id="cardNumber" name="cardNumber" class="mt-1 p-2 border rounded w-full">
+  </div>
+  <!-- Add more credit card input fields as needed -->
+ <div class="flex">
+  <div class="mb-4">
+      <label for="cardNumber" class="block text-sm font-medium text-gray-700">Card Number</label>
+      <input type="text" id="cardNumber" name="cardNumber" class="mt-1 p-2 border rounded w-full">
+  </div>
+  <div class="mb-4">
+      <label for="cardNumber" class="block text-sm font-medium text-gray-700">Card Number</label>
+      <input type="text" id="cardNumber" name="cardNumber" class="mt-1 p-2 border rounded w-full">
+  </div>
+</div>
+ </div>
+
+
+ 
+
+<!-- Checkout Button -->
+<div class="border border-gray-300 p-4 mt-4">
+  <a href="#" id="placeOrderBtn" style="display: none;" onclick="toggleThankYouPopup()" class="bg-gray-800 text-white px-4 py-2 rounded-full block text-center">Place Order</a>
+  <button id="payPalBtn" style="display: none;" class="bg-blue-500 text-white px-4 py-2 rounded-full block text-center">Pay with PayPal</button>
+  <button id="googlePayBtn" style="display: none;" class="bg-red-500 text-white px-4 py-2 rounded-full block text-center">Pay with Google Pay</button>
+</div>
+
+
+
+
+
+
+<!-- Thank You Pop-up -->
+<div id="thankYouPopup" class="fixed inset-0 bg-black bg-opacity-75 z-50 hidden h-96 overflow-y-auto">
+  <div class="block lg:flex sm:flex-wrap items-center justify-center h-full">
+      <div class="bg-white p-8 rounded-lg">
+          <!-- Thank You Heading -->
+          <div class="flex items-center mb-4">
+              <i class="fas fa-check-circle text-green-500 text-4xl mr-4"></i>
+              <h2 class="text-2xl font-semibold">Thank You for Your Purchase!</h2>
+          </div>
+
+          <!-- Ticket Information -->
+          <div class="flex mb-4">
+              <p class="text-gray-600">Ticket Number: 123456</p>
+              <a href="ticket.html" onclick="redirectToForm()" class=" bg-gray-800 text-white px-4 ml-8 py-2 rounded-full block text-center">View Ticket</a>
+          </div>
+
+          <hr class="border-t border-gray-300 mb-4">
+
+          <p class="text-gray-600 mb-2">You are going to:</p>
+          <p class="text-lg font-semibold mb-2">Event Name</p>
+          <p class="text-gray-600 mb-2">1 ticket has been sent to:</p>
+          <p class="text-gray-600 mb-2">example@email.com</p>
+          <a href="#" class="text-blue-500 mb-2">Change Email</a>
+          <p class="text-gray-600 mb-2">Date: Event Date</p>
+          <p class="text-gray-600 mb-2">Location: Event Location</p>
+      </div>
+
+      <!-- Right Side for Related Events -->
+      <div class="lg:w-1/3 lg:mt-0 mt-4">
+          <!-- Cancel Icon -->
+          <button @click="open = false" class="text-white">
+              <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                   stroke-width="2" viewBox="0 0 24 24" class="w-6 h-6">
+                  <path d="M6 18L18 6M6 6l12 12"></path>
+              </svg>
+          </button>
+
+          <!-- Other Related Events -->
+          <div class="mb-4">
+              <h3 class="text-lg font-semibold mb-2">Other Related Events</h3>
+              <!-- Event Cards and Swipe Icons -->
+              <a href="individualeventpage.html" class="w-full lg:w-2/3 mx-auto bg-white shadow-md rounded-md mb-8 overflow-hidden relative transition-transform transform hover:scale-105 block">
+                  <img class="w-full h-48 object-cover" src="https://via.placeholder.com/500x300" alt="Card Image">
+                  <div class="absolute top-0 left-0 bg-red-700 text-white py-1 px-2 rounded-bl-md rounded-tr-md">
+                      Featured
+                  </div>
+                  <div class="absolute top-1/3 left-1/4 flex justify-center space-x-4 mt-4 w-full">
+                      <div class="w-12 h-12 flex items-center justify-center bg-white rounded-full border border-gray-300">
+                          <i class="fas fa-download text-gray-600 text-xl" id="downloadIcon"></i>
+                      </div>
+                      <div class="w-12 h-12 flex items-center justify-center bg-white rounded-full border border-gray-300">
+                          <i class="far fa-thumbs-up text-gray-600 text-xl" id="likeIcon"></i>
+                      </div>
+                  </div>
+                  <div class="px-6 py-4">
+                      <p class="text-xl font-semibold text-gray-800 mb-2">Moh Lagos Business Exhibition
+                          </p>
+                      <p class="text-sm text-brown-200 font-medium mb-2">Wed, Dec 13, 2023.  9:00 AM
+                          </p>
+                      <p class="text-sm text-gray-600 mb-2">Ogudu Boys Scout • Lagos, LA
+                          </p>
+                      <p class="text-sm text-gray-600 mb-2">Free
+                          </p>
+                      <p class="text-sm text-gray-800 font-medium mb-2">Tech Connect Africa</p>
+                  </div>
+              </a>
+              <!-- Include your card structure and swipe icons here -->
+          </div>
+
+          <!-- Back to Home Button -->
+          <a href="index.html" class="bg-gray-800 text-white px-4 py-2 rounded-full block text-center">Back to Home</a>
+      </div>
+  </div>
+</div>
+
+
+          <!-- Terms and Conditions -->
+          <div class="mb-4">
+              <p class="text-gray-600">By selecting "Place Order," you agree to our terms and conditions.</p>
+          </div>
+          <a href="#" class="bg-gray-800 text-white px-4 py-2 rounded-full block text-center">Back to Home</a>
+      </div>
+
+
+
+
+
+  </section>
+
+<!-- Accordion Section -->
+<section class="py-16 px-6 justify-between bg-gray-100">
+    <!-- Subheader -->
+
+    <div class="flex flex-wrap justify-between">
+
+    <div>
+    <h2 class="text-3xl font-semibold text-center mb-8">Event Details</h2>
   
-            <!-- Repeat for other review cards -->
-            <div class="max-w-md mx-2 bg-white shadow-md rounded-md p-4">
-                <i class="fas fa-quote-left text-2xl text-gray-500 mb-2"></i>
-                <p class="text-gray-800 mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ac justo eu ligula tristique consectetur.</p>
-                <p class="text-gray-600">John Doe</p>
+    <!-- Accordion Container -->
+    <div class="max-w-4xl mx-auto">
+      <!-- Overview Accordion Item -->
+      <div class="accordion-item border-b border-gray-300">
+        <input type="checkbox" id="overview" class="accordion-input hidden">
+        <label for="overview" class="accordion-header cursor-pointer bg-gray-200 py-2 px-4 block">Overview</label>
+        <div class="accordion-content">
+          <!-- Overview Content -->
+          <div class="flex flex-col md:flex-row items-center justify-between mb-4">
+            <!-- Left Side (Image) -->
+            <div class="w-full md:w-1/3 mr-5 mt-4">
+              <img src="images/friends-having-coffee-break_53876-64860.webp" alt="Overview Image" class="w-full h-auto rounded-lg mb-4">
+            </div>
+            <!-- Right Side -->
+            <div class="w-full md:w-2/3">
+              <h3 class="text-xl font-semibold mb-2">Event Overview</h3>
+              <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+              <div class="flex justify-between">
+                <div>
+                  <p class="font-semibold">Date:</p>
+                  <p>January 1, 2025</p>
+                </div>
+                <div>
+                  <p class="font-semibold">Time:</p>
+                  <p>9:00 AM - 5:00 PM</p>
+                </div>
               </div>
-
-              <div class="max-w-md mx-2 bg-white shadow-md rounded-md p-4">
-                <i class="fas fa-quote-left text-2xl text-gray-500 mb-2"></i>
-                <p class="text-gray-800 mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ac justo eu ligula tristique consectetur.</p>
-                <p class="text-gray-600">John Doe</p>
-              </div>
-
-              <div class="max-w-md mx-2 bg-white shadow-md rounded-md p-4">
-                <i class="fas fa-quote-left text-2xl text-gray-500 mb-2"></i>
-                <p class="text-gray-800 mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ac justo eu ligula tristique consectetur.</p>
-                <p class="text-gray-600">John Doe</p>
-              </div>
-
-              <div class="max-w-md mx-2 bg-white shadow-md rounded-md p-4">
-                <i class="fas fa-quote-left text-2xl text-gray-500 mb-2"></i>
-                <p class="text-gray-800 mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ac justo eu ligula tristique consectetur.</p>
-                <p class="text-gray-600">John Doe</p>
-              </div>
+            </div>
           </div>
         </div>
       </div>
   
-      <!-- Repeat for other slides -->
+      <!-- Description Accordion Item -->
+      <div class="accordion-item border-b border-gray-300">
+        <input type="checkbox" id="description" class="accordion-input hidden">
+        <label for="description" class="accordion-header cursor-pointer bg-gray-200 py-2 px-4 block">Description</label>
+        <div class="accordion-content">
+          <!-- Description Content -->
+          <p class="py-4 px-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        </div>
+      </div>
   
+  
+  
+<!-- Importance Accordion Item -->
+<div class="accordion-item border-b border-gray-300">
+    <input type="checkbox" id="importance" class="accordion-input hidden">
+    <label for="importance" class="accordion-header cursor-pointer bg-gray-200 py-2 px-4 block">Importance</label>
+    <div class="accordion-content">
+      <!-- Importance Content -->
+      <div class="py-4 px-4">
+        <h3 class="text-xl font-semibold mb-2">Why This Event is a Must-Attend:</h3>
+        <ul class="list-disc pl-6">
+          <li class="mb-2">Unlock the secrets to success with insider tips from top industry experts</li>
+          <li class="mb-2">Forge invaluable connections with like-minded professionals in your field</li>
+          <li class="mb-2">Stay ahead of the curve with exclusive access to cutting-edge innovations and trends</li>
+          <li class="mb-2">Ignite your passion and fuel your ambitions through inspiring keynote sessions</li>
+        </ul>
+        <p class="mt-4">Don't just attend; elevate your career, broaden your horizons, and seize opportunities that could change your trajectory forever. Join us and be a part of something extraordinary!</p>
+      </div>
     </div>
-    <!-- Add Pagination -->
-    <div class="swiper-pagination"></div>
-    <!-- Add Navigation 
-    <div class="swiper-button-next"></div>
-    <div class="swiper-button-prev"></div> -->
+  </div>
+  
+  
+<!-- Check for Table Accordion Item -->
+<div class="accordion-item border-b border-gray-300">
+    <input type="checkbox" id="check-for-table" class="accordion-input hidden">
+    <label for="check-for-table" class="accordion-header cursor-pointer bg-gray-200 py-2 px-4 block">Check for Table</label>
+    <div class="accordion-content">
+      <!-- Check for Table Content -->
+      <div class="py-4 px-4">
+        <form id="table-check-form">
+          <label for="name" class="block mb-2">Enter Your Name:</label>
+          <input type="text" id="name" name="name" class="w-full px-4 py-2 mb-4 border rounded-md focus:outline-none focus:border-blue-500" placeholder="Your Name">
+          <button type="button" id="check-button" class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 transition duration-300">Check Seat</button>
+        </form>
+        <div id="table-result" class="mt-4"></div>
+      </div>
+    </div>
   </div>
 
+</div>
+
+
+<!-- Speakers Accordion Item -->
+<div class="accordion-item">
+  <input type="checkbox" id="speakers" class="accordion-input hidden">
+  <label for="speakers" class="accordion-header cursor-pointer bg-gray-200 py-2 px-4 block">Speakers</label>
+  <div class="accordion-content">
+    <!-- Speakers Content -->
+    <div class="py-4 px-4">
+      <div class="flex flex-wrap justify-center">
+        <!-- Speaker Item 1 -->
+        <div class="speaker-item flex flex-col items-center w-1/4 p-4">
+          <img src="images/medium-shot-people-techno-party_23-2150639064.webp" alt="Speaker 1" class="w-32 h-32 rounded-md mb-2">
+          <h3 class="text-lg font-semibold">Speaker 1</h3>
+        </div>
+        <!-- Speaker Item 2 -->
+        <div class="speaker-item flex flex-col items-center w-1/4 p-4">
+          <img src="images/Soph-Okonedo.jpeg" alt="Speaker 2" class="w-32 h-32 rounded-md mb-2">
+          <h3 class="text-lg font-semibold">Speaker 2</h3>
+        </div>
+        <!-- Add more speaker items as needed -->
+
+        <div class="speaker-item flex flex-col items-center w-1/4 p-4">
+          <img src="images/Soph-Okonedo.jpeg" alt="Speaker 2" class="w-32 h-32 rounded-md mb-2">
+          <h3 class="text-lg font-semibold">Speaker 2</h3>
+        </div>
+
+        <div class="speaker-item flex flex-col items-center w-1/4 p-4">
+          <img src="images/Soph-Okonedo.jpeg" alt="Speaker 2" class="w-32 h-32 rounded-md mb-2">
+          <h3 class="text-lg font-semibold">Speaker 2</h3>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+</div>
+  
+  
+      <!-- Location Accordion Item -->
+      <div class="accordion-item border-b border-gray-300">
+        <input type="checkbox" id="location" class="accordion-input hidden">
+        <label for="location" class="accordion-header cursor-pointer bg-gray-200 py-2 px-4 block">Location</label>
+        <div class="accordion-content">
+          <!-- Location Content -->
+               <!-- Map Rectangle -->
+      <!-- Map Container -->
+               <div id="map" class="w-full h-64 rounded-lg overflow-hidden"></div>
+               <script>
+                   // Initialize and add the map
+                   function initMap() {
+                       // The location of the event
+                       var eventLocation = { lat: 40.7128, lng: -74.0060 }; // Example coordinates (New York City)
+      
+                       // The map, centered at the event location
+                       var map = new google.maps.Map(document.getElementById("map"), {
+                           zoom: 15,
+                           center: eventLocation,
+                       });
+      
+                       // The marker, positioned at the event location
+                       var marker = new google.maps.Marker({
+                           position: eventLocation,
+                           map: map,
+                       });
+                   }
+               </script>
+               <script
+                   src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap"
+                   async
+                   defer
+               ></script>
+               
+          <div class="py-4 px-4">
+            <h3 class="text-xl font-semibold mb-2">Event Venue: Baystreet Conference Center</h3>
+            <p class="mb-2">Address: 123 Main Street, Baystreet, City</p>
+            <p class="mb-2">City: Baystreet</p>
+            <p class="mb-2">State: State</p>
+            <p class="mb-2">Country: Country</p>
+            <div class="mt-4">
+              <img src="location_image.jpg" alt="Location Image" class="w-full h-auto rounded-lg">
+            </div>
+          </div>
+        </div>
+
+        <!-- New Section -->
+<!-- New Section -->
+<div class="mt-8">
+  <!-- Header -->
+  <h2 class="text-2xl font-semibold mb-4">Follow our Social Media Accounts</h2>
+  
+  <!-- Social Media Icons -->
+  <div class="flex items-center justify-center space-x-4">
+      <!-- Twitter Icon -->
+      <a href="https://twitter.com/YourTwitterHandle" target="_blank" rel="noopener noreferrer">
+          <i class="fab fa-twitter-square text-4xl cursor-pointer"></i>
+      </a>
+      
+      <!-- Facebook Icon -->
+      <a href="https://www.facebook.com/YourFacebookPage" target="_blank" rel="noopener noreferrer">
+          <i class="fab fa-facebook-square text-4xl cursor-pointer"></i>
+      </a>
+      
+      <!-- Instagram Icon -->
+      <a href="https://www.instagram.com/YourInstagramAccount" target="_blank" rel="noopener noreferrer">
+          <i class="fab fa-instagram-square text-4xl cursor-pointer"></i>
+      </a>
+      
+      <!-- LinkedIn Icon -->
+      <a href="https://www.linkedin.com/in/YourLinkedInProfile" target="_blank" rel="noopener noreferrer">
+          <i class="fab fa-linkedin text-4xl cursor-pointer"></i>
+      </a>
+      
+      <!-- Add more social media icons as needed -->
+  </div>
+</div>
+
+
+      </div>
+      
+  
+  </section>
+  
+  <div class="bg-gray-400 py-12">
+    <div class="max-w-3xl mx-auto px-4">
+        <!-- Comments Section -->
+        <div id="comments" class="mb-8">
+            <!-- Comment Item 1 -->
+            <div class="comment bg-white shadow-md rounded-md p-4 mb-4">
+                <h3 class="text-lg font-semibold mb-2">User 1</h3>
+                <p class="text-gray-600">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <!-- Reply Section -->
+                <div class="reply-section mt-2">
+                    <button class="reply-btn text-blue-500 hover:text-blue-700 focus:outline-none">Reply</button>
+                    <div class="hidden mt-2">
+                        <input type="text" class="reply-input w-full border border-gray-300 rounded-md py-2 px-4" placeholder="Type your reply here...">
+                        <button class="submit-reply bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 transition duration-300">Submit</button>
+                    </div>
+                </div>
+                <!-- Replies Container -->
+                <div class="replies mt-4"></div>
+            </div>
+
+            <!-- Comment Item 2 -->
+            <div class="comment bg-white shadow-md rounded-md p-4 mb-4">
+                <h3 class="text-lg font-semibold mb-2">User 2</h3>
+                <p class="text-gray-600">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <!-- Reply Section -->
+                <div class="reply-section mt-2">
+                    <button class="reply-btn text-blue-500 hover:text-blue-700 focus:outline-none">Reply</button>
+                    <div class="hidden mt-2">
+                        <input type="text" class="reply-input w-full border border-gray-300 rounded-md py-2 px-4" placeholder="Type your reply here...">
+                        <button class="submit-reply bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 transition duration-300">Submit</button>
+                    </div>
+                </div>
+                <!-- Replies Container -->
+                <div class="replies mt-4"></div>
+            </div>
+            <!-- Add more comment items dynamically with JavaScript -->
+        </div>
+
+        <!-- Load More Button -->
+        <div id="loadMoreBtn" class="text-center">
+            <button id="loadMore" class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 transition duration-300">Load More</button>
+        </div>
+
+        <!-- Add Comment Section -->
+        <div id="addComment" class="mt-8">
+            <h2 class="text-xl font-semibold mb-4">Add Your Comment</h2>
+            <div class="flex">
+                <input id="commentInput" type="text" placeholder="Type your comment here" class="flex-1 py-2 px-4 rounded-l-md border border-gray-300 focus:outline-none focus:border-blue-500">
+                <button id="submitComment" class="bg-blue-500 text-white px-4 py-2 rounded-r-md hover:bg-blue-600 transition duration-300">Submit</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+  
+  
+  <div class="bg-gray-100 py-12">
+    <div class="max-w-5xl mx-auto px-4">
+      <!-- Subheading -->
+      <h2 class="text-3xl font-semibold mb-4">What to Expect</h2>
+      
+      <!-- Image Slider -->
+      <div class="relative">
+        <!-- Left Arrow -->
+        <div class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-white rounded-full w-12 h-12 flex justify-center items-center cursor-pointer">
+          <i class="fas fa-chevron-left text-gray-500 text-lg"></i>
+        </div>
+        <!-- Right Arrow -->
+        <div class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-white rounded-full w-12 h-12 flex justify-center items-center cursor-pointer">
+          <i class="fas fa-chevron-right text-gray-500 text-lg"></i>
+        </div>
+        
+        <!-- Image Slider Content -->
+        <div class="flex overflow-x-auto scrollbar-hide">
+          <!-- Individual Images -->
+          <img src="images/group-friends-having-fun-during-white-party-with-drinks_23-2149485963.webp" alt="Image 1" class="w-64 h-64 object-cover rounded-md mr-4">
+          <img src="images/medium-shot-people-techno-party_23-2150639064.webp" alt="Image 2" class="w-64 h-64 object-cover rounded-md mr-4">
+          <!-- Add more images here -->
+          <img src="images/group-friends-having-fun-during-white-party-with-drinks_23-2149485963.webp" alt="Image 1" class="w-64 h-64 object-cover rounded-md mr-4">
+          <img src="images/medium-shot-people-techno-party_23-2150639064.webp" alt="Image 2" class="w-64 h-64 object-cover rounded-md mr-4">
+
+          <img src="images/group-friends-having-fun-during-white-party-with-drinks_23-2149485963.webp" alt="Image 1" class="w-64 h-64 object-cover rounded-md mr-4">
+          <img src="images/medium-shot-people-techno-party_23-2150639064.webp" alt="Image 2" class="w-64 h-64 object-cover rounded-md mr-4">
+        </div>
+      </div>
+    </div>
+  </div>
+  
+
+  <section class="flex justify-between bg-slate-950 items-center py-14">
+    <div class="text-left px-2 md:px-28">
+      <h2 class="text-xl text-white font-bold uppercase">
+        GET YOUR TICKET FOR <span class="text-red-500">$40</span>
+      </h2>
+      <p class="text-gray-600 mt-2 mb-14">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+      <a href="checkoutpage.html" class="bg-gray-800 text-white px-6 py-4 w-full sm:w-96 rounded-md hover:bg-gray-600">Get Ticket</a>
+    </div>
+    <div class="text-right">
+      <!-- Add your cool icon image or animation here -->
+    </div>
+  </section>
+  
+  
 
 
 
-  <footer class="text-white p-8 mt-24 px-8 md:px-24" style="background-color: #02233B;">
+
+<footer class="text-white p-8 mt-0 px-8 md:px-24" style="background-color: #02233B;">
     <div class="flex flex-wrap justify-between">
       <!-- Left Side -->
       <div class="flex flex-col items-start">
@@ -711,6 +868,118 @@
   <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 
 
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+    // Function to toggle reply input field
+    function toggleReplyInput(event) {
+        const replySection = event.target.closest('.comment').querySelector('.reply-section');
+        replySection.querySelector('.hidden').classList.toggle('hidden');
+    }
+
+    // Function to submit reply
+    function submitReply(event) {
+        const replyInput = event.target.parentElement.querySelector('.reply-input');
+        const replyText = replyInput.value.trim();
+        if (replyText !== "") {
+            const reply = document.createElement('div');
+            reply.classList.add('reply', 'bg-gray-200', 'p-2', 'rounded-md', 'mt-2');
+            reply.innerHTML = `<p>${replyText}</p>`;
+            event.target.closest('.comment').querySelector('.replies').appendChild(reply);
+            replyInput.value = ""; // Clear the reply input field
+        }
+    }
+
+    // Attach event listener to the parent container for Reply buttons and Submit buttons
+    const commentsContainer = document.getElementById('comments');
+    commentsContainer.addEventListener('click', function(event) {
+        const target = event.target;
+        if (target.classList.contains('reply-btn')) {
+            toggleReplyInput(event);
+        } else if (target.classList.contains('submit-reply')) {
+            submitReply(event);
+        }
+    });
+});
+
+  </script>
+
+
+<script>
+  function handleCheckout() {
+      const ticketQuantity = parseInt(document.getElementById('ticketQuantity').textContent);
+      if (ticketQuantity > 1) {
+          // Show add guest popup
+          document.getElementById('addGuestPopup').classList.remove('hidden');
+      } else {
+          // Show checkout popup directly
+          document.getElementById('checkoutPopup').classList.remove('hidden');
+      }
+  }
+
+  function closeAddGuestPopup() {
+      document.getElementById('addGuestPopup').classList.add('hidden');
+  }
+
+  function saveGuestInformation() {
+      // Logic to save guest information goes here
+  }
+</script>
+
+<script>
+  function toggleCheckoutPopup() {
+      var popup = document.getElementById('checkoutPopup');
+      popup.classList.toggle('hidden');
+  }
+</script>
+
+<script>
+  let ticketQuantity = 1;
+
+  document.getElementById('minusBtn').addEventListener('click', function () {
+      if (ticketQuantity > 1) {
+          ticketQuantity--;
+          updateTicketQuantity();
+      }
+  });
+
+  document.getElementById('plusBtn').addEventListener('click', function () {
+      ticketQuantity++;
+      updateTicketQuantity();
+  });
+
+  function updateTicketQuantity() {
+      document.getElementById('ticketQuantity').innerText = ticketQuantity;
+
+      // Change colors based on quantity
+      const minusBtn = document.getElementById('minusBtn');
+      const plusBtn = document.getElementById('plusBtn');
+
+      minusBtn.style.borderColor = ticketQuantity > 1 ? '#4299e1' : '#e2e8f0';
+      plusBtn.style.borderColor = ticketQuantity < 5 ? '#4299e1' : '#e2e8f0';
+  }
+</script>
+
+<script>
+  function showPaymentForm(method) {
+      // Hide all forms initially
+      document.getElementById('creditCardForm').style.display = 'none';
+      document.getElementById('placeOrderBtn').style.display = 'none';
+      document.getElementById('payPalBtn').style.display = 'none';
+      document.getElementById('googlePayBtn').style.display = 'none';
+  
+      // Show the selected form
+      if (method === 'creditCard') {
+          document.getElementById('creditCardForm').style.display = 'block';
+          document.getElementById('placeOrderBtn').style.display = 'block';
+      } else if (method === 'payPal') {
+          document.getElementById('payPalBtn').style.display = 'block';
+      } else if (method === 'googlePay') {
+          document.getElementById('googlePayBtn').style.display = 'block';
+      }
+  }
+</script>
+
+
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             Alpine.start();
@@ -724,7 +993,195 @@
       document.head.appendChild(scrollbarStyle);
     });
   </script>
+
+
+<script>
+  // Function to open the checkout pop-up
+  function openCheckoutPopup() {
+      document.getElementById('checkoutPopup').classList.remove('hidden');
+      // Add any additional logic you need for the checkout pop-up
+  }
+
+  // Function to close the checkout pop-up
+  function closeCheckoutPopup() {
+      document.getElementById('checkoutPopup').classList.add('hidden');
+      // Add any additional logic you need when closing the checkout pop-up
+  }
+
+  // Function to open the thank you pop-up
+  function openThankYouPopup() {
+      document.getElementById('thankYouPopup').classList.remove('hidden');
+      // Add any additional logic you need for the thank you pop-up
+  }
+
+  // Function to close the thank you pop-up
+  function closeThankYouPopup() {
+      document.getElementById('thankYouPopup').classList.add('hidden');
+      // Add any additional logic you need when closing the thank you pop-up
+  }
+
+  // Function to toggle the thank you pop-up
+  function toggleThankYouPopup() {
+      document.getElementById('thankYouPopup').classList.toggle('hidden');
+      // Add any additional logic you need when toggling the thank you pop-up
+  }
+</script>
+
   
+<script>
+    // Function to animate horizontal scrolling text
+    function animateScrollingText() {
+      const scrollingText = document.getElementById('scrollingText');
+      let position = 0;
+      const speed = 2; // Adjust the speed of scrolling
+  
+      // Function to move text
+      function moveText() {
+        position -= speed;
+        scrollingText.style.transform = `translateX(${position}px)`;
+  
+        // Reset position when text reaches end
+        if (position <= -scrollingText.offsetWidth) {
+          position = scrollingText.offsetWidth;
+        }
+  
+        // Loop animation
+        requestAnimationFrame(moveText);
+      }
+  
+      // Start animation
+      moveText();
+    }
+  
+    // Call the function when the page is loaded
+    window.addEventListener('load', animateScrollingText);
+  </script>
+
+  <!-- JavaScript for Countdown Timer -->
+<script>
+    // Set the date for the countdown (replace with your event date)
+    const eventDate = new Date('2024-12-31T23:59:59').getTime();
+  
+    // Update the countdown every second
+    const countdownInterval = setInterval(function() {
+      // Get the current date and time
+      const currentDate = new Date().getTime();
+
+      const timeRemaining = eventDate - currentDate;
+  
+      // Calculate days, hours, minutes, and seconds
+      const days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
+  
+      // Display the countdown
+      document.getElementById('days').innerText = formatTime(days);
+      document.getElementById('hours').innerText = formatTime(hours);
+      document.getElementById('minutes').innerText = formatTime(minutes);
+      document.getElementById('seconds').innerText = formatTime(seconds);
+  
+      // If the countdown is over, clearInterval
+      if (timeRemaining < 0) {
+        clearInterval(countdownInterval);
+        document.getElementById('countdown').innerHTML = "<div class='text-3xl font-bold'>Event Over!</div>";
+      }
+    }, 1000);
+  
+    // Function to format time (add leading zero if needed)
+    function formatTime(time) {
+      return time < 10 ? "0" + time : time;
+    }
+  </script>
+
+  <script>
+    // JavaScript for Seat Checking Functionality
+document.getElementById('check-button').addEventListener('click', function() {
+  const name = document.getElementById('name').value;
+  // Replace with your logic to check the seat based on the name entered
+  const seatNumber = Math.floor(Math.random() * 50) + 1; // Example: Random seat number
+  const tableNumber = Math.floor(seatNumber / 10) + 1; // Example: Table number based on seat
+  const resultElement = document.getElementById('table-result');
+  resultElement.innerHTML = `<p>Your seat number is: ${seatNumber}</p><p>Your table number is: ${tableNumber}</p>`;
+});
+
+  </script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  const imagesContainer = document.querySelector('.flex');
+  const leftArrow = document.querySelector('.fa-chevron-left');
+  const rightArrow = document.querySelector('.fa-chevron-right');
+  
+  // Calculate the width of each image
+  const imageWidth = document.querySelector('.flex img').clientWidth;
+  
+  // Add event listener for left arrow
+  leftArrow.addEventListener('click', function() {
+    imagesContainer.scrollLeft -= imageWidth;
+  });
+  
+  // Add event listener for right arrow
+  rightArrow.addEventListener('click', function() {
+    imagesContainer.scrollLeft += imageWidth;
+  });
+});
+
+
+</script>
+
+ 
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+      const commentsSection = document.getElementById("comments");
+      const loadMoreBtn = document.getElementById("loadMoreBtn");
+      const loadMore = document.getElementById("loadMore");
+      const addComment = document.getElementById("addComment");
+      const commentInput = document.getElementById("commentInput");
+      const submitComment = document.getElementById("submitComment");
+
+      // Mock data for comments
+      const comments = [
+          { user: "User 2", comment: "Lorem ipsum dolor sit amet, consectetur adipiscing elit." },
+          { user: "User 3", comment: "Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." },
+          // Add more comments here...
+      ];
+
+      // Function to display comments
+      function displayComments() {
+          comments.forEach(comment => {
+              const commentItem = document.createElement("div");
+              commentItem.classList.add("comment", "bg-white", "shadow-md", "rounded-md", "p-4", "mb-4");
+              commentItem.innerHTML = `
+                  <h3 class="text-lg font-semibold mb-2">${comment.user}</h3>
+                  <p class="text-gray-600">${comment.comment}</p>
+                  <!-- Reply Section -->
+                  <div class="reply-section mt-2">
+                      <button class="reply-btn text-blue-500 hover:text-blue-700 focus:outline-none">Reply</button>
+                      <div class="hidden mt-2">
+                          <input type="text" class="reply-input w-full border border-gray-300 rounded-md py-2 px-4" placeholder="Type your reply here...">
+                          <button class="submit-reply bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 transition duration-300">Submit</button>
+                      </div>
+                  </div>
+                  <!-- Replies Container -->
+                  <div class="replies mt-4"></div>
+              `;
+              commentsSection.appendChild(commentItem);
+          });
+      }
+
+      // Load more comments event
+      loadMore.addEventListener("click", function () {
+          displayComments();
+          loadMoreBtn.style.display = "none";
+          addComment.style.display = "block";
+      });
+
+
+
+  });
+</script>
+
 
 
 <script src="eventapp.js"></script>
