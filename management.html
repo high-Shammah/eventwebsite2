@@ -54,7 +54,7 @@
 </button>
 
  <!-- Sidebar -->
- <div :class="{ 'hidden': !sidebarOpen }" class="sidebar w-64 bg-gray-800 border-r border-gray-500 fixed top-0 bottom-0 sm:block">
+ <div :class="{ 'hidden': !sidebarOpen }" class="sidebar w-64 bg-blue-50 border-r border-gray-500 fixed top-0 bottom-0 sm:block">
     <!-- Logo and Sidebar Header -->
     <div class="flex py-4 px-6 border-b border-gray-600">
       <img src="logo.png" alt="Logo" class="w-8 h-8 mr-2">
@@ -63,15 +63,15 @@
     <!-- Sidebar Navigation -->
     <ul>
       <!-- Events -->
-      <li class="px-6 py-3 hover:bg-gray-200 text-gray-400 cursor-pointer">
-        <a href="neweventstep1.html" class="flex items-center">
+      <li class="px-6 py-3 hover:bg-blue-100 text-gray-800 cursor-pointer">
+        <a href="neweventstep7.html" class="flex items-center">
           <i class="fas fa-calendar-alt mr-2"></i>
           <span class="text-base">Events</span>
           <i class="fas fa-chevron-right ml-auto"></i>
         </a>
       </li>
 <!-- Management -->
-<li class="relative px-6 py-3 bg-gray-200 text-gray-800 cursor-pointer" id="managementDropdown">
+<li class="relative px-6 py-3 bg-blue-200 text-gray-800 cursor-pointer" id="managementDropdown">
     <a  href="javascript:void(0);" class="flex items-center" onclick="toggleDropdown('managementDropdown')">
       <i class="fas fa-tasks mr-2"></i>
       <span class="text-base">Management</span>
@@ -80,16 +80,16 @@
     </a>
     <!-- Dropdown Content -->
     <div id="managementDropdownContent" class="absolute right-0 mt-2 bg-white border border-gray-300 rounded-md py-2 w-48 hidden">
-      <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Option 1</a>
-      <a href="management.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Manage Schedule</a>
-      <a href="schedulenotification.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Schedule Notification</a>
-      <a href="createnotififaction.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Create Notification</a>
+      <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-blue-100">Option 1</a>
+      <a href="management.html" class="block px-4 py-2 text-gray-800 hover:bg-blue-100">Manage Schedule</a>
+      <a href="schedulenotification.html" class="block px-4 py-2 text-gray-800 hover:bg-blue-100">Schedule Notification</a>
+      <a href="createnotififaction.html" class="block px-4 py-2 text-gray-800 hover:bg-blue-100">Create Notification</a>
     </div>
   </li>
   
   
  <!-- Attendees -->
- <li class="relative px-6 py-3 hover:bg-gray-200 text-gray-400 cursor-pointer" id="attendeesDropdown">
+ <li class="relative px-6 py-3 hover:bg-blue-100 text-gray-800 cursor-pointer" id="attendeesDropdown">
     <a href="javascript:void(0);" class="flex items-center" onclick="toggleDropdown('attendeesDropdown')">
         <i class="fas fa-users mr-2"></i>
         <span class="text-base">Attendees</span>
@@ -98,14 +98,14 @@
     </a>
     <!-- Dropdown Content -->
     <div id="attendeesDropdownContent" class="absolute right-0 mt-2 bg-white border border-gray-300 rounded-md py-2 w-48 hidden">
-        <a href="attendees.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">List of attendees</a>
-        <a href="attendeeswithseats.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Attendees with seats</a>
-        <a href="addtable.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Add table </a>
-        <a href="tablestatus.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Table Status</a>
+        <a href="attendees.html" class="block px-4 py-2 text-gray-800 hover:bg-blue-100">List of attendees</a>
+        <a href="attendeeswithseats.html" class="block px-4 py-2 text-gray-800 hover:bg-blue-100">Attendees with seats</a>
+        <a href="addtable.html" class="block px-4 py-2 text-gray-800 hover:bg-blue-100">Add table </a>
+        <a href="tablestatus.html" class="block px-4 py-2 text-gray-800 hover:bg-blue-100">Table Status</a>
     </div>
 </li>
       <!-- Library -->
-      <li class="px-6 py-3 hover:bg-gray-200 text-gray-400 cursor-pointer">
+      <li class="px-6 py-3 hover:bg-blue-100 text-gray-800 cursor-pointer">
        <a href="library.html" class="flex items-center">
         <i class="fas fa-book mr-2"></i>
         <span class="text-base">Library</span>
@@ -113,7 +113,7 @@
        </a>
       </li>
       <!-- Orders -->
-      <li class="px-6 py-3 hover:bg-gray-200 text-gray-400 cursor-pointer">
+      <li class="px-6 py-3 hover:bg-blue-100 text-gray-800 cursor-pointer">
        <a href="order.html" class="flex items-center">
         <i class="fas fa-shopping-cart mr-2"></i>
         <span class="text-base">Orders</span>
@@ -121,7 +121,7 @@
        </a>
       </li>
       <!-- Contacts -->
-      <li class="px-6 py-3 hover:bg-gray-200 text-gray-400 cursor-pointer">
+      <li class="px-6 py-3 hover:bg-blue-100 text-gray-800 cursor-pointer">
         <a href="contacts.html" class="flex items-center">
             <i class="fas fa-address-book mr-2"></i>
         <span class="text-base">Contacts</span>
@@ -129,7 +129,7 @@
         </a>
       </li>
       <!-- Marketing -->
-      <li class="px-6 py-3 hover:bg-gray-200 text-gray-400 cursor-pointer">
+      <li class="px-6 py-3 hover:bg-blue-100 text-gray-800 cursor-pointer">
         <a href="marketing.html" class="flex items-center">
             <i class="fas fa-bullhorn mr-2"></i>
         <span class="text-base">Marketing</span>
@@ -137,7 +137,7 @@
         </a>
       </li>
       <!-- Finance -->
-      <li class="px-6 py-3 hover:bg-gray-200 text-gray-400 cursor-pointer">
+      <li class="px-6 py-3 hover:bg-blue-100 text-gray-800 cursor-pointer">
        <a href="finance.html" class="flex items-center">
         <i class="fas fa-money-bill-wave mr-2"></i>
         <span class="text-base">Finance</span>
@@ -145,7 +145,7 @@
        </a>
       </li>
       <!-- Settings -->
-      <li class="px-6 py-3 hover:bg-gray-200 text-gray-400 cursor-pointer">
+      <li class="px-6 py-3 hover:bg-blue-100 text-gray-800 cursor-pointer">
        <a href="settings.html" class="flex items-center">
         <i class="fas fa-cog mr-2"></i>
         <span class="text-base">Settings</span>
@@ -174,7 +174,7 @@
 </button>
 
 <!-- Top Bar (Desktop) -->
-<div class="top-bar bg-white border-b border-gray-300 text-gray-800 px-4 py-3 sm:px-12 flex justify-between items-center ml-60 hidden sm:flex">
+<div class="top-bar bg-blue-50 border-b border-gray-300 text-gray-800 px-4 py-3 sm:px-12 flex justify-between items-center ml-60 hidden sm:flex">
     <!-- Title -->
     <div class="flex items-center">
       <h2 class="text-lg font-semibold">My Event</h2>
@@ -196,7 +196,7 @@
   </div>
   
   <!-- Top Bar (Mobile) -->
-  <div class="top-bar bg-gray-800 border-b border-gray-300 text-gray-300 px-4 py-4 sm:px-12 flex justify-between items-center block sm:hidden">
+  <div class="top-bar bg-blue-50 border-b border-gray-300 text-gray-800 px-4 py-4 sm:px-12 flex justify-between items-center block sm:hidden">
     <!-- Sidebar Toggle Button (Mobile) -->
     <button @click="sidebarOpen = !sidebarOpen" class="block">
       <i :class="{ 'fas fa-bars': !sidebarOpen, 'fas fa-times': sidebarOpen } text-white"></i>
@@ -242,7 +242,7 @@
    <div class="flex border-t border-gray-300 border-b mb-4 justify-between">
      <!-- Add Event Manager Button -->
      <div class="flex justify-end px-4 py-6">
-        <a href="#" class="bg-gray-400 hover:bg-gray-700 text-white font-semibold px-4 py-2 rounded-md mr-2">Add Event Manager</a>
+        <a href="addeventmanager.html" class="bg-gray-400 hover:bg-gray-700 text-white font-semibold px-4 py-2 rounded-md mr-2">Add Event Manager</a>
       </div>
   
        <!-- Export and Print Buttons -->
